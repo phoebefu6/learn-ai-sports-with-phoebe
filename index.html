@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Sport got modelled before almost anything else, so it has had longer to learn where models earn their place and where they do damage. Shot models train on close to a million shots; injury models range from AUC 0.52 to 0.87 and the literature says use them as supportive information only. Two tracks: directors get the estate, recruitment, welfare and integrity; analysts build a shot model where the anti-feature makes the headline number go up.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="learn ai sports with phoebe - a two-track course on AI in sport">
+<meta property="og:description" content="Two tracks: directors get the data estate, recruitment, athlete welfare and integrity; analysts build a shot model where the anti-feature makes the headline number go up.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="learn ai sports with phoebe - a two-track course on AI in sport">
+<meta name="twitter:description" content="Two tracks, one club, and a live shot model where the anti-feature makes the headline number go up.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>learn ai sports with phoebe - a two-track course on AI in sport</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: .85; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(21,128,61,.14); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--faint); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,#EEF7F1); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-edge { transition: opacity .15s ease; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe</div>
+    <h1>Two tracks into analytics a coach will actually use</h1>
+    <p class="sub">Sport got modelled before almost anything else, which means it has had longer than most fields to learn where models earn their place and where they quietly do damage. Commercial shot-quality models now train on close to a million historical shots across twenty-plus variables, and post-match expected goals predicts match outcome at around 0.656 accuracy - genuinely useful, and nowhere near the certainty the broadcast graphic implies. Meanwhile injury-risk models in the published literature range from accuracy 52% and AUC 0.52 up to AUC 0.87, are inconsistent across studies, and the reviews are blunt that these outputs are supportive information only and must never decide selection or return to play on their own. The models are weakest exactly where the stakes are highest, and that tension shapes the whole course. A director track gives sporting directors the data estate, recruitment, athlete welfare and the integrity rails. An analyst track runs one club - Rivermouth FC, three analysts, one match report a coach will read - with a live shot model where you watch the held-out number climb from 50% to 83%, and then watch one extra feature raise the headline number by eleven points while the real one falls six.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="2">2</b><span>tracks</span></div>
+      <div class="stat"><b data-count="16">16</b><span>sessions</span></div>
+      <div class="stat"><b data-count="2">2</b><span>numbers, always</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>The director track 🎽 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· for sporting directors, club execs &amp; performance leads · 6 x 45 min · decisions first</span></h2>
+      <p class="plede">Judgment mode: what AI genuinely changes across performance, medical, recruitment and commercial, who owns each kind of data in your club, how models and scouts divide the recruitment job, the athlete-welfare rails around wearable and medical data, the integrity rails around any predictive output, and how to build a three-person department coaches actually listen to.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/a1-what-ai-changes.html" style="--diff:#34D399">
+        <span class="cicon">🏟️</span>
+        <span class="cnum">Director 1 · easy</span>
+        <h3>What AI actually changes across the club</h3>
+        <p>Four departments, four maturity levels - and the uncomfortable finding that evidence quality and decision stakes point in opposite directions.</p>
+        <span class="meta"><span class="pill amber">▶ Directors start here</span></span>
+      </a>
+      <a class="course-card" href="courses/a2-the-data-estate.html" style="--diff:#34D399">
+        <span class="cicon">🗂️</span>
+        <span class="cnum">Director 2 · easy</span>
+        <h3>The data estate of a club</h3>
+        <p>Event, tracking, wearable, medical, video and commercial data - who owns each, who may see it, how long you keep it, and what happens at a transfer.</p>
+        <span class="meta"><span class="pill light">The wall around medical</span></span>
+      </a>
+      <a class="course-card" href="courses/a3-recruitment-and-valuation.html" style="--diff:#FBBF24">
+        <span class="cicon">🔭</span>
+        <span class="cnum">Director 3 · medium</span>
+        <h3>Recruitment and valuation</h3>
+        <p>Models search, scouts judge - plus league, minutes, age and role adjustments, and the bias that reproduces whoever you signed last time.</p>
+        <span class="meta"><span class="pill light">The four adjustments</span></span>
+      </a>
+      <a class="course-card" href="courses/a4-athlete-welfare-and-data.html" style="--diff:#FB923C">
+        <span class="cicon">🩺</span>
+        <span class="cnum">Director 4 · deciding</span>
+        <h3>Athlete welfare and data rights</h3>
+        <p>The published injury-model range, why the data is imbalanced, consent that is actually meaningful, and the wall between medical detail and contracts.</p>
+        <span class="meta"><span class="pill light">Orientation, not advice</span></span>
+      </a>
+      <a class="course-card" href="courses/a5-fans-and-integrity.html" style="--diff:#FB923C">
+        <span class="cicon">🎟️</span>
+        <span class="cnum">Director 5 · deciding</span>
+        <h3>Fans, commercial and integrity</h3>
+        <p>Where AI pays back fastest, where fans find it unacceptable, and the rails around any predictive output about your own fixtures.</p>
+        <span class="meta"><span class="pill light">Integrity rails</span></span>
+      </a>
+      <a class="course-card" href="courses/a6-building-the-function.html" style="--diff:#FB923C">
+        <span class="cicon">🧭</span>
+        <span class="cnum">Director 6 · deciding</span>
+        <h3>Building the analytics function</h3>
+        <p>What three people can deliver in a season, why adoption is a communication problem, and proving value without overclaiming.</p>
+        <span class="meta"><span class="pill light">Strategy session</span></span>
+      </a>
+    </div>
+
+    <div class="diff-legend">
+      <span><i style="background:#34D399"></i>easy - orientation</span>
+      <span><i style="background:#FBBF24"></i>medium - real decisions</span>
+      <span><i style="background:#FB923C"></i>deciding - commit to a position</span>
+      <span><i style="background:#F87171"></i>hardest - assemble everything</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>The analyst track 📈 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· for performance analysts, coaches &amp; data staff · 10 x 45 min · one running club</span></h2>
+      <p class="plede">Hands-on mode: you work at Rivermouth FC. Three people in analytics, six seasons of event data, tracking for this season only, GPS on everyone, an unsearchable video archive, a head coach who has never opened a dashboard, and a medical department that has been burned before. Ten sessions build one match report that coach will actually read.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/b1-the-analysts-ai-loop.html" style="--diff:#34D399">
+        <span class="cicon">🔁</span>
+        <span class="cnum">Analyst 1 · easy</span>
+        <h3>The sports analyst's AI loop</h3>
+        <p>Capture, model, judge, communicate, decide - plus the decision line, the two-number discipline, and the shot model you will use all term.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span><span class="pill light">▶ Live model</span></span>
+      </a>
+      <a class="course-card" href="courses/b2-event-and-tracking-data.html" style="--diff:#34D399">
+        <span class="cicon">📐</span>
+        <span class="cnum">Analyst 2 · easy</span>
+        <h3>Event and tracking data 101</h3>
+        <p>What a row actually is, what each kind of data can and cannot answer, and why provider definitions are where you get hurt.</p>
+        <span class="meta"><span class="pill light">Write the dictionary</span></span>
+      </a>
+      <a class="course-card" href="courses/b3-shot-quality-model.html" style="--diff:#FBBF24">
+        <span class="cicon">⚽</span>
+        <span class="cnum">Analyst 3 · medium</span>
+        <h3>Building a shot-quality model</h3>
+        <p>50% to 83% held out, one feature at a time - then the feature that raises the fitted number 11 points and drops the real one 6.</p>
+        <span class="meta"><span class="pill amber">▶ Signature session</span><span class="pill light">▶ Live model</span></span>
+      </a>
+      <a class="course-card" href="courses/b4-game-film.html" style="--diff:#FBBF24">
+        <span class="cicon">🎬</span>
+        <span class="cnum">Analyst 4 · medium</span>
+        <h3>Game film and auto-tagging</h3>
+        <p>90 minutes into six clips on one idea, plus the twenty-event audit that tells you your tagging tool's real error rate.</p>
+        <span class="meta"><span class="pill light">The clip pack</span></span>
+      </a>
+      <a class="course-card" href="courses/b5-wearables-and-load.html" style="--diff:#FBBF24">
+        <span class="cicon">⌚</span>
+        <span class="cnum">Analyst 5 · medium</span>
+        <h3>Wearables and load management</h3>
+        <p>The honest injury-model picture, why prior injury is the baseline to beat, and the availability picture you can deliver instead.</p>
+        <span class="meta"><span class="pill light">Not medical advice</span></span>
+      </a>
+      <a class="course-card" href="courses/b6-opposition-analysis.html" style="--diff:#FB923C">
+        <span class="cicon">🔍</span>
+        <span class="cnum">Analyst 6 · deciding</span>
+        <h3>Opposition analysis</h3>
+        <p>A tendency is not a plan. Every claim needs a count, a denominator and a date range - and five matches is a very small sample.</p>
+        <span class="meta"><span class="pill light">Counts and denominators</span></span>
+      </a>
+      <a class="course-card" href="courses/b7-scouting-shortlists.html" style="--diff:#FB923C">
+        <span class="cicon">📋</span>
+        <span class="cnum">Analyst 7 · deciding</span>
+        <h3>Scouting and shortlists</h3>
+        <p>League, minutes, age and role adjustments, survivorship in your own training data, and a longlist a scout will engage with.</p>
+        <span class="meta"><span class="pill light">The four adjustments</span></span>
+      </a>
+      <a class="course-card" href="courses/b8-communicating-to-coaches.html" style="--diff:#FB923C">
+        <span class="cicon">🗣️</span>
+        <span class="cnum">Analyst 8 · deciding</span>
+        <h3>Communicating to coaches</h3>
+        <p>The one-slide rule, uncertainty phrased so a coach can act on it, and the language that loses the room in one sentence.</p>
+        <span class="meta"><span class="pill light">The session that decides the rest</span></span>
+      </a>
+      <a class="course-card" href="courses/b9-fan-facing-analytics.html" style="--diff:#F87171">
+        <span class="cicon">📺</span>
+        <span class="cnum">Analyst 9 · hardest</span>
+        <h3>Fan-facing analytics and broadcast</h3>
+        <p>Explaining a 0.03 chance to someone who just watched it go in, graphics that inform rather than mislead, and the integrity rails.</p>
+        <span class="meta"><span class="pill light">Public numbers</span></span>
+      </a>
+      <a class="course-card" href="courses/b10-capstone-one-match.html" style="--diff:#F87171">
+        <span class="cicon">🏁</span>
+        <span class="cnum">Analyst 10 · hardest</span>
+        <h3>Capstone: one match, one report</h3>
+        <p>Every artifact from the track assembled into one slide plus an appendix, scored against twelve rows where four of them are stops.</p>
+        <span class="meta"><span class="pill light">▶ Final gate</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths">
+      <h2>Choose your path 🧭</h2>
+      <p class="plede">Everyone starts at session 1 of their track. These are the shortcuts if you only have a few evenings.</p>
+      <div class="path"><b>🎽 Director (decide and build)</b>
+        <a class="pstep" href="courses/a1-what-ai-changes.html">a1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a2-the-data-estate.html">a2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a3-recruitment-and-valuation.html">a3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a4-athlete-welfare-and-data.html">a4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a5-fans-and-integrity.html">a5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a6-building-the-function.html">a6</a>
+      </div>
+      <div class="path"><b>📈 Analyst (the full club)</b>
+        <a class="pstep" href="courses/b1-the-analysts-ai-loop.html">b1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b2-event-and-tracking-data.html">b2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b3-shot-quality-model.html">b3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b4-game-film.html">b4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b5-wearables-and-load.html">b5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b6-opposition-analysis.html">b6</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b7-scouting-shortlists.html">b7</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b8-communicating-to-coaches.html">b8</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b9-fan-facing-analytics.html">b9</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b10-capstone-one-match.html">b10</a>
+      </div>
+      <div class="path"><b>⚡ Modelling fast lane</b>
+        <a class="pstep" href="courses/b1-the-analysts-ai-loop.html">b1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b2-event-and-tracking-data.html">b2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b3-shot-quality-model.html">b3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b7-scouting-shortlists.html">b7</a>
+      </div>
+      <div class="path"><b>🗣️ Coaching-facing lane</b>
+        <a class="pstep" href="courses/b1-the-analysts-ai-loop.html">b1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b4-game-film.html">b4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b6-opposition-analysis.html">b6</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b8-communicating-to-coaches.html">b8</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b10-capstone-one-match.html">b10</a>
+      </div>
+      <div class="path"><b>🚀 Full journey (lead AND analyse)</b>
+        <a class="pstep" href="courses/a1-what-ai-changes.html">a1-a6</a><span class="parr">→</span>
+        <a class="pstep" href="courses/b1-the-analysts-ai-loop.html">b1-b10</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">Both tracks at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a> · taught from the public sports-analytics evidence base - shot-quality modelling and tracking-data research, and the systematic reviews of machine-learning injury-risk prediction. Medical, welfare and data-protection content is orientation, not medical or legal advice, and betting strategy is out of scope</span>
+  </footer>
+</main>
+
+<script>
+window.MINDMAP_DATA = {
+  title: "Learn\nAI Sports",
+  centerColor: "#0E5A2B",
+  sessions: [
+    { label: "What AI\nchanges", href: "courses/a1-what-ai-changes.html", color: "#34D399",
+      concepts: [
+        { label: "Four departments", href: "courses/a1-what-ai-changes.html" },
+        { label: "Evidence vs stakes", href: "courses/a1-what-ai-changes.html" } ] },
+    { label: "The data\nestate", href: "courses/a2-the-data-estate.html", color: "#34D399",
+      concepts: [
+        { label: "Six data types", href: "courses/a2-the-data-estate.html" },
+        { label: "The medical wall", href: "courses/a2-the-data-estate.html" } ] },
+    { label: "Recruitment\n& valuation", href: "courses/a3-recruitment-and-valuation.html", color: "#FBBF24",
+      concepts: [
+        { label: "Models search, scouts judge", href: "courses/a3-recruitment-and-valuation.html" },
+        { label: "The four adjustments", href: "courses/a3-recruitment-and-valuation.html" } ] },
+    { label: "Athlete\nwelfare", href: "courses/a4-athlete-welfare-and-data.html", color: "#FB923C",
+      concepts: [
+        { label: "AUC 0.52 to 0.87", href: "courses/a4-athlete-welfare-and-data.html" },
+        { label: "Supportive information only", href: "courses/a4-athlete-welfare-and-data.html" } ] },
+    { label: "Fans &\nintegrity", href: "courses/a5-fans-and-integrity.html", color: "#FB923C",
+      concepts: [
+        { label: "Payback vs fan risk", href: "courses/a5-fans-and-integrity.html" },
+        { label: "Inside information", href: "courses/a5-fans-and-integrity.html" } ] },
+    { label: "Building\nthe function", href: "courses/a6-building-the-function.html", color: "#FB923C",
+      concepts: [
+        { label: "Three people, one season", href: "courses/a6-building-the-function.html" },
+        { label: "Adoption is communication", href: "courses/a6-building-the-function.html" } ] },
+    { label: "The analyst's\nAI loop", href: "courses/b1-the-analysts-ai-loop.html", color: "#34D399",
+      concepts: [
+        { label: "The analysis loop", href: "courses/b1-the-analysts-ai-loop.html" },
+        { label: "The decision line", href: "courses/b1-the-analysts-ai-loop.html" },
+        { label: "Two numbers, always", href: "courses/b1-the-analysts-ai-loop.html" } ] },
+    { label: "Event &\ntracking", href: "courses/b2-event-and-tracking-data.html", color: "#34D399",
+      concepts: [
+        { label: "What a row is", href: "courses/b2-event-and-tracking-data.html" },
+        { label: "Definitions bite", href: "courses/b2-event-and-tracking-data.html" } ] },
+    { label: "Shot-quality\nmodel", href: "courses/b3-shot-quality-model.html", color: "#FBBF24",
+      concepts: [
+        { label: "50% to 83% held out", href: "courses/b3-shot-quality-model.html" },
+        { label: "The reputation trap", href: "courses/b3-shot-quality-model.html" },
+        { label: "Pooled player effects", href: "courses/b3-shot-quality-model.html" } ] },
+    { label: "Game\nfilm", href: "courses/b4-game-film.html", color: "#FBBF24",
+      concepts: [
+        { label: "Six clips, one idea", href: "courses/b4-game-film.html" },
+        { label: "Audit your tagging", href: "courses/b4-game-film.html" } ] },
+    { label: "Wearables\n& load", href: "courses/b5-wearables-and-load.html", color: "#FBBF24",
+      concepts: [
+        { label: "Prior injury is the baseline", href: "courses/b5-wearables-and-load.html" },
+        { label: "Availability, not prediction", href: "courses/b5-wearables-and-load.html" } ] },
+    { label: "Opposition\nanalysis", href: "courses/b6-opposition-analysis.html", color: "#FB923C",
+      concepts: [
+        { label: "A tendency is not a plan", href: "courses/b6-opposition-analysis.html" },
+        { label: "Count, denominator, dates", href: "courses/b6-opposition-analysis.html" } ] },
+    { label: "Scouting\nshortlists", href: "courses/b7-scouting-shortlists.html", color: "#FB923C",
+      concepts: [
+        { label: "Search versus judgment", href: "courses/b7-scouting-shortlists.html" },
+        { label: "Survivorship", href: "courses/b7-scouting-shortlists.html" } ] },
+    { label: "Talking to\ncoaches", href: "courses/b8-communicating-to-coaches.html", color: "#FB923C",
+      concepts: [
+        { label: "The one-slide rule", href: "courses/b8-communicating-to-coaches.html" },
+        { label: "Actionable uncertainty", href: "courses/b8-communicating-to-coaches.html" } ] },
+    { label: "Fan-facing\n& broadcast", href: "courses/b9-fan-facing-analytics.html", color: "#F87171",
+      concepts: [
+        { label: "Explaining 0.03", href: "courses/b9-fan-facing-analytics.html" },
+        { label: "Honest graphics", href: "courses/b9-fan-facing-analytics.html" } ] },
+    { label: "Capstone\none match", href: "courses/b10-capstone-one-match.html", color: "#F87171",
+      concepts: [
+        { label: "One slide, one appendix", href: "courses/b10-capstone-one-match.html" },
+        { label: "Four rails are stops", href: "courses/b10-capstone-one-match.html" } ] }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

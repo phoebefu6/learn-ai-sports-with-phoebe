@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Coaches do not read models, they watch clips. Auto-tagging turns 90 minutes into a searchable index and moves the analyst's job from finding clips to choosing them - which is judgment, and it decides whether the coach opens your file next week.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Game film and auto-tagging - learn ai sports with phoebe">
+<meta property="og:description" content="Six clips, one idea, and a tagging tool you have actually measured. The review pass is mandatory, cheap, and almost nobody runs it.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b4-game-film.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Game film and auto-tagging - learn ai sports with phoebe">
+<meta name="twitter:description" content="Auto-tagging finds the clips. Choosing the six is the job, and it is stage 3 of the loop.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 4 · Game film and auto-tagging - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 4 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 4 of 10</div>
+    <h1>Game film and <span class="accent">auto-tagging</span></h1>
+    <p class="sub">You have just spent a session building a shot model. Now meet the uncomfortable truth about your job: the head coach is never going to look at it. He is going to watch clips. Auto-tagging turns ninety minutes of unsearchable footage into an index you can query in seconds, and the moment it does, your job stops being finding clips and becomes choosing them - which is stage 3 of the loop, the judgment stage, the one no model does for you and the one that decides whether he opens your file next week. Tonight: the six-clip discipline, a twenty-event audit that tells you your own tool's error rate, and the honest ranking of which events a tagger can actually find. Rivermouth's video archive is the one nobody can search. That changes this week.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · video staff · coaches</span>
+      <span class="chip audience">Bring last match's footage</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-16 · The clip pack is the product</span>
+      <span class="a3" style="flex:7">16-40 · Build-along: cut the six</span>
+      <span class="a4" style="flex:2">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where tonight sits in the loop</h2>
+    </div>
+    <p class="lede">Auto-tagging is <strong>Capture</strong>, and machines are strong there. Searching the index is <strong>Model</strong>, and machines are strong there too. Then you hit the wall. Deciding which six of the four hundred candidate moments a coach should see on Friday is <strong>Judge</strong>, and a model has no idea what your squad is working on, what he said in the last meeting, or which player will stop listening if you show that clip. Cutting and framing them is <strong>Communicate</strong>, where a model helps. Whether anything changes on Saturday is <strong>Decide</strong>, and that is his. Tonight is mostly about stage 3, dressed up as a video session. The examples are football because the public evidence base is deepest there. The pattern transfers to any sport with footage.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The six-clip rule and the one question every clip has to survive, your own tagging tool's error rate broken down by event type, a searchable archive plan for footage nobody can currently query, and a clear sense of which live in-match analysis is worth doing.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE CLIP PACK ============ -->
+  <section class="section" id="clip-pack">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the actual product</span>
+      <h2>The clip pack is the product <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Coaches do not read models. They watch clips, and then they decide whether the person who sent the clips is worth listening to. Auto-tagging changes the economics completely: ninety minutes becomes a searchable index, and the hours you used to spend scrubbing a timeline come back to you. What you do with those hours is the whole point. The scarce resource was never finding footage - it was <strong>choosing</strong>, and choosing is a judgment job that the tagging model cannot touch.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 448" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A funnel from ninety minutes of footage through auto-tagging to a candidate pool to a six-clip pack, showing what is discarded at each stage and who does the discarding.">
+        <style>
+          .fnT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .fnS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .fnK { font: 700 11px Inter, sans-serif; fill: #6E7F73; letter-spacing: .08em; }
+          .fnG { font: 700 12px Inter, sans-serif; fill: #15803D; }
+          .fnB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .fnV { font: 700 12px Inter, sans-serif; fill: #331066; }
+          .fnX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .fnN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .fnWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#fnHd); }
+        </style>
+        <defs>
+          <marker id="fnHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <text class="fnK" x="20" y="36">THE FUNNEL</text>
+        <text class="fnK" x="430" y="36">WHAT IS DISCARDED</text>
+        <text class="fnK" x="650" y="36">WHO DOES IT</text>
+
+        <rect x="20" y="52" width="390" height="56" rx="8" fill="#0E5A2B"/><text class="fnT" x="36" y="76">90 MINUTES OF FOOTAGE</text>
+        <text class="fnS" x="36" y="94">everything that happened, in order</text>
+        <rect x="20" y="120" width="340" height="56" rx="8" fill="#15803D"/><text class="fnT" x="36" y="144">AUTO-TAGGED INDEX</text>
+        <text class="fnS" x="36" y="162">every detected event, searchable</text>
+        <rect x="20" y="188" width="290" height="56" rx="8" fill="#34A85C"/><text class="fnT" x="36" y="212">CANDIDATE POOL</text>
+        <text class="fnS" x="36" y="230">events matching this week's idea</text>
+        <rect x="20" y="256" width="240" height="56" rx="8" fill="#0E5A2B"/><text class="fnT" x="36" y="280">SIX-CLIP PACK</text>
+        <text class="fnS" x="36" y="298">one idea, coach-ready</text>
+
+        <path class="fnWire" d="M120,108 L120,116"/>
+        <path class="fnWire" d="M120,176 L120,184"/>
+        <path class="fnWire" d="M120,244 L120,252"/>
+
+        <rect x="430" y="52" width="200" height="56" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="fnG" x="444" y="76">nothing yet</text>
+        <text class="fnB" x="444" y="94">the raw archive</text>
+        <rect x="430" y="120" width="200" height="56" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="fnG" x="444" y="144">missed events</text>
+        <text class="fnB" x="444" y="162">at a known rate</text>
+        <rect x="430" y="188" width="200" height="56" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="fnG" x="444" y="212">off-topic tags</text>
+        <text class="fnB" x="444" y="230">wrong idea this week</text>
+        <rect x="430" y="256" width="200" height="56" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="fnG" x="444" y="280">good clips that</text>
+        <text class="fnB" x="444" y="298">change nothing</text>
+
+        <rect x="650" y="52" width="210" height="56" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="fnV" x="664" y="76">the camera</text>
+        <text class="fnX" x="664" y="94">and the fixture list</text>
+        <rect x="650" y="120" width="210" height="56" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="fnV" x="664" y="144">the tagging model</text>
+        <text class="fnX" x="664" y="162">stage 1 of the loop</text>
+        <rect x="650" y="188" width="210" height="56" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="fnV" x="664" y="212">you, with a filter</text>
+        <text class="fnX" x="664" y="230">stage 2 of the loop</text>
+        <rect x="650" y="256" width="210" height="56" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="fnV" x="664" y="280">you, on judgment</text>
+        <text class="fnX" x="664" y="298">stage 3 of the loop</text>
+
+        <rect x="20" y="332" width="840" height="42" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="fnG" x="36" y="352">THE TEST EVERY CLIP HAS TO SURVIVE</text>
+        <text class="fnX" x="36" y="369">What do you want them to do differently on Saturday?</text>
+
+        <rect x="20" y="396" width="14" height="14" rx="3" fill="#7C3AED"/><text class="fnN" x="44" y="408">The machine narrows the top three bands. Only you can make the last cut, and it is the job.</text>
+        <rect x="20" y="424" width="14" height="14" rx="3" fill="#7C3AED"/><text class="fnN" x="44" y="436">Six clips, one idea. A pack with three ideas in it teaches nobody anything on Friday.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - ninety minutes down to six clips, and who cuts what</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Six clips, one idea, and the Saturday question<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The discipline is short enough to write on a whiteboard and hard enough that most departments never hold it.</p>
+        <ul>
+          <li><strong>Six clips maximum.</strong> Not because six is magic, but because a cap forces a ranking, and a ranking forces you to decide what you actually believe. A pack of twenty is you refusing to choose and handing the work to the coach.</li>
+          <li><strong>One idea.</strong> Every clip in the pack argues the same point. Two ideas is two packs, delivered in two weeks. A pack that covers pressing, set-piece marking and build-up is a highlights reel with a job title.</li>
+          <li><strong>Every clip survives the Saturday question.</strong> "What do you want them to do differently on Saturday?" If the honest answer is "notice this" or "see how bad that was", it is not a coaching clip, it is a complaint.</li>
+          <li><strong>Cut the clip that only proves you were right.</strong> There is always one. It is in the pack for you, not for them, and it is the one that costs you the room.</li>
+          <li><strong>The metric is not clips produced.</strong> It is whether the coach opened last week's file, and whether he asked for this week's.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why choosing is judgment, not filtering<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A filter is a rule you can write down. Judgment is what is left when the rules run out, and clip selection is full of it.</p>
+        <ul>
+          <li><strong>Context the index does not hold.</strong> What the staff worked on in training this week, what was said in the last meeting, which instruction was actually given. None of that is in the footage or the tags.</li>
+          <li><strong>Squad reality.</strong> The clearest example of the problem might involve a player who is out, or one whose confidence is fragile, or one the coach has already spoken to twice. That is not a data question.</li>
+          <li><strong>Selecting on outcome is the classic error.</strong> The moments that led to goals are not the moments that best demonstrate the behaviour. If your pool is sorted by what happened next, you are teaching results, not football.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: TAGGING IS A MODEL ============ -->
+  <section class="section" id="tagging-model">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · check it like you would any model</span>
+      <h2>Tagging is a model, so check it like one <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Auto-tagging accuracy varies enormously by event type, and the variation is not random - it tracks how clearly the event is defined and how visible it is. A shot is easy: the ball leaves a foot toward a goal, and there is a well-agreed definition of what that is. A pressing trigger is hard, because it is a coaching concept before it is a visual event. And an off-ball run is a definition argument before it is a detection problem at all - two analysts at the same club will disagree about whether one happened.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 452" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five event types ranked by how reliably they can be auto-tagged, from shots at the reliable end to pressing triggers at the unreliable end, with a practical rule for each.">
+        <style>
+          .tgK { font: 700 11px Inter, sans-serif; fill: #6E7F73; letter-spacing: .08em; }
+          .tgT { font: 700 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .tgB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .tgG { font: 700 12px Inter, sans-serif; fill: #15803D; }
+          .tgH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .tgX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .tgN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <text class="tgK" x="20" y="36">EVENT TYPE</text>
+        <text class="tgK" x="236" y="36">HOW RELIABLY TAGGED</text>
+        <text class="tgK" x="476" y="36">THE PRACTICAL RULE</text>
+
+        <rect x="20" y="52" width="200" height="44" rx="8" fill="#0E5A2B"/><text class="tgT" x="36" y="80">1 · SHOTS</text>
+        <rect x="236" y="52" width="220" height="44" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><rect x="240" y="56" width="200" height="36" rx="6" fill="#0E5A2B"/>
+        <rect x="476" y="52" width="384" height="44" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="tgB" x="492" y="79">Spot-check twenty and move on. Definition is settled.</text>
+
+        <rect x="20" y="104" width="200" height="44" rx="8" fill="#15803D"/><text class="tgT" x="36" y="132">2 · SET PIECES</text>
+        <rect x="236" y="104" width="220" height="44" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><rect x="240" y="108" width="172" height="36" rx="6" fill="#15803D"/>
+        <rect x="476" y="104" width="384" height="44" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="tgB" x="492" y="131">Reliable. Check the restart type is labelled correctly.</text>
+
+        <rect x="20" y="156" width="200" height="44" rx="8" fill="#34A85C"/><text class="tgT" x="36" y="184">3 · DUELS AND TACKLES</text>
+        <rect x="236" y="156" width="220" height="44" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><rect x="240" y="160" width="132" height="36" rx="6" fill="#34A85C"/>
+        <rect x="476" y="156" width="384" height="44" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="tgB" x="492" y="183">Audit first. The won or lost label is the weak part.</text>
+
+        <rect x="20" y="208" width="200" height="44" rx="8" fill="#7C3AED"/><text class="tgT" x="36" y="236">4 · OFF-BALL RUNS</text>
+        <rect x="236" y="208" width="220" height="44" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><rect x="240" y="212" width="92" height="36" rx="6" fill="#A7DCB8"/>
+        <rect x="476" y="208" width="384" height="44" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="tgB" x="492" y="235">Agree your definition first. Then measure detection.</text>
+
+        <rect x="20" y="260" width="200" height="44" rx="8" fill="#991B1B"/><text class="tgT" x="36" y="288">5 · PRESSING TRIGGERS</text>
+        <rect x="236" y="260" width="220" height="44" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><rect x="240" y="264" width="52" height="36" rx="6" fill="#FCA5A5"/>
+        <rect x="476" y="260" width="384" height="44" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="tgB" x="492" y="287">Hand-verify every clip before a coach ever sees it.</text>
+
+        <rect x="20" y="324" width="840" height="46" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="tgH" x="36" y="344">ADVERTISED ACCURACY IS A FITTED NUMBER ON SOMEBODY ELSE'S FOOTAGE</text>
+        <text class="tgX" x="36" y="362">Your held-out number is the twenty events you check yourself, on your own camera angles.</text>
+
+        <rect x="20" y="390" width="14" height="14" rx="3" fill="#7C3AED"/><text class="tgN" x="44" y="402">Bars are the shape of the problem, not measurements. Measure your own tool this week.</text>
+        <rect x="20" y="418" width="14" height="14" rx="3" fill="#7C3AED"/><text class="tgN" x="44" y="430">Reliability tracks definition clarity. The hard end is hard because we disagree, not the AI.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - five event types, ranked by how reliably a tagger finds them</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The twenty-event review pass<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is mandatory and it is cheap, which is a rare combination. It takes under an hour and it is the difference between using a tool and trusting a brochure.</p>
+        <ul>
+          <li><strong>Sample twenty tagged events of one type</strong> at random from a match. Random, not the first twenty, and not the ones you remember.</li>
+          <li><strong>Watch each one and mark it right or wrong.</strong> Two failure modes to record separately: the tag is on something that is not that event, and the tag is on the right moment but the label is wrong.</li>
+          <li><strong>Then look for what it missed.</strong> Watch a fifteen-minute block properly and count the events of that type the tool did not tag at all. Misses are invisible in a sample of what it found, and they are usually the bigger problem.</li>
+          <li><strong>Do it per event type.</strong> One overall accuracy number for a tagging tool is meaningless in exactly the way b1 warned about, because the tool is five different tools wearing one name.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>This is the two-number discipline applied to somebody else's model.</strong> A tagging tool's advertised accuracy is the fitted number: measured by the vendor, on footage they chose, with definitions they wrote. Your twenty-event audit is the held-out number, on your camera angles, with your definitions. If the two are close, the tool travels well. If the gap is large, you have not caught the vendor lying - you have found out that your definitions differ from theirs, which is the b2 problem arriving with a subscription attached.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What to do with an error rate once you have one<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The number is not the deliverable. What changes because of the number is the deliverable.</p>
+        <ul>
+          <li><strong>High-reliability types become searchable infrastructure.</strong> Shots and set pieces you can query and trust, which is what makes the archive worth building.</li>
+          <li><strong>Low-reliability types never go straight to a coach.</strong> A pressing trigger tag is a suggestion for you to check, and nothing more.</li>
+          <li><strong>Never build a count on an unmeasured type.</strong> "We pressed 42 times" from a tagger you have not audited is a made-up number with a decimal point's worth of confidence.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: CARDS ============ -->
+  <section class="section" id="craft">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the craft around the clips</span>
+      <h2>Five things that decide whether it lands <span class="tag concept">reference</span></h2>
+    </div>
+    <p class="lede">Context length, the archive, the tone you use with a player, the opposition pack, and the honest verdict on live in-match analysis.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Clip context, and the two seconds that change everything<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Where a clip starts is an argument, not a setting. Cut two seconds later and you have shown a different piece of football.</p>
+        <ul>
+          <li><strong>Lead-in shows the cause.</strong> A defender caught out of position looks like a mistake if you start when the pass is played, and looks like a consequence of the previous action if you start five seconds earlier. Both clips are honest footage. Only one is honest analysis.</li>
+          <li><strong>Set a default and hold it.</strong> Five seconds before, three after, adjusted only with a reason you could say out loud. Inconsistent lead-ins across a pack quietly make some players look worse than others.</li>
+          <li><strong>This is the media clip problem, indoors.</strong> Everyone can spot a broadcaster clipping a quote to change its meaning. The same edit, applied to a clip of your left back, is harder to spot and lands on someone who works with you.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Turning an unsearchable archive into a searchable one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Rivermouth has years of footage nobody can query, which means it is storage, not an asset. Turning it around is a project with a very clear sequence.</p>
+        <ul>
+          <li><strong>Start with the reliable event types.</strong> Shots and set pieces first. They tag well, they are what people search for most, and an archive that answers those two questions already earns its keep.</li>
+          <li><strong>Store the tag, the timecode and the match identity together,</strong> and use the field names from your b2 data dictionary. An index with its own private vocabulary is a second source of truth.</li>
+          <li><strong>What it unlocks:</strong> opposition prep in minutes rather than days, every instance of a pattern instead of the three you remember, player development clips pulled across a whole season, and recruitment footage of a target's actual behaviour rather than his highlights.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Player-facing clips - the tone that lands<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A clip pack shown to a squad is a piece of communication about a person, in front of their colleagues. The football content can be perfect and the session can still do damage.</p>
+        <ul>
+          <li><strong>Show the behaviour, not the humiliation.</strong> The moment that best demonstrates the point is often not the worst moment. Pick the clearest one, not the most painful one.</li>
+          <li><strong>Pair a correction with the same player doing it well.</strong> Two clips, same player, same session. It is not softening the message; it proves the behaviour is available to him.</li>
+          <li><strong>Name the situation, not the character.</strong> "The far-side cover is late here" is coachable. "He switches off" is a verdict, and nobody improves after receiving one in a group setting.</li>
+          <li><strong>You are not the coach, and the room is not yours.</strong> Bring the options and the honest read. The decision about what gets shown, and how, sits with the staff - which is stage 5, and b1 was clear about who owns that.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Opposition packs are a different product<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Same tooling, different job, and the mistakes are different too. b6 is the full session; here is what carries over from tonight.</p>
+        <ul>
+          <li><strong>The six-clip discipline still holds,</strong> and it is harder, because there is more to say about a team you have not been working with all year.</li>
+          <li><strong>Distinguish a tendency from a plan.</strong> Something a team does often is not the same as something they intend, and only one of those survives a change of opponent. b6 is built around this line.</li>
+          <li><strong>Say what to do about it.</strong> An opposition pack that describes without prescribing is trivia. Every clip still owes an answer to the Saturday question.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Live in-match analysis, and why most of it is not worth doing<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Real-time analysis is the most requested and least defensible thing a video department does. The honest position, following straight on from b2's point about sample size:</p>
+        <ul>
+          <li><strong>Rates over twenty minutes are noise.</strong> Any percentage delivered to a bench at half time is a reading of variance, presented at the moment nobody has the bandwidth to challenge it.</li>
+          <li><strong>The tagging error rate is worse live.</strong> No time for the review pass, so you are handing unverified model output over at the highest-pressure moment of the week.</li>
+          <li><strong>What genuinely is worth doing:</strong> a clip somebody asked for, a factual state check such as bookings and minutes, and a pre-agreed trigger the staff named before kick-off.</li>
+          <li><strong>Agree the list before the match, in writing.</strong> The reason live analysis goes wrong is that nobody defined it, so it becomes whatever the analyst noticed. Two agreed outputs beat ten improvised ones.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build-along">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Cut a six-clip pack from last match <span class="tag exercise">★ 22 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">Footage from your most recent match, your tagging tool, and one idea. By the end of this you will have a pack you could send tonight, and more usefully, a written reason for every clip that is in it and every clip that is not.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Write the idea first, in one sentence, before you open the footage.</strong> "We are conceding the second ball after our own corners." If you cannot write it in one sentence you are not ready to cut clips, you are still exploring.</p></div>
+      <div class="step"><p><strong>Query the index for the candidate pool.</strong> Note how many candidates the tool returned and which event types you relied on. If any of them are from the unreliable end of diagram 2, you are hand-verifying every one.</p></div>
+      <div class="step"><p><strong>Verify the pool.</strong> Watch the candidates and drop the mis-tags. Count how many you dropped - that is a live sample of your tool's error rate on this event type.</p></div>
+      <div class="step"><p><strong>Rank by how directly each moment demonstrates the idea,</strong> not by outcome and not by timeline order. Say the ranking out loud to a colleague if there is one in the room.</p></div>
+      <div class="step"><p><strong>Take the top six and set your lead-in.</strong> Five seconds before, three after, the same for every clip. Where you deviate, write down why.</p></div>
+      <div class="step"><p><strong>Run the Saturday question on each one.</strong> What do you want them to do differently? Any clip without a clean answer comes out and is not replaced. A five-clip pack is fine. A padded six is not.</p></div>
+    </div>
+
+    <div class="prompt-box good">
+      <span class="label">Good prompt · shortlist candidates, do not choose them</span>
+      <pre>Here is a tagged event index for our match on Saturday, with event type,
+timecode, players involved and pitch location: [paste index].
+
+The idea for this week's pack: we are conceding the second ball after our
+own corners.
+
+Shortlist up to 12 candidate moments that DEMONSTRATE this behaviour.
+For each: the timecode, how many seconds of lead-in are needed for the
+cause to be visible, and one line on what it shows.
+
+Rules:
+- Do NOT rank or select on outcome. A moment that led to nothing is as
+  eligible as one that led to a shot against us.
+- If a tag is one you cannot verify from the index alone, mark it
+  "needs eyes" rather than including it silently.
+- I am choosing the final six, not you. Give me candidates, not a pack.</pre>
+    </div>
+
+    <div class="prompt-box bad">
+      <span class="label">Bad prompt · outsources the judgment</span>
+      <pre>Give me the best moments from this match.</pre>
+    </div>
+
+    <div class="callout tip">
+      <strong>Why the good one works</strong>
+      It keeps the model at stages 1 and 2, where it is strong, and takes the selection back for stage 3. "Best" has no meaning without an idea and a Saturday question, so a model asked for the best moments will quietly substitute the only ranking it has: what happened next.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 60-90 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run a twenty-event tagging audit and write down your tool's error rate by event type. Record wrong-moment and wrong-label separately, then watch a fifteen-minute block to count what it missed entirely.</li>
+      <li>Cut one six-clip pack on one idea, with a consistent lead-in and a written reason for each clip. Note which clip you nearly included because it proved you were right.</li>
+      <li>Ask a coach which of the six they would actually use, and which they would not. Do not defend the pack. Write the answer down - it is the most useful feedback in this session.</li>
+      <li>Agree a live in-match list with your staff before the next fixture: at most two outputs, in writing, decided before kick-off.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session is the Communicate half of the track arriving early, because clips are how analysis actually reaches a coach at most clubs. Everything here feeds the b10 match report. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Clip packs for coaches - six clips, one idea, and the Saturday question</span><span class="note">Parts 1 and 3 · the build-along produces one</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Auto-tagging accuracy varies by event type, and the mandatory review pass</span><span class="note">Part 2 · homework measures your own tool</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The two-number discipline applied to a vendor's advertised accuracy</span><span class="note">Part 2 · the habit carried from b1</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Definition risk in tagged events, and reusing the b2 data dictionary in the archive</span><span class="note">Parts 2-3 · b2 is the full treatment</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Sample size and single-match noise, including live in-match analysis</span><span class="note">Part 3 self-study · b6 goes further on tendencies</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Opposition packs, and the difference between a tendency and a plan</span><span class="note">Part 3 · b6 is the full session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Your auto-tagger's vendor advertises 94% accuracy. What does that number entitle you to claim about your own footage?</p>
+      <button class="qopt" type="button">A · That your tagged events are about 94% correct, so a spot check is optional</button>
+      <button class="qopt" type="button">B · Nothing yet - it is a fitted number on the vendor's footage with the vendor's definitions, so you need your own held-out check per event type</button>
+      <button class="qopt" type="button">C · That the tool is better than a human tagger, since human logging is less consistent</button>
+      <p class="qwhy">This is the b1 two-number discipline pointed at somebody else's model. The advertised figure was measured on footage they chose, with definitions they wrote, and it is a single number for what is really five different detectors. Sample twenty events per type on your own camera angles, and count the misses separately.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · You have four hundred tagged candidates and a coach meeting on Friday. Where does the real work of this session sit?</p>
+      <button class="qopt" type="button">A · In the query - a better filter produces a better pack</button>
+      <button class="qopt" type="button">B · In the edit - clean cuts and clear graphics are what makes a coach watch</button>
+      <button class="qopt" type="button">C · In choosing the six, which needs context the index does not hold and is stage 3 of the loop</button>
+      <p class="qwhy">Auto-tagging is strong at Capture and the query is Model, both of which the machine does well. Choosing requires knowing what was worked on in training, what was said last week and which player the message will actually reach. That is judgment, it is the stage machines are weak at, and it is the reason the coach opens your file next week.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A clip shows your left back badly out of position. Starting it five seconds earlier reveals that the midfielder ahead of him vacated the space. Which version goes in the pack?</p>
+      <button class="qopt" type="button">A · The five-second version, and the same lead-in applies to every clip in the pack</button>
+      <button class="qopt" type="button">B · The short version, since the pack's idea is about defensive positioning and the lead-in is a distraction</button>
+      <button class="qopt" type="button">C · Both, so the staff can decide which reading they prefer</button>
+      <p class="qwhy">Where a clip starts is an argument, not a setting. The short cut is honest footage and dishonest analysis, and inconsistent lead-ins across a pack quietly make some players look worse than others. Set a default, hold it, and deviate only with a reason you could say out loud. A pattern that only survives one exact start point is a weak pattern.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The clip pack is the product</b><span>Coaches do not read models, they watch clips. Auto-tagging finds them; choosing them is the job.</span></div>
+      <div class="cheat-item"><b>Six clips, one idea</b><span>A cap forces a ranking and a ranking forces a decision. Two ideas is two packs.</span></div>
+      <div class="cheat-item"><b>The Saturday question</b><span>What do you want them to do differently on Saturday? No clean answer, no clip. Cut the one that only proves you were right.</span></div>
+      <div class="cheat-item"><b>Choosing is stage 3</b><span>It needs training context, squad reality and what was said last week. None of that is in the index.</span></div>
+      <div class="cheat-item"><b>Tagging is a model</b><span>Shots are easy, pressing triggers are hard, off-ball runs are a definition argument before they are a detection problem.</span></div>
+      <div class="cheat-item"><b>Twenty events, per type</b><span>Sample twenty, mark right or wrong, then watch a block to count misses. One overall accuracy number is meaningless.</span></div>
+      <div class="cheat-item"><b>Advertised accuracy is fitted</b><span>Measured on their footage with their definitions. Your audit on your camera angles is the held-out number.</span></div>
+      <div class="cheat-item"><b>Lead-in is an argument</b><span>Five before, three after, the same every time. Cutting the two seconds before the action changes what the coach sees.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 4 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b3-shot-quality-model.html">← Previous: Building a shot-quality model</a> &nbsp;·&nbsp; <a href="b5-wearables-and-load.html">Next: Wearables and load management →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="The session the whole analyst track points at: build a shot-quality model one feature at a time, 50% to 83% on the number that matters, then watch the anti-feature raise the fitted number by 11 points while the held-out number falls 6. Plus the honest nuance about player effects done properly.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Building a shot-quality model - learn ai sports with phoebe">
+<meta property="og:description" content="Five features, 50% to 83% held out - then the anti-feature that raises the flattering number and lowers the real one.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b3-shot-quality-model.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building a shot-quality model - learn ai sports with phoebe">
+<meta name="twitter:description" content="Five features, 50% to 83% held out - then the anti-feature that raises the flattering number and lowers the real one.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 3 · Building a shot-quality model - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 3 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 3 of 10</div>
+    <h1>Building a <span class="accent">shot-quality model</span></h1>
+    <p class="sub">This is the session the whole track points at, and not because shot quality is the most important thing an analyst does. It is because a shot model is the cleanest place in sport to feel what a feature is actually worth, and the cleanest place to get caught overfitting. Tonight you build one feature at a time, watch the held-out number climb from 50% to 83% while the gap between fitted and held out stays at two points the whole way, and then add the one feature that makes the headline number jump eleven points and the real number fall six. Everything else in this course - opposition analysis, scouting, load management - is that same trap wearing different clothes.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · coaches · data staff</span>
+      <span class="chip audience">Bring a model you reported one number for</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:3">3-15 · What each feature is worth</span>
+      <span class="a3" style="flex:6">15-40 · Build-along: the ladder and the trap</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we are</h2>
+    </div>
+    <p class="lede">b2 gave you the difference between event and tracking data, which matters enormously tonight: two of the five features you are about to add - defender pressure and keeper position - are only available if you have tracking. At Rivermouth that means this season only, which is a real constraint and also exactly the situation where the fitted number will lie to you most convincingly. b4 takes the model's output and turns it into clips a coach will watch.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live shot model - toggle features, watch both numbers</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A working feel for what each feature is worth, the two-number habit made physical, the ability to recognise leakage when the metric is going up, and the distinction between a naive player feature and a properly pooled one - which is most of what separates a working analytics department from an impressive-looking one.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE LADDER ============ -->
+  <section class="section" id="the-ladder">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · what each feature is worth</span>
+      <h2>The ladder, in two numbers <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Every rung shows two bars: how the model scores on the data it was fitted to, and how it scores on data it has never seen. For the first five features those bars move together, two points apart, all the way up. That is what learning the game looks like. The seventh group is what learning the squad looks like.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grouped bar chart of model accuracy at each rung of the feature ladder, showing fitted and held-out scores moving together from 52 and 50 percent up to 85 and 83 percent, then diverging sharply to 96 and 77 percent when shooter reputation is added.">
+        <style>
+          .flV { font: 700 11px Inter, sans-serif; fill: #0E5A2B; }
+          .flW { font: 700 11px Inter, sans-serif; fill: #6E7F73; }
+          .flVr { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .flL { font: 600 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .flK { font: 600 11.5px Inter, sans-serif; fill: #182C1F; }
+          .flN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .flAx { stroke: #E3EDE6; stroke-width: 1.5; }
+        </style>
+        <line class="flAx" x1="40" y1="250" x2="850" y2="250"/>
+
+        <rect x="60" y="214" width="34" height="36" rx="3" fill="#15803D"/>
+        <rect x="98" y="220" width="34" height="30" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="60" y="206">52</text>
+        <text class="flW" x="100" y="206">50</text>
+        <text class="flL" x="76" y="268">none</text>
+
+        <rect x="170" y="172" width="34" height="78" rx="3" fill="#15803D"/>
+        <rect x="208" y="178" width="34" height="72" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="170" y="164">66</text>
+        <text class="flW" x="210" y="164">64</text>
+        <text class="flL" x="180" y="268">+ dist</text>
+
+        <rect x="280" y="151" width="34" height="99" rx="3" fill="#15803D"/>
+        <rect x="318" y="157" width="34" height="93" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="280" y="143">73</text>
+        <text class="flW" x="320" y="143">71</text>
+        <text class="flL" x="284" y="268">+ angle</text>
+
+        <rect x="390" y="139" width="34" height="111" rx="3" fill="#15803D"/>
+        <rect x="428" y="145" width="34" height="105" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="390" y="131">77</text>
+        <text class="flW" x="430" y="131">75</text>
+        <text class="flL" x="396" y="268">+ body</text>
+
+        <rect x="500" y="124" width="34" height="126" rx="3" fill="#15803D"/>
+        <rect x="538" y="130" width="34" height="120" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="500" y="116">82</text>
+        <text class="flW" x="540" y="116">80</text>
+        <text class="flL" x="504" y="268">+ press</text>
+
+        <rect x="610" y="115" width="34" height="135" rx="3" fill="#0E5A2B"/>
+        <rect x="648" y="121" width="34" height="129" rx="3" fill="#A7DCB8"/>
+        <text class="flV" x="610" y="107">85</text>
+        <text class="flW" x="650" y="107">83</text>
+        <text class="flL" x="610" y="268">+ keeper</text>
+
+        <rect x="720" y="82" width="34" height="168" rx="3" fill="#7C3AED"/>
+        <rect x="758" y="139" width="34" height="111" rx="3" fill="#FCA5A5"/>
+        <text class="flVr" x="720" y="74">96</text>
+        <text class="flVr" x="760" y="131">77</text>
+        <text class="flL" x="726" y="268">⚠ rep</text>
+
+        <rect x="40" y="288" width="12" height="12" rx="3" fill="#15803D"/>
+        <text class="flK" x="60" y="298">fitted on this season</text>
+        <rect x="230" y="288" width="12" height="12" rx="3" fill="#A7DCB8"/>
+        <text class="flK" x="250" y="298">held out on next season</text>
+
+        <rect x="40" y="314" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="flN" x="64" y="326">The last group is one feature added. Only one of its two bars went the way you wanted.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the feature ladder, fitted against held out</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What each feature buys, and what it costs to get<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Feature</th><th>Held out</th><th>Where it comes from</th><th>The chance it fixes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Distance</strong></td><td>50 → 64</td><td>Event data. Free.</td><td>Everything. The strongest signal in every published shot model.</td></tr>
+            <tr><td><strong>Angle</strong></td><td>64 → 71</td><td>Event data. Free.</td><td>Wide chances. Without it, six metres on the byline looks like a huge opportunity.</td></tr>
+            <tr><td><strong>Body part</strong></td><td>71 → 75</td><td>Event data, if your provider logs it well.</td><td>Headers and weak-foot shots, systematically overrated by position alone.</td></tr>
+            <tr><td><strong>Defender pressure</strong></td><td>75 → 80</td><td><strong>Tracking data.</strong> Expensive.</td><td>Crowded chances. This is the biggest single reason event-only models overrate the box.</td></tr>
+            <tr><td><strong>Keeper position</strong></td><td>80 → 83</td><td><strong>Tracking data.</strong> Expensive.</td><td>Cut-backs and one-on-ones, where a stranded keeper is most of the value.</td></tr>
+          </tbody>
+        </table>
+        <p>Two honest observations. First, <strong>the two cheap features do most of the work</strong> - distance and angle take you from 50 to 71 on event data you already pay for. Second, the last two rungs need tracking, which at Rivermouth means one season of data, and one season is exactly where the fitted number becomes least trustworthy.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>What a serious model looks like, for scale.</strong> Commercial shot-quality models train on close to a million historical shots and integrate more than twenty variables including distance, angle, defensive pressure and goalkeeper location. You are not building that tonight and you do not need to - but knowing which of those variables your provider's number includes tells you exactly which of your team's chances it is systematically getting wrong.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Accuracy is not the only thing to check<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This simulator reports accuracy because it is the number everyone quotes and therefore the number that misleads everyone. In real work you would also want:</p>
+        <ul>
+          <li><strong>Calibration.</strong> Of all the chances your model called 0.20, did about 20% go in? A model can rank chances beautifully and still be systematically over-confident, which makes every aggregate you build on it wrong in the same direction.</li>
+          <li><strong>Performance by segment.</strong> Overall accuracy hides a model that is excellent on central chances and useless on wide ones. Your team probably takes a distinctive mix of chances, so overall is the least relevant number to you.</li>
+          <li><strong>Stability across seasons.</strong> The held-out number IS this, done once. Do it every season and you will catch a provider's definition change before it embarrasses you (b2).</li>
+        </ul>
+        <p>Published research on shot models reports calibration alongside discrimination for exactly this reason. If a vendor will only show you one aggregate figure, that is information about the vendor.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE ANTI-FEATURE ============ -->
+  <section class="section" id="anti-feature">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the trap, and the honest nuance</span>
+      <h2>When the number going up is the bad news <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Add shooter identity and reputation as a feature and the fitted score jumps to 96.0 - the largest single gain available anywhere on this page. The held-out score falls to 77.0, below where it was three rungs earlier. The gap goes from two points to nineteen. The model did not get better at judging chances; it memorised which players take them, and next August the squad changes.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of the gap between fitted and held-out accuracy at each rung, holding steady at two points for all five real features and jumping to nineteen points when shooter reputation is added.">
+        <style>
+          .gpV { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .gpVr { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .gpL { font: 600 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .gpN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .gpAx { stroke: #E3EDE6; stroke-width: 1.5; }
+        </style>
+        <line class="gpAx" x1="40" y1="230" x2="850" y2="230"/>
+
+        <rect x="60" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="84" y="204">2</text>
+        <text class="gpL" x="78" y="250">none</text>
+
+        <rect x="170" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="194" y="204">2</text>
+        <text class="gpL" x="182" y="250">+ dist</text>
+
+        <rect x="280" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="304" y="204">2</text>
+        <text class="gpL" x="286" y="250">+ angle</text>
+
+        <rect x="390" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="414" y="204">2</text>
+        <text class="gpL" x="398" y="250">+ body</text>
+
+        <rect x="500" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="524" y="204">2</text>
+        <text class="gpL" x="506" y="250">+ press</text>
+
+        <rect x="610" y="214" width="70" height="16" rx="3" fill="#A7DCB8"/>
+        <text class="gpV" x="634" y="204">2</text>
+        <text class="gpL" x="612" y="250">+ keeper</text>
+
+        <rect x="720" y="78" width="70" height="152" rx="3" fill="#FEF2F2" stroke="#991B1B" stroke-width="2"/>
+        <text class="gpVr" x="744" y="68">19</text>
+        <text class="gpL" x="728" y="250">⚠ rep</text>
+
+        <rect x="40" y="274" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="gpN" x="64" y="286">The gap between fitted and held out, in points. Flat means the model learned the game.</text>
+        <rect x="40" y="298" width="14" height="14" rx="3" fill="#991B1B"/>
+        <text class="gpN" x="64" y="310">One feature took it from 2 to 19. Report one number and this is invisible until next season.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the gap, which is the number that actually tells you something</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The honest nuance: player effects are not the problem<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>It would be easy and wrong to leave tonight believing that player information must never enter a shot model. The research says otherwise, and the distinction is the actual lesson:</p>
+        <ul>
+          <li><strong>What fails</strong> - raw shooter identity and reputation, unregularised, on a small sample. The model gets to memorise individuals, and with a few hundred shots per player it will. That is leakage wearing a jersey.</li>
+          <li><strong>What works</strong> - Bayesian hierarchical models that POOL player effects with shrinkage, the Bayes-xG line of work. These do genuinely predict season goals for individual players and teams better than a plain overall xG model, because a player with 30 shots is pulled hard toward the population and only a player with a long record is allowed to move far from it.</li>
+          <li><strong>The difference in one sentence</strong> - the naive version asks "who took it", the principled version asks "how much evidence do we have that this player differs from average, and how far should that move our estimate".</li>
+        </ul>
+        <p>The reason to teach the failure first is that everyone builds the naive version by accident, and the metric rewards them for it. Once you have felt the gap open up, the hierarchical idea stops being a technique and becomes obvious.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Leakage in the rest of your work<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The same trap appears everywhere in a club, usually without a held-out set to catch it:</p>
+        <ul>
+          <li><strong>Opposition analysis</strong> - a pattern found in five matches will always look strong in those five matches. b6 handles this with counts, denominators and date ranges.</li>
+          <li><strong>Recruitment</strong> - a model trained on players your club previously signed reproduces who your club previously signed, and there is no next season to test on until you have already spent the money. b7.</li>
+          <li><strong>Injury risk</strong> - the most dangerous version, because the events are rare, the data is imbalanced, and a model that predicts nobody gets hurt looks accurate. b5, and the literature is explicit that these outputs are supportive information only.</li>
+          <li><strong>Anything fitted on one season of tracking</strong> - which at Rivermouth is everything that uses pressure or keeper position. Be loud about it.</li>
+        </ul>
+        <p>The habit generalises even when a clean held-out split is not available: ask what this model would have to memorise in order to look this good, and check whether it could.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO 1 ============ -->
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 of 2</span>
+      <h2>Finish the ladder, then break it <span class="tag demo">★ 14 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">The model starts tonight where b1 left you partway up - <strong>distance and angle on, 73.0 fitted and 71.0 held out</strong>. Add the last three and watch the two numbers move together. Then add the sixth and watch them come apart.</p>
+
+    <div class="steps">
+      <div class="step"><p>At <strong>73.0 / 71.0</strong>. Gap of 2. Look at the row for the 6-metre chance on the byline - the model now says 0.12 against a true 0.13.</p></div>
+      <div class="step"><p>+ Body part: <strong>77.0 / 75.0</strong>. The header rows move. Gap still 2.</p></div>
+      <div class="step"><p>+ Defender pressure: <strong>82.0 / 80.0</strong>. This is a tracking-data feature. Note which shots it fixes and remember you have one season of it.</p></div>
+      <div class="step"><p>+ Keeper position: <strong>85.0 / 83.0</strong>. The tap-in and the cut-back both land. Every row is now within 0.08 of truth.</p></div>
+      <div class="step"><p>+ <strong>⚠ Shooter reputation</strong>: <strong>96.0 / 77.0</strong>. Read the gap verdict underneath, then read the 35-metre row.</p></div>
+      <div class="step"><p>Take it back out. Say out loud what you would have shipped if your department reported one number.</p></div>
+    </div>
+
+    <div class="sportsbox" data-mode="score" data-levers="distance,angle"></div>
+
+    <div class="callout tip">
+      <strong>Do this with your own model now</strong>
+      Take a number your department reported in the last month and produce the second one for it. If there is no held-out set, say what the model would have had to memorise to look that good. That question is free and it catches most of this.
+    </div>
+  </section>
+
+  <!-- ============ DEMO 2 ============ -->
+  <section class="section" id="demo-2">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 of 2</span>
+      <h2>Shot by shot, where the value actually sits <span class="tag demo">★ 10 min · explore</span></h2>
+    </div>
+    <p class="lede">Aggregates hide the mechanism. Step through the eight shots with all five features on and read what each feature is worth on each individual chance - the split is different every time, which is precisely why a model beats a rule of thumb like "shots inside the box are good".</p>
+
+    <div class="steps">
+      <div class="step"><p>Shot 1, the tap-in: distance is 45% of the value, but the keeper being committed is another 25%. Two features you may not have.</p></div>
+      <div class="step"><p>Shot 2, the pressed header at 11 metres: body part and pressure together are half the value, and they cut it to 0.11 from what distance alone would say.</p></div>
+      <div class="step"><p>Shot 6, the 35-metre strike that went in: 0.03, and correct. Turn reputation on and watch it become 0.12 because a famous player hit it.</p></div>
+      <div class="step"><p>Shot 8, six metres out on the byline: 0.13. Angle is 45% of the value here and nothing else comes close.</p></div>
+      <div class="step"><p>Turn reputation on and step through all eight: famous shooters inflate, unknowns deflate, and not one estimate got closer to the truth.</p></div>
+    </div>
+
+    <div class="sportsbox" data-mode="shots" data-levers="distance,angle,bodypart,pressure,keeper"></div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Shot 6 is the row that costs analysts their credibility, and the row worth defending.</strong> A 3% chance went in. The striker is delighted, the crowd is delighted, and your model says it was a poor decision. Both are true: it was a poor decision that worked once, and over a season a team that takes those shots scores fewer goals than a team that does not. Your job is not to argue about the goal. It is to have said, before it happened, what kind of chance it was - and to have a count and a denominator ready when someone asks.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 40 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run the ladder until you can predict which shots move at each rung, then run the reputation toggle and write one sentence on each number.</li>
+      <li>Find out which features your provider's shot model uses. If pressure is missing, list three of your team's chances it is overrating right now.</li>
+      <li>Take one model or metric your department reported and produce the held-out number. If you cannot, write down what it would have to memorise to look that good.</li>
+      <li>Check calibration on any probability your club publishes: of the chances called 0.20, did about a fifth go in?</li>
+      <li>Write the two-number rule on a card and put it where the department can see it. It is one sentence and it prevents most of this.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session teaches the working core of shot-quality modelling and the overfitting discipline around it. The model is a teaching simulation on a fixed eight-shot set with a scripted accuracy ladder, and it says so on every render - real models are fitted on hundreds of thousands of shots and report calibration alongside accuracy. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Shot-model feature sets - distance, angle, body part, defensive pressure, goalkeeper location</span><span class="note">Part 1 + both demos · the same families used in commercial models</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The two-number discipline and the fitted-versus-held-out gap</span><span class="note">Parts 1-2 · the habit the whole track depends on</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Bayesian hierarchical player correction (Bayes-xG) versus naive identity features</span><span class="note">Part 2 · the distinction that makes the anti-feature honest</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Model scale - close to a million shots, 20+ variables</span><span class="note">Part 1 · context for what your own model is and is not</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Calibration alongside discrimination</span><span class="note">Part 1 self-study · returns in b9 when the number goes public</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Event versus tracking features and what each costs</span><span class="note">Established in b2 · the constraint on rungs 4 and 5</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Across the five real features the gap between fitted and held out stays at 2 points. What does a stable gap tell you?</p>
+      <button class="qopt" type="button">A · That the model has stopped improving and the features are exhausted</button>
+      <button class="qopt" type="button">B · That each feature is teaching the model something about shots in general rather than about this particular squad</button>
+      <button class="qopt" type="button">C · That the held-out set is too similar to the training set to be useful</button>
+      <p class="qwhy">A gap that stays flat while both numbers climb is the signature of genuine learning. When a feature starts widening the gap, it is teaching the model about the specific data it was fitted on - which is exactly what the sixth toggle does, taking the gap from 2 to 19.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · Is it always wrong to put player information into a shot model?</p>
+      <button class="qopt" type="button">A · Yes - any player feature is leakage and the simulator proves it</button>
+      <button class="qopt" type="button">B · Yes for shot models, though it is fine in recruitment models</button>
+      <button class="qopt" type="button">C · No - Bayesian hierarchical approaches that pool player effects with shrinkage genuinely improve season-level prediction; what fails is raw identity and reputation, unregularised, on a small sample</button>
+      <p class="qwhy">The distinction is the whole lesson. The naive version asks who took the shot and memorises individuals. The principled version asks how much evidence exists that this player differs from average, and pulls a player with 30 shots hard toward the population. The Bayes-xG work shows the second genuinely helps.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A 35-metre strike your model rated 0.03 goes in. The striker wants it removed from the report. What do you do?</p>
+      <button class="qopt" type="button">A · Keep it - a 3% chance that goes in was still a 3% chance, and adjusting a model because a rare event happened destroys it one anecdote at a time</button>
+      <button class="qopt" type="button">B · Remove it, since a goal is by definition a good chance</button>
+      <button class="qopt" type="button">C · Add a reputation feature so the model rates his shots higher in future</button>
+      <p class="qwhy">Option C is the anti-feature, offered as a peace treaty. The honest answer is that the goal was real and the chance was poor, both matter, and over a season a team taking those shots scores fewer goals. Have the count and the denominator ready before the conversation, not during it.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The ladder</b><span>Held out: 50 → 64 → 71 → 75 → 80 → 83. Fitted runs 2 points above it the whole way. Flat gap means real learning.</span></div>
+      <div class="cheat-item"><b>The cheap two</b><span>Distance and angle take you from 50 to 71 on event data you already pay for. Do those before buying anything.</span></div>
+      <div class="cheat-item"><b>The expensive two</b><span>Defender pressure and keeper position need tracking. Worth 12 points held out, and at Rivermouth that is one season of data.</span></div>
+      <div class="cheat-item"><b>The anti-feature</b><span>Raw shooter reputation: fitted 96.0, held out 77.0, gap 19. The largest gain on the board and the worst thing you can do.</span></div>
+      <div class="cheat-item"><b>The honest nuance</b><span>Pooled hierarchical player effects (Bayes-xG) genuinely help. Raw identity on a small sample is leakage. Know which one you built.</span></div>
+      <div class="cheat-item"><b>Also check calibration</b><span>Of the chances called 0.20, did about 20% go in? A model can rank well and still be systematically over-confident.</span></div>
+      <div class="cheat-item"><b>The free question</b><span>No held-out set? Ask what this model would have to memorise to look this good, and whether it could.</span></div>
+      <div class="cheat-item"><b>Shot 6</b><span>A 3% chance that went in. Do not adjust the model. Have the count and the denominator ready before the conversation starts.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 3 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b2-event-and-tracking-data.html">← Previous: Event and tracking data 101</a> &nbsp;·&nbsp; <a href="b4-game-film.html">Next: Game film and auto-tagging →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/sports-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

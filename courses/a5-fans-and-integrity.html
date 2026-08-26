@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="The commercial side of a club is where AI pays back fastest and where the risk is fairness rather than safety. The integrity side is where a single internal probability about your own fixture becomes sensitive. Three gates, one written definition, and an access log.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Fans, commercial and integrity - learn ai sports with phoebe">
+<meta property="og:description" content="Where commercial AI actually pays back at a mid-table club, and the rails around any predictive output about your own matches.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/a5-fans-and-integrity.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fans, commercial and integrity - learn ai sports with phoebe">
+<meta name="twitter:description" content="Where commercial AI pays back, and the integrity rails around any predictive output about your own matches.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Director session 5 · Fans, commercial and integrity - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Director session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Director track · Session 5 of 6</div>
+    <h1>Fans, commercial and <span class="accent">integrity</span></h1>
+    <p class="sub">Everything so far has been about the pitch, the medical room and the transfer market, where models are weak and the stakes are a person's body or livelihood. Tonight moves to the other end of the club, where the data is cleaner, the feedback is faster and the payback is real. Then it moves to the part nobody puts on a slide: the moment your club produces a predictive output about its own matches, that output stops being a piece of analysis and becomes a piece of information with a market value to people betting on the fixture. This session gives you the commercial priorities a three-person department can actually deliver, and the five rails that keep the rest of it safe. Wagering strategy is out of scope here and everywhere in this course. The rails exist to protect the competition and the people in it.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Director track</span>
+      <span class="chip audience">Club execs · commercial leads · comms</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:3">3-18 · The commercial side</span>
+      <span class="a3" style="flex:4">18-40 · The integrity rails</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we are in the track</h2>
+    </div>
+    <p class="lede">Same club all the way through: <strong>Rivermouth FC</strong> - mid-table, three people in the analytics department, six seasons of event data, one season of tracking, GPS on every player, and a medical department that has been burned by a dashboard before. a1 mapped what AI changes across the club, a2 mapped the data estate, a3 did recruitment and valuation, a4 did athlete welfare and data rights. Tonight is the commercial end and the integrity rails. a6 puts the department together and commits to a plan.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A ranked list of commercial use cases by payback speed against fan-acceptance risk, the five integrity rails written in language you can hand to a board, a three-gate picture of what leaves your club and when, and a homework pack that will find at least one undocumented data access in your own building.
+    </div>
+    <div class="callout tip">
+      <strong>Scope, said plainly</strong>
+      This course does not teach betting strategy, betting models, market edges or anything adjacent to them, and it will not. Wagering is out of scope by design. What is in scope is the set of controls that stop your club's own information from leaking into a market it should never touch.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: COMMERCIAL ============ -->
+  <section class="section" id="commercial">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the fast end of the club</span>
+      <h2>The lowest-stakes, fastest-moving part of the club <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">Ticketing, pricing, content, membership and matchday operations share three properties that performance and medical work do not: the data is generated by your own systems rather than a provider, the outcome is visible within days rather than a season, and nobody's body or career is on the line. That combination is why this is where a small analytics department can prove itself fastest. It is also why the risk here has a different shape. When a commercial model goes wrong, the damage is not safety, it is <strong>fairness</strong> - a fan who concludes the club treated them differently from the person sitting next to them.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Commercial AI use cases plotted on payback speed against fan-acceptance risk, with dynamic pricing in the high payback and high risk corner and demand forecasting in the fast payback, low risk corner.">
+        <style>
+          .cqAx { stroke: #6E7F73; stroke-width: 2; fill: none; }
+          .cqT { font: 700 12px Inter, sans-serif; fill: #182C1F; }
+          .cqTw { font: 700 12px Inter, sans-serif; fill: #991B1B; }
+          .cqS { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .cqA { font: 700 11.5px Inter, sans-serif; fill: #6E7F73; letter-spacing: .06em; }
+          .cqN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+        <rect x="560" y="36" width="278" height="104" rx="8" fill="#FEF2F2"/>
+        <rect x="560" y="190" width="278" height="84" rx="8" fill="#EDF9F1"/>
+        <path class="cqAx" d="M92,36 L92,274 L838,274"/>
+        <text class="cqA" x="84" y="44" text-anchor="end">high</text>
+        <text class="cqA" x="84" y="270" text-anchor="end">low</text>
+        <text class="cqA" x="30" y="155" text-anchor="middle" transform="rotate(-90 30 155)">Fan-acceptance risk</text>
+        <text class="cqA" x="100" y="292">slow</text>
+        <text class="cqA" x="830" y="292" text-anchor="end">fast</text>
+        <text class="cqA" x="465" y="292" text-anchor="middle">Payback speed</text>
+        <circle cx="745" cy="88" r="7" fill="#991B1B"/>
+        <text class="cqTw" x="745" y="74" text-anchor="middle">Dynamic pricing</text>
+        <text class="cqS" x="745" y="106" text-anchor="middle">fans notice, fans object</text>
+        <circle cx="470" cy="128" r="7" fill="#7C3AED"/>
+        <text class="cqT" x="470" y="114" text-anchor="middle">Personalised content</text>
+        <text class="cqS" x="470" y="146" text-anchor="middle">fine until it feels creepy</text>
+        <circle cx="195" cy="196" r="7" fill="#6E7F73"/>
+        <text class="cqT" x="195" y="182" text-anchor="middle">Fan chatbot</text>
+        <text class="cqS" x="195" y="214" text-anchor="middle">most asked for, least value</text>
+        <circle cx="430" cy="238" r="7" fill="#34A85C"/>
+        <text class="cqT" x="430" y="224" text-anchor="middle">Matchday ops</text>
+        <text class="cqS" x="430" y="256" text-anchor="middle">small gains, low friction</text>
+        <circle cx="635" cy="205" r="7" fill="#15803D"/>
+        <text class="cqT" x="635" y="191" text-anchor="middle">Membership churn</text>
+        <text class="cqS" x="635" y="223" text-anchor="middle">you can act on it</text>
+        <circle cx="760" cy="246" r="7" fill="#0E5A2B"/>
+        <text class="cqT" x="760" y="232" text-anchor="middle">Demand forecasting</text>
+        <text class="cqS" x="760" y="264" text-anchor="middle">the fastest real win</text>
+        <rect x="20" y="316" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="cqN" x="44" y="328">Fastest payback with the least fan friction: demand forecasting and membership churn.</text>
+        <rect x="20" y="342" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="cqN" x="44" y="354">Dynamic pricing pays back fast and is where fans most often say they were treated unfairly.</text>
+        <rect x="20" y="368" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="cqN" x="44" y="380">A chatbot is the most requested and the least valuable. Three people, pick the top two.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - commercial use cases by payback speed against fan-acceptance risk</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two that actually pay a mid-table club<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If you take one thing from this half of the session, take this: the biggest realistic commercial win at a club your size is <strong>demand forecasting</strong> and <strong>membership churn</strong>, and it is not a chatbot. The chatbot is the thing your commercial director will bring back from a conference. It is visible, it demos well, and at a mid-table club it usually replaces a form nobody was struggling with.</p>
+        <ul>
+          <li><strong>Demand forecasting.</strong> How many people turn up for a Tuesday night fixture in February against a side in fourteenth. You already have the history, the answer is checkable within a week, and it drives staffing, catering, stewarding and allocation decisions that all cost real money today.</li>
+          <li><strong>Membership churn.</strong> Which season-ticket holders are drifting, and which of them respond to a phone call from a human rather than an email. This is the one commercial use case where a model output leads directly to a named person doing something specific, which is why it works.</li>
+          <li><strong>Matchday operations.</strong> Queue times, gate flow, kiosk stock. Small, unglamorous, low risk, and it improves the thing fans actually complain about.</li>
+          <li><strong>Personalised content and highlights.</strong> Genuinely useful and increasingly cheap to produce. The line to watch is the point where personalisation stops feeling like service and starts feeling like surveillance, and that line is set by fans, not by you.</li>
+        </ul>
+        <p>Notice what all four have in common. The decision at the end is commercial and reversible. Nobody's fitness, contract or medical record is involved. That is precisely why this is a good place for a small department to build a track record before it goes anywhere near the medical room.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Dynamic pricing, and where fans find it unacceptable<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Dynamic pricing sits in the top right of the picture for a reason. It has the fastest revenue payback of anything on the board and the highest chance of a reputational incident, and those two facts are the same fact: it works by charging different people different amounts for the same seat.</p>
+        <ul>
+          <li><strong>Fans accept variation they can see the logic of.</strong> A bigger fixture costs more. An early booking costs less. A category of seat costs what it costs. All of this has been true for decades and nobody objects.</li>
+          <li><strong>Fans reject variation that feels personal.</strong> The moment the price appears to depend on who is looking rather than what is being sold, the conversation stops being about pricing and becomes about whether the club respects them. That is a hard conversation to win, because they are not wrong about the mechanism.</li>
+          <li><strong>The rule that survives contact with a fan forum:</strong> price the fixture and the seat, never the person. If you cannot explain a price difference in one sentence to a supporter on local radio, do not ship it.</li>
+          <li><strong>Loyalty must never be punished by the model.</strong> The season-ticket holder who buys every away ticket is the most predictable buyer you have, which means a naive optimiser will quietly charge them more. Check for this explicitly, because it will happen by default and nobody will notice until it is a headline.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The pattern from b1 turns up here too.</strong> A pricing model tuned hard on last season's data will look excellent on last season's data. The two-number discipline is not a technical nicety confined to the analyst track - fit on one season, test on a season the model has never seen, and report both numbers to the commercial board. A pricing model with a big gap between the two has learned last year's fixture list, not your fanbase.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What to ask before you buy any commercial AI product<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Most of what is sold into the commercial side of a club is a product, not a project. Five questions separate the ones worth buying:</p>
+        <ul>
+          <li><strong>What decision changes because of this?</strong> If nobody in the building does anything different on a Monday morning, it is a dashboard with a subscription fee.</li>
+          <li><strong>Whose data leaves the club, and where does it go?</strong> Fan data is personal data. a2 mapped the estate and a4 covered the rights; the answer belongs in writing before signature, not after.</li>
+          <li><strong>What are the two numbers?</strong> Ask for performance on data the vendor fitted on and on data they did not. A vendor who only has one number has told you something.</li>
+          <li><strong>What does it do when it is wrong?</strong> A churn model that is wrong costs you a phone call. A pricing model that is wrong costs you a supporters' trust meeting. Size the failure, not the success.</li>
+          <li><strong>Can we turn it off?</strong> Ask how the contract ends and who keeps the data when it does.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: INTEGRITY ============ -->
+  <section class="section" id="integrity">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the part nobody puts on a slide</span>
+      <h2>The integrity rails <span class="tag concept">22 min live</span></h2>
+    </div>
+    <p class="lede">Here is the sentence that changes how you think about your own analytics department. <strong>The moment your club produces a predictive output about its own matches, that output becomes sensitive in a way that has nothing to do with commerce.</strong> Team news, injury status, expected line-ups, a fitness flag on a first-choice centre back, an internal probability that a striker starts - all of it has value to people betting on the match. Your analysts did not create that value and they cannot remove it. What you can do is control who holds it and when it moves.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Information leaving a club through three gates - official team news released to everyone at once, embargoed internal analysis restricted to named staff with logged access, and medical detail that never leaves.">
+        <style>
+          .igT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .igS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .igV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .igG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .igH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .igB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .igX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .igN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .igW { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#igHd); }
+        </style>
+        <defs>
+          <marker id="igHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+        <rect x="20" y="30" width="190" height="244" rx="8" fill="#0E5A2B"/>
+        <text class="igT" x="36" y="138">INSIDE THE CLUB</text>
+        <text class="igS" x="36" y="160">every predictive</text>
+        <text class="igS" x="36" y="177">output you produce</text>
+        <rect x="250" y="30" width="270" height="68" rx="8" fill="#15803D"/>
+        <text class="igT" x="266" y="56">GATE 1 · OFFICIAL TEAM NEWS</text>
+        <text class="igS" x="266" y="76">released at a set time</text>
+        <rect x="250" y="118" width="270" height="68" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="igV" x="266" y="144">GATE 2 · INTERNAL ANALYSIS</text>
+        <text class="igX" x="266" y="164">embargoed until team news</text>
+        <rect x="250" y="206" width="270" height="68" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="igH" x="266" y="232">GATE 3 · MEDICAL DETAIL</text>
+        <text class="igX" x="266" y="252">never leaves the club</text>
+        <rect x="550" y="30" width="310" height="68" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="igG" x="566" y="56">EVERYONE, AT THE SAME MOMENT</text>
+        <text class="igB" x="566" y="76">media, fans, partners, all at once</text>
+        <rect x="550" y="118" width="310" height="68" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="igG" x="566" y="144">NAMED STAFF ONLY, LOGGED</text>
+        <text class="igB" x="566" y="164">no partner, no agent, no journalist</text>
+        <rect x="550" y="206" width="310" height="68" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="igH" x="566" y="232">THE CLINICIAN AND THE PLAYER</text>
+        <text class="igX" x="566" y="252">availability is shared, diagnosis is not</text>
+        <path class="igW" d="M210,64 L246,64"/>
+        <path class="igW" d="M210,152 L246,152"/>
+        <path class="igW" d="M210,240 L246,240"/>
+        <path class="igW" d="M520,64 L546,64"/>
+        <path class="igW" d="M520,152 L546,152"/>
+        <path class="igW" d="M520,240 L546,240"/>
+        <rect x="20" y="292" width="840" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="igV" x="36" y="316">A written definition of inside information plus a logged access list is most of the rail.</text>
+        <rect x="20" y="340" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="igN" x="44" y="352">Nothing predictive about your own fixtures leaves the building before official team news.</text>
+        <rect x="20" y="366" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="igN" x="44" y="378">Anything touching a betting partner needs a documented wall and a named owner.</text>
+        <rect x="20" y="392" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="igN" x="44" y="404">Wagering is out of scope here. The rails protect the competition and the people in it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three gates, and who may receive what and when</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The five rails, in board language<span class="mini">8 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>These are short on purpose. If a rail does not fit in a sentence, staff will not follow it and the club cannot enforce it.</p>
+        <ul>
+          <li><strong>1 · Inside information stays inside, and it is defined in writing.</strong> The definition is the whole exercise. Most clubs have a vague shared understanding that team news is confidential and nothing at all about internal probabilities, fitness flags, training-ground observations or the contents of a load report. Write the list. Circulate the list. Review it once a season.</li>
+          <li><strong>2 · No predictive output about your own fixtures is published or shared ahead of official team news.</strong> Not to a partner, not to a broadcaster, not in a sponsor deck, not in a slide that leaves the building. After official team news, the calculus changes and you can decide commercially. Before it, the answer is no.</li>
+          <li><strong>3 · Access is logged.</strong> Who can see the availability picture, the internal line-up model, the load flags. A list of names, reviewed when people join and when they leave. The log matters more than the lock, because the question you will one day have to answer is not "was it secure" but "who had it".</li>
+          <li><strong>4 · Staff and players get clear rules about what they may say and to whom.</strong> Written, brief, repeated at the start of each season, and covering the informal channels where this actually leaks - a group chat, an agent, a family member, a former teammate who now works in media.</li>
+          <li><strong>5 · Anything that touches a betting partner has a documented wall.</strong> Many clubs have commercial relationships in this space. That is a business decision above your analytics department. What is not optional is a written separation with a named owner, showing exactly what data flows, what does not, and who checks.</li>
+        </ul>
+        <p>Two of those five cost nothing but an afternoon of writing. The other three cost a review meeting a year. This is the cheapest risk control in the entire course, and it is the one most likely to be missing at your club right now.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why an internal probability is different from an opinion<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The objection you will hear is that everybody speculates about line-ups, so an internal model is no different. It is different, and the difference is worth being able to explain calmly.</p>
+        <ul>
+          <li><strong>It is specific.</strong> A pundit's guess and a number produced from your own training-ground data are not the same object, even when they happen to agree. One is inference from the outside; the other is a measurement from the inside.</li>
+          <li><strong>It is attributable.</strong> If it moves, people can tell where it came from. A club is a small place and analytics outputs have fingerprints.</li>
+          <li><strong>It is early.</strong> Value in this context is almost entirely about timing. The same information released at the official moment is worth nothing to anyone with an unfair intent, and released two hours earlier to one party it is worth a great deal.</li>
+          <li><strong>It travels.</strong> A screenshot of a probability leaves the building faster than a sentence, is trusted more because it looks like a fact, and cannot be walked back.</li>
+        </ul>
+        <p>The practical instruction to your department is one line: <strong>internal probabilities about your own fixtures are treated exactly like team news, and released at the same moment or not at all.</strong> The analysts will not find this controversial. The people who find it inconvenient are usually in commercial or comms, which is why this session exists.</p>
+        <div class="callout tip">
+          <strong>Say the scope out loud in the room</strong>
+          When you brief this to staff, say plainly that the club does not teach, model or discuss betting strategy, and that these rails are not about markets at all. They are about protecting the competition and protecting the people in it, including your own players, who are the ones exposed when information about their fitness moves in the wrong way.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The medical gate is stricter, and a4 explains why<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Gate 3 in the picture is different from the other two. Gates 1 and 2 are about timing - the same information becomes shareable at a defined moment. Gate 3 is not a timing question at all.</p>
+        <ul>
+          <li><strong>Availability is a squad fact. Diagnosis is a medical record.</strong> The coach needs to know who is available. The coach does not need the injury detail, and the board certainly does not.</li>
+          <li><strong>Risk scores are not a workaround.</strong> Turning a medical fact into a model output does not change what it is. A5 does not relax anything a4 established.</li>
+          <li><strong>The decision line from b1 still holds.</strong> Return to play is a clinician's decision. Nothing on this page moves it, and nothing commercial ever should.</li>
+          <li><strong>This is orientation, not medical or legal advice.</strong> The specifics of what may be disclosed about a player's health belong with clinicians and counsel at your club.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: CARDS ============ -->
+  <section class="section" id="edges">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the conversations this creates</span>
+      <h2>Five conversations you will have this season <span class="tag concept">read and pick two</span></h2>
+    </div>
+    <p class="lede">Each of these is a real meeting that follows from the two halves above. Pick the two most likely at your club and read those properly.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Fan-facing analytics that inform rather than mislead<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Publishing a probability to fans is a communication problem before it is an analytics problem. The failure mode is not inaccuracy, it is a viewer who reads a probability as a verdict.</p>
+        <ul>
+          <li><strong>A probability is not a scoreline that should have happened.</strong> A chance of 0.03 that goes in was still a poor chance, and the goal was still real. Both facts are useful; a graphic that implies only one of them is misleading even when the number is right.</li>
+          <li><strong>Never publish a number your own department would not act on.</strong> If your analysts would want a bigger sample before believing it, your fans deserve the same caveat.</li>
+          <li><strong>Uncertainty belongs in the same sentence as the number,</strong> in fan content exactly as in a coach briefing.</li>
+        </ul>
+        <p>b9 is the full session on fan-facing and broadcast analytics, including how to explain a probability on air. Send whoever runs your content team to it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>When a sponsor wants access to your data<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This arrives inside a renewal conversation, framed as an activation, and it is usually the first time anyone asks what your club actually holds. Three questions, in order:</p>
+        <ul>
+          <li><strong>What exactly flows, and is any of it predictive about our own fixtures?</strong> If yes, gate 2 applies and the answer is not before official team news.</li>
+          <li><strong>Is any party to this agreement connected to a betting interest?</strong> If yes, rail 5 applies and you need a documented wall with a named owner before anything moves.</li>
+          <li><strong>Is any of it personal data about fans or players?</strong> If yes, a2 and a4 govern it, and the lawful basis has to exist before the deal, not after.</li>
+        </ul>
+        <p>The commercial answer can still be yes. It just cannot be an undocumented yes.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What to publish about your own performance, and what to hold<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Clubs increasingly publish their own analysis, and it is good content. The dividing line is simple once you see it.</p>
+        <ul>
+          <li><strong>Retrospective is generally fine.</strong> What happened, described honestly, after the fact.</li>
+          <li><strong>Prospective about your own fixtures is not,</strong> until official team news has gone out. This includes anything that lets a reader infer availability.</li>
+          <li><strong>Be careful with the accidental leak.</strong> A season-long minutes chart published on a Thursday can reveal a fitness situation nobody meant to disclose. Have one person check outbound analytics content against the gates.</li>
+          <li><strong>Publishing your own weaknesses builds more credibility than publishing your strengths,</strong> and it is the cheapest trust you will ever buy.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Players, image rights and AI-generated content<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Generated content involving players is now cheap enough that somebody in your building is already experimenting. Get ahead of it with four positions:</p>
+        <ul>
+          <li><strong>A player's likeness is theirs, and the agreement predates the technology.</strong> Check whether existing image-rights terms contemplate synthetic content at all. Usually they do not, which means silence is not consent.</li>
+          <li><strong>Voice is likeness too,</strong> and it is the one people forget until it is a problem.</li>
+          <li><strong>Label generated content as generated.</strong> If a fan cannot tell, you have created a small credibility debt that becomes expensive the first time something goes wrong.</li>
+          <li><strong>Give players a veto that is easy to use.</strong> A route that requires an agent and a lawyer is not a veto.</li>
+        </ul>
+        <p>This connects directly to a4. A player's data and a player's likeness raise the same underlying question: the club holds something that belongs to a person, and the person should be able to see and object to how it is used.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The club that gets fan trust right<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Something is shifting in what fans expect, and it is worth naming before it arrives at your club as a complaint rather than an opportunity.</p>
+        <ul>
+          <li><strong>Fans increasingly want to know what you hold on them.</strong> Not in a hostile way. They want to know whether the price they saw was the price everyone saw, whether the email they got was targeted, and what happens to their data when they stop being a member.</li>
+          <li><strong>Transparency is becoming a differentiator rather than a compliance chore.</strong> A club that can say clearly what it collects, why, and how to opt out is doing something most of its competitors cannot, and it costs a page of writing.</li>
+          <li><strong>The trust runs in both directions.</strong> Fans who understand what you hold are more willing to share more, which is the practical commercial argument for doing this properly.</li>
+          <li><strong>Say it in fan language, not policy language.</strong> One page, plain sentences, on the same site where they buy tickets. If it needs a lawyer to read, it is not transparency.</li>
+          <li><strong>Test it the honest way.</strong> Read your own fan data page to a supporter and watch their face. That is your entire user research budget and it is enough.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 6 <span class="tag exercise">◐ 40-60 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>List every predictive output your club produces</strong> - models, projections, availability pictures, internal line-up probabilities, load flags, anything with a number attached to a future event. Then mark which of them could move a betting market if it left the building early. Most directors are surprised by the length of the second list.</li>
+      <li><strong>Write your inside-information definition,</strong> in under 200 words, in language a first-team player and a commercial intern would both understand. If it is longer than that, it will not be read.</li>
+      <li><strong>Check whether any partner has data access nobody documented.</strong> Ask your commercial lead, your IT lead and your data provider separately, then compare the three answers. The gap between them is the finding.</li>
+      <li>Rank your commercial use cases on the two axes from Part 1 with your own commercial director in the room, and agree the top two for next season.</li>
+      <li>Find out who at your club would sign off publishing a piece of analysis about an upcoming fixture. If the answer is "nobody in particular", that is rail 2 failing quietly.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This track teaches the working core of the public sports-analytics evidence base and the governance that has to sit around it. Medical and legal specifics stay with clinicians and counsel at your own club. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Ticketing, pricing, content and matchday operations - where payback is fastest</span><span class="note">Part 1 · the director bar for this session</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The integrity rails around any predictive output about your own fixtures</span><span class="note">Part 2 · the five rails and the three gates</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Inside information defined in writing, embargo, and logged access</span><span class="note">Part 2 + homework · the cheapest control in the course</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Fan-facing analytics that inform rather than mislead</span><span class="note">Part 3 · b9 is the full session, including broadcast</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Fan and player data - what the club holds and who may see it</span><span class="note">Part 3 · a2 owns the estate, a4 owns the rights</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The two-number discipline applied to a commercial model</span><span class="note">Part 1 · b1 and b3 are the full treatment</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Betting strategy, models or market edges</span><span class="note">Not covered by design · wagering is out of scope</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Your analysts have an internal model that puts a first-choice striker at 30% likely to start Saturday. A journalist asks on Thursday. What do you do?</p>
+      <button class="qopt" type="button">A · Share it, since it is a model output rather than confirmed team news</button>
+      <button class="qopt" type="button">B · Say nothing about the line-up before official team news, because an internal probability about your own fixture is treated exactly like team news</button>
+      <button class="qopt" type="button">C · Share it with the club's commercial partner only, since that relationship is contracted</button>
+      <p class="qwhy">Rail 2. A predictive output about your own fixture is not published or shared ahead of official team news, to anyone. The value of that information is almost entirely about timing, and a number produced from your own training-ground data is a measurement from the inside, not a pundit's guess. Releasing it to one party early is the exact thing the rail exists to prevent.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · Your commercial director comes back from a conference wanting a fan chatbot. Where is the fastest realistic payback for a mid-table club with three analysts?</p>
+      <button class="qopt" type="button">A · The chatbot, because it is the most visible AI a fan will ever encounter</button>
+      <button class="qopt" type="button">B · Dynamic pricing, because it moves revenue faster than anything else on the board</button>
+      <button class="qopt" type="button">C · Demand forecasting and membership churn - less visible, faster payback, and far lower fan-acceptance risk</button>
+      <p class="qwhy">The chatbot is the most requested and the least valuable at your size. Dynamic pricing does pay back fast, but it sits in the high-risk corner because it works by charging different people different amounts, and that is where fans conclude the club treated them unfairly. Demand forecasting and churn use data you already own, produce a checkable answer within a week, and lead to a named person doing something specific.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A sponsor asks for a feed of your performance data as part of a renewal. What is the first question?</p>
+      <button class="qopt" type="button">A · What exactly flows, is any of it predictive about our own fixtures, and does any party to this agreement have a betting interest that needs a documented wall</button>
+      <button class="qopt" type="button">B · What is the uplift on the sponsorship fee</button>
+      <button class="qopt" type="button">C · Can we anonymise it and move on</button>
+      <p class="qwhy">The commercial answer can still be yes. What it cannot be is an undocumented yes. Gate 2 governs anything predictive about your own fixtures, rail 5 governs anything touching a betting interest, and a2 and a4 govern anything that is personal data about fans or players. Anonymisation is a technique, not an answer to the first question.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Director session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The fast end of the club</b><span>Commercial data is yours, the feedback is weekly, and nobody's body or career is on the line. Best place for a small department to build a record.</span></div>
+      <div class="cheat-item"><b>Your top two</b><span>Demand forecasting and membership churn. Not a chatbot. Matchday ops is the cheap third.</span></div>
+      <div class="cheat-item"><b>Dynamic pricing</b><span>Highest payback, highest fan-acceptance risk. Price the fixture and the seat, never the person, and check that loyalty is not being punished by default.</span></div>
+      <div class="cheat-item"><b>The rule that changes everything</b><span>A predictive output about your own fixture has value to anyone betting on it. Treat it exactly like team news.</span></div>
+      <div class="cheat-item"><b>The five rails</b><span>Inside information defined in writing · nothing predictive out before team news · access logged · staff and player rules · a documented wall around any betting partner.</span></div>
+      <div class="cheat-item"><b>Three gates</b><span>Official team news to everyone at once. Internal analysis to named, logged staff. Medical detail never leaves - availability is shared, diagnosis is not.</span></div>
+      <div class="cheat-item"><b>Scope</b><span>Wagering is out of scope in this course. The rails exist to protect the competition and the people in it, including your own players.</span></div>
+      <div class="cheat-item"><b>Where to go deeper</b><span>b9 for fan-facing and broadcast analytics · a2 for the data estate · a4 for athlete data rights · a6 next for the department itself.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Director session 5 of 6 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a4-athlete-welfare-and-data.html">← Athlete welfare and data rights</a> &nbsp;·&nbsp; <a href="a6-building-the-function.html">Next: Building the analytics function →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

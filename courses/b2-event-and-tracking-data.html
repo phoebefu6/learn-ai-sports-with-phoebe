@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Event data logs on-ball actions. Tracking data logs everyone, all the time. At Rivermouth FC you have six seasons of one and a single season of the other, and the gap between them decides which questions you are allowed to answer.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Event and tracking data 101 - learn ai sports with phoebe">
+<meta property="og:description" content="What a row of data actually is, why provider definitions quietly break your season-on-season trend, and four questions about one match - two the event feed can answer and two it cannot.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b2-event-and-tracking-data.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Event and tracking data 101 - learn ai sports with phoebe">
+<meta name="twitter:description" content="What a row of data actually is, and the four questions that separate an event feed from a tracking feed.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 2 · Event and tracking data 101 - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 2 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 2 of 10</div>
+    <h1>Event and tracking <span class="accent">data 101</span></h1>
+    <p class="sub">Last session gave you the loop. Tonight we live inside stage 1, Capture, because every argument you will ever lose about a model starts here. Event data is somebody logging discrete on-ball actions with a time, a location and a few attributes. Tracking data is every player and the ball, many times a second, whether or not anyone touched it. Those two sentences sound similar and they are not: one of them can see space, shape and pressure, and one of them structurally cannot. At Rivermouth you have six seasons of the first and one season of the second, which is the constraint that shapes everything b3 onwards. And the quiet killer in this session is not the data at all - it is the definitions, which change between seasons, and nobody sends you an email about it.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst track</span>
+      <span class="chip audience">Analysts · coaches · data staff</span>
+      <span class="chip audience">Bring a data sample</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:5">3-18 · What a row is</span>
+      <span class="a3" style="flex:7">18-40 · Build-along: answer four questions</span>
+      <span class="a4" style="flex:2">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where tonight sits in the loop</h2>
+    </div>
+    <p class="lede">Stage 1 of the analysis loop is <strong>Capture</strong>, and it is the stage everyone skips because it looks like plumbing. It is not plumbing. What your feed records determines the entire set of questions you are permitted to answer, and what your provider <em>means</em> by each field determines whether your answer is true. <strong>Rivermouth FC</strong> has six seasons of event data, one season of tracking, GPS on every player, and a video archive nobody can search. By b10 you owe a head coach one match report he will actually read. Tonight you find out which sentences in that report you can back up. The examples are football because the public evidence base is deepest there. The pattern transfers to any sport that logs actions and any sport that tracks bodies.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A clear line between what event data can and cannot see, the habit of writing your own data dictionary before you write a query, a test for a provider feed you can run in one evening, and an honest answer to what a single season of tracking is good for.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: WHAT A ROW IS ============ -->
+  <section class="section" id="what-a-row-is">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the foundation</span>
+      <h2>What a row actually is <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">An <strong>event</strong> row is a human or a model saying: at this moment, this player did this thing, here, and it turned out like that. A pass, a shot, a tackle, a clearance. One row per on-ball action, a few dozen attributes, a few thousand rows a match. A <strong>tracking</strong> row is a snapshot: at this instant, here is where all twenty-two players and the ball are. Many rows per second, every second, whether or not anybody touched anything. The consequences of that difference are enormous, and they are not a matter of resolution or quality. They are a matter of what exists in the file at all.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 472" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same ten seconds of play shown twice - as four rows of event data and as a tracking snapshot of twenty-two players and the ball - with the questions each one can and cannot answer.">
+        <style>
+          .etT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .etS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .etR { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .etG { font: 700 12px Inter, sans-serif; fill: #15803D; letter-spacing: .06em; }
+          .etH { font: 700 12px Inter, sans-serif; fill: #991B1B; letter-spacing: .06em; }
+          .etB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .etX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .etN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <rect x="20" y="24" width="410" height="36" rx="8" fill="#0E5A2B"/><text class="etT" x="36" y="47">EVENT DATA · the same 10 seconds, 4 rows</text>
+        <rect x="450" y="24" width="410" height="36" rx="8" fill="#15803D"/><text class="etT" x="466" y="47">TRACKING DATA · the same 10 seconds</text>
+
+        <rect x="20" y="70" width="410" height="28" rx="6" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="etR" x="36" y="89">62:04.1 · pass · Ruiz · (34,52) to (48,61) · complete</text>
+        <rect x="20" y="104" width="410" height="28" rx="6" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="etR" x="36" y="123">62:06.8 · carry · Adeyemi · (48,61) to (61,58)</text>
+        <rect x="20" y="138" width="410" height="28" rx="6" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="etR" x="36" y="157">62:09.2 · pass · Adeyemi · (61,58) to (74,49) · complete</text>
+        <rect x="20" y="172" width="410" height="28" rx="6" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="etR" x="36" y="191">62:11.6 · shot · Kovac · (74,49) · off target</text>
+
+        <rect x="450" y="70" width="410" height="130" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="etX" x="466" y="90">22 players plus the ball, 25 times every second</text>
+        <circle cx="492" cy="150" r="6" fill="#0E5A2B"/><circle cx="528" cy="118" r="6" fill="#0E5A2B"/><circle cx="528" cy="150" r="6" fill="#0E5A2B"/><circle cx="528" cy="182" r="6" fill="#0E5A2B"/>
+        <circle cx="575" cy="128" r="6" fill="#0E5A2B"/><circle cx="575" cy="165" r="6" fill="#0E5A2B"/><circle cx="620" cy="110" r="6" fill="#0E5A2B"/><circle cx="620" cy="150" r="6" fill="#0E5A2B"/>
+        <circle cx="620" cy="185" r="6" fill="#0E5A2B"/><circle cx="665" cy="130" r="6" fill="#0E5A2B"/><circle cx="665" cy="170" r="6" fill="#0E5A2B"/><circle cx="705" cy="112" r="6" fill="#7C3AED"/>
+        <circle cx="705" cy="150" r="6" fill="#7C3AED"/><circle cx="705" cy="185" r="6" fill="#7C3AED"/><circle cx="745" cy="128" r="6" fill="#7C3AED"/><circle cx="745" cy="168" r="6" fill="#7C3AED"/>
+        <circle cx="785" cy="110" r="6" fill="#7C3AED"/><circle cx="785" cy="150" r="6" fill="#7C3AED"/><circle cx="785" cy="185" r="6" fill="#7C3AED"/><circle cx="822" cy="130" r="6" fill="#7C3AED"/>
+        <circle cx="822" cy="168" r="6" fill="#7C3AED"/><circle cx="845" cy="150" r="6" fill="#7C3AED"/><circle cx="688" cy="150" r="5" fill="#FFFFFF" stroke="#182C1F" stroke-width="2"/>
+
+        <rect x="20" y="214" width="410" height="70" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="etG" x="36" y="236">CAN ANSWER</text>
+        <text class="etB" x="36" y="256">Who touched it, where, when, and what happened.</text>
+        <text class="etB" x="36" y="273">Counts, sequences, shot locations, six seasons deep.</text>
+        <rect x="450" y="214" width="410" height="70" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="etG" x="466" y="236">CAN ANSWER</text>
+        <text class="etB" x="466" y="256">All of the above, plus shape, space and pressure.</text>
+        <text class="etB" x="466" y="273">Off-ball runs, distances, who was actually free.</text>
+
+        <rect x="20" y="294" width="410" height="70" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="etH" x="36" y="316">CANNOT ANSWER</text>
+        <text class="etB" x="36" y="336">Anything about the 21 players not on the ball.</text>
+        <text class="etB" x="36" y="353">Defensive shape, space created, pressure on the ball.</text>
+        <rect x="450" y="294" width="410" height="70" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="etH" x="466" y="316">CANNOT ANSWER</text>
+        <text class="etB" x="466" y="336">Intent, instruction, or why anybody did anything.</text>
+        <text class="etB" x="466" y="353">At Rivermouth: any question about a previous season.</text>
+
+        <rect x="20" y="388" width="14" height="14" rx="3" fill="#7C3AED"/><text class="etN" x="44" y="400">Tracking is far bigger and far more expensive. You have one season of it. Six of event.</text>
+        <rect x="20" y="416" width="14" height="14" rx="3" fill="#7C3AED"/><text class="etN" x="44" y="428">Many production models still run on features extracted from event data. This is normal.</text>
+        <rect x="20" y="444" width="14" height="14" rx="3" fill="#7C3AED"/><text class="etN" x="44" y="456">Defender pressure in the b1 shot ladder needs tracking. That is why it arrives late.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the same ten seconds, seen two ways</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The four consequences that matter this season<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Read the diagram once more and then hold these four. They are the whole session compressed, and every one of them will come up in a meeting within a month of you starting.</p>
+        <ul>
+          <li><strong>Event data cannot see off-ball movement.</strong> Not badly, not approximately - at all. If your report contains a sentence about a striker's runs and your only source is an event feed, that sentence is you, not the data. Say so or cut it.</li>
+          <li><strong>Event data cannot see space or pressure.</strong> A pass into a crowded pocket and a pass into open grass produce the same row. Anything you build about "playing through pressure" needs tracking, and at Rivermouth that means this season only.</li>
+          <li><strong>Tracking is much bigger and much more expensive.</strong> Per match it is orders of magnitude more rows than an event feed, and clubs buy it later, partially, and for fewer competitions. One season is a normal position to be in, not a failure.</li>
+          <li><strong>Plenty of serious models still run on event-extracted features.</strong> Tracking enables richer models, and the research is explicit that it does, but production systems leaning on event-derived features are not backward. Do not let anyone shame your department into buying capability it cannot yet use.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The sentence to keep in your head</strong>
+          Event data tells you what was done. Tracking data tells you what was available. Most coaching arguments are actually about the second one.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Who made this row, and how<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Event rows are produced two ways and the difference shows up in your numbers.</p>
+        <ul>
+          <li><strong>Human logging.</strong> An operator watches the match and codes actions, usually against a written spec, usually at speed, sometimes two operators splitting the halves. Consistent within an operator, less consistent between them, and the edge cases are where they disagree.</li>
+          <li><strong>Model logging.</strong> A detection model codes actions from footage or from tracking. Consistent to a fault, which is the point, but it is consistent about whatever it was trained to believe an action is - and its error rate is not uniform across event types. b4 makes you measure exactly this on your own tagging tool.</li>
+        </ul>
+        <p>The practical move is the same in both cases: never treat a field as self-evident. "Pass" is not self-evident. "Duel won" is definitely not self-evident. Which brings us to the part of the session that actually costs people their credibility.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: DEFINITIONS ============ -->
+  <section class="section" id="definitions">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · where the damage happens</span>
+      <h2>Definitions are where you get hurt <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Here are five questions you cannot answer about your own feed right now, and each one changes a number in a report somebody is going to act on. Who logged this row, a person or a model? What counts as a pass into the final third - does the ball have to arrive there, or leave from behind the line, or both? Is a blocked shot a shot? Does the clock stop, and if it does, is your "per 90" actually per 90? And the one that ruins seasons: <strong>provider definitions change between seasons and nobody tells you.</strong></p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 452" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One ambiguous action routed through three plausible definitions of a pass into the final third, producing three different counts, with a warning about season-on-season trends.">
+        <style>
+          .dfT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .dfS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .dfG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .dfB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .dfV { font: 700 20px Inter, sans-serif; fill: #331066; }
+          .dfX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .dfH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .dfN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .dfWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#dfHd); }
+        </style>
+        <defs>
+          <marker id="dfHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="290" y="24" width="300" height="54" rx="8" fill="#0E5A2B"/><text class="dfT" x="306" y="46">ONE ACTION, 62nd MINUTE</text>
+        <text class="dfS" x="306" y="64">a driven ball, 1m into the final third</text>
+
+        <path class="dfWire" d="M400,78 L200,120"/>
+        <path class="dfWire" d="M440,78 L440,120"/>
+        <path class="dfWire" d="M480,78 L680,120"/>
+
+        <rect x="20" y="128" width="270" height="100" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="dfG" x="36" y="152">DEFINITION A · by zone</text>
+        <text class="dfB" x="36" y="176">Any completed ball that ends</text>
+        <text class="dfB" x="36" y="193">in the final third counts.</text>
+        <text class="dfX" x="36" y="214">Counts it. Sideways balls too.</text>
+
+        <rect x="305" y="128" width="270" height="100" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="dfG" x="321" y="152">DEFINITION B · progressive</text>
+        <text class="dfB" x="321" y="176">Must move the ball forward by</text>
+        <text class="dfB" x="321" y="193">a set distance to count.</text>
+        <text class="dfX" x="321" y="214">Counts it, but only just.</text>
+
+        <rect x="590" y="128" width="270" height="100" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="dfG" x="606" y="152">DEFINITION C · in play only</text>
+        <text class="dfB" x="606" y="176">Excludes set pieces and any</text>
+        <text class="dfB" x="606" y="193">clearance that lands there.</text>
+        <text class="dfX" x="606" y="214">Drops it. It was a clearance.</text>
+
+        <rect x="20" y="248" width="270" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="dfV" x="36" y="278">184</text>
+        <text class="dfX" x="36" y="298">passes into the final third</text>
+        <rect x="305" y="248" width="270" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="dfV" x="321" y="278">141</text>
+        <text class="dfX" x="321" y="298">passes into the final third</text>
+        <rect x="590" y="248" width="270" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="dfV" x="606" y="278">121</text>
+        <text class="dfX" x="606" y="298">passes into the final third</text>
+
+        <rect x="20" y="330" width="840" height="46" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="dfH" x="36" y="350">SAME MATCH. SAME FEED. THREE ANSWERS, AND ONLY ONE IS IN YOUR REPORT.</text>
+        <text class="dfX" x="36" y="368">Counts here are illustrative. The point is the spread, not the numbers.</text>
+
+        <rect x="20" y="396" width="14" height="14" rx="3" fill="#7C3AED"/><text class="dfN" x="44" y="408">Now change the definition between seasons. Your trend line moves and the football did not.</text>
+        <rect x="20" y="424" width="14" height="14" rx="3" fill="#7C3AED"/><text class="dfN" x="44" y="436">A season-on-season comparison is a claim about definitions first and about football second.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one action, three definitions, three numbers</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Write your own data dictionary<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Your provider ships a spec. You still need your own, because a dictionary is not documentation - it is a record of the decisions <em>your department</em> made and can defend in a meeting. Keep it to one row per field and keep it brutally short.</p>
+        <table class="clean">
+          <thead>
+            <tr><th>Column</th><th>What goes in it</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Field</td><td>The exact name in the feed, not your friendly version of it.</td></tr>
+            <tr><td>Our definition</td><td>One sentence, in the words you would use to a coach.</td></tr>
+            <tr><td>Edge cases</td><td>The two or three situations where you had to choose. This is the valuable column.</td></tr>
+            <tr><td>Source</td><td>Human logged, model logged, or derived by us from other fields.</td></tr>
+            <tr><td>Last checked</td><td>A date. Blank means you are quoting a number you have not verified this season.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The known-match test, and the season-change trap<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two habits. The first is a test, the second is a rule, and the rule is the one that saves your reputation.</p>
+        <ul>
+          <li><strong>Test a known match against the feed.</strong> Pick a match you watched properly. Count something by hand - shots, corners, final-third entries, anything you can hold in your head - then pull the same number from the feed. When they disagree, and they will, the disagreement <em>is</em> the definition. Write it in the dictionary. This is the cheapest quality process in analytics and almost nobody runs it.</li>
+          <li><strong>Never compare seasons without checking the definition first.</strong> Providers revise their taxonomies. Fields get split, thresholds get tuned, a category gets renamed and quietly re-scoped. Your six seasons of event data are six seasons of football and an unknown number of definition regimes.</li>
+          <li><strong>Ask the provider directly, in writing.</strong> "Did any field I use change definition this season?" is a fair question, they will usually answer it, and the answer belongs in the dictionary with a date.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>This is stage 3 of the loop, not stage 1.</strong> Checking a definition looks like data hygiene, but the moment you ask "is this true here, for this squad, this season" you are doing Judge - the stage b1 flagged as the one machines are weak at and the one you get paid for. A model will happily fit six seasons of inconsistently defined data and report a very confident number. Both of your accuracy figures will look fine. Nothing in the metrics catches a definition change, which is exactly why the habit has to be yours.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: CARDS ============ -->
+  <section class="section" id="working-with-it">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · working with what you have</span>
+      <h2>Five things that bite <span class="tag concept">reference</span></h2>
+    </div>
+    <p class="lede">The rest of the session is the practical layer: how much one match is worth, why your two feeds refuse to line up, what a hole in the data usually means, what a single season of tracking is genuinely good for, and how to check a provider before you trust it.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Sample size, and why in-match analysis is mostly noise<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One match is a small sample of a noisy process, and the smaller the sample the more confidently people read patterns into it. A single match can tell you a handful of things reliably and a great many things unreliably, and the skill is knowing which list a claim belongs on.</p>
+        <ul>
+          <li><strong>One match can tell you what happened.</strong> Where the shots came from, which zones the ball entered, who was on the pitch when the shape changed. Description is fair game.</li>
+          <li><strong>One match cannot tell you what is true of the team.</strong> Rates over ninety minutes swing enormously. As b1 put it about expected goals: over one match it is noisy, over a season it is one of the better things you have. That applies to almost every metric you own.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Joining event to tracking, and the timestamps that never line up<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You will want tracking context on an event row - who was near the ball, how much space there was, where the keeper stood. That join is a real piece of engineering and it fails in a specific, repeatable way.</p>
+        <ul>
+          <li><strong>The two feeds have different clocks.</strong> They are produced by different systems, started at different moments, with different handling of stoppages. A constant offset is the easy case.</li>
+          <li><strong>The offset drifts.</strong> Halves get clocked separately, stoppages get handled differently, and a join that is perfect in the fifth minute is a second out by the eightieth. A second is a lifetime for a pressure feature.</li>
+          <li><strong>An event has a duration and a tracking frame does not.</strong> A pass occupies real time. Which frame is "the pass" - release, flight, arrival? That choice is a definition, so it goes in the dictionary, and it changes every feature you derive.</li>
+          <li><strong>Align on something visible, then verify by eye.</strong> Kick-off, a goal, a substitution. Then pull ten joined events at random, watch them, and confirm the tracking frame shows what the event row claims. If you cannot afford to watch ten, you cannot afford to ship the feature.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Missing data, and what a gap in the feed usually means<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A gap is information. The mistake is treating it as a technical inconvenience to be filled rather than a fact about the world to be explained.</p>
+        <ul>
+          <li><strong>Missing rarely means random.</strong> Fixtures that were not covered, competitions not in your package, a camera angle that failed, a player whose GPS unit was not worn. Every one of those correlates with something - competition, venue, importance, or the individual player.</li>
+          <li><strong>Ask what the gap is <em>about</em> before you fill it.</strong> If the missing matches are the away cup ties, then a season average computed over what remains is a home-and-league average wearing a season's name.</li>
+          <li><strong>Log coverage next to every aggregate you publish.</strong> "34 of 38 matches" costs you four words and pre-empts the only question that matters.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What Rivermouth can do with one season of tracking<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the constraint you actually live with, so here is the honest split between what one season unlocks and what it forbids.</p>
+        <ul>
+          <li><strong>Build features for this season's models.</strong> Defender pressure, keeper position, space at the moment of release. The b1 ladder needed tracking for two of its five features, and you now have those two - for this season.</li>
+          <li><strong>Describe shape and off-ball behaviour, this season.</strong> Anything a coach wants to see about structure, distances and runs is available to you now in a way it never was from the event feed.</li>
+          <li><strong>Be extremely careful with anything trend-shaped.</strong> "We press higher than we used to" is not a claim your tracking data can make. You have one season. There is no "used to" in the file.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Validating a provider feed against a match you watched<span class="mini">6 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Do this once per provider, per season, and once more the first time a number surprises you. It takes an evening and it is the single most useful unglamorous thing in this session.</p>
+        <ul>
+          <li><strong>Pick a match you watched fully</strong> and would be willing to argue about. Ideally one of yours, ideally not a 4-0.</li>
+          <li><strong>Count them by hand from the footage.</strong> Write your counts down before pulling the feed. Doing it the other way round makes you agree with the feed, every time.</li>
+          <li><strong>Pull the same five from the feed</strong> and put the two columns side by side.</li>
+          <li><strong>Explain every difference.</strong> Not "roughly matches" - explain it. A blocked shot counted or not, a deflection reattributed, a clearance that reached the final third. Each explanation is a dictionary row.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build-along">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Four questions about one match <span class="tag exercise">★ 20 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">Open your own feed, pick one match, and take these four questions in order. Two of them your event data can answer once you have pinned the definition. Two of them it structurally cannot, no matter how good you are at SQL. The exercise is not the answers - it is saying out loud, before you start typing, which question is which and why.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Question 1 · How many of our passes reached the final third?</strong> Event data can answer this. Before you count, write the definition you are using and note which of the three routes in diagram 2 you took.</p></div>
+      <div class="step"><p><strong>Question 2 · Where did our shots come from, and how many were blocked?</strong> Event data can answer this. Check whether a blocked shot is a shot in your feed. Say the answer out loud - somebody in the room will have assumed the other one.</p></div>
+      <div class="step"><p><strong>Question 3 · How often was our right back left isolated against two players?</strong> Event data cannot answer this. It needs the positions of players who never touched the ball. Tracking answers it, for this season only.</p></div>
+      <div class="step"><p><strong>Question 4 · How much space did our striker have when the pass was played?</strong> Event data cannot answer this either. Space is a relationship between bodies, and the event feed contains one body.</p></div>
+      <div class="step"><p><strong>Now say each verdict out loud, with the reason.</strong> "Event can, because it is an on-ball action with a location." "Event cannot, because the answer is about players who were not involved." Do this until it is automatic.</p></div>
+    </div>
+
+    <div class="prompt-box good">
+      <span class="label">Good prompt · use a model to find what you do not know</span>
+      <pre>Here are the field names, data types and five sample rows from a football
+event feed: [paste schema &amp; rows].
+
+For each field, tell me:
+1. What you believe it records, in one sentence.
+2. Your confidence: certain / probable / cannot determine.
+3. If "cannot determine", say exactly what you would need - the provider
+   spec, a labelled example, or a definition from us.
+
+Rules: do NOT guess a definition to be helpful. A field you are unsure
+about must be flagged, not explained. List every flagged field at the end
+as the questions I should send to the provider.</pre>
+    </div>
+
+    <div class="prompt-box bad">
+      <span class="label">Bad prompt · invites confident fiction</span>
+      <pre>Analyse this match data and tell me what happened.</pre>
+    </div>
+
+    <div class="callout tip">
+      <strong>Why the good one works</strong>
+      It uses the model for stage 1 and 2 of the loop, where it is strong, and it removes the model's ability to bluff at stage 3. The output you want is not an analysis. It is a list of questions for your provider, which is the thing that actually improves your data.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 60-90 min total</span></h2>
+    </div>
+    <ul>
+      <li>Write a data dictionary for the ten fields you use most. Field name, your definition in one sentence, the edge cases you had to decide, the source, and a date. Ten rows, one afternoon.</li>
+      <li>Test one known match against the feed. Count five things by hand first, pull the same five, and explain every difference rather than rounding it away.</li>
+      <li>Find out whether your provider changed a definition this season. Ask them in writing, and file the answer with a date next to the affected dictionary rows.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session sits underneath the whole analyst track: every model in b3 onwards is built from the rows described here, and every claim in the b10 match report has to survive the definition question. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Event versus tracking data and what each one can and cannot support</span><span class="note">Parts 1-3 · the full session, as promised in b1</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Tracking enables richer models, while many production models still use event-extracted features</span><span class="note">Part 1 · carried into the b3 feature build</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Definition risk, provider taxonomy changes, and the data dictionary habit</span><span class="note">Part 2 · the habit the rest of the track assumes</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Shot-model feature sets - distance, angle, defensive pressure, goalkeeper location</span><span class="note">Part 1 · which features need tracking · built in b3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Sample size, single-match noise, and where in-match analysis stops being useful</span><span class="note">Part 3 · b4 self-study and b6 go further</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Auto-tagging as a source of event rows, and its uneven error rate</span><span class="note">Part 1 self-study · b4 is the measurement session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A coach asks how much space your striker had when the killer pass was played. You have six seasons of event data and one season of tracking. What do you say?</p>
+      <button class="qopt" type="button">A · Estimate it from the event feed using pass length and the receiver's location</button>
+      <button class="qopt" type="button">B · Say the question cannot be answered from data at all</button>
+      <button class="qopt" type="button">C · Answer it from tracking, and say clearly that you can only do this for matches in the current season</button>
+      <p class="qwhy">Space is a relationship between bodies, and the event feed contains one body - the one on the ball. Tracking answers it properly, and at Rivermouth that means this season only. Attaching the constraint to the answer is what makes the answer usable rather than misleading.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Final-third entries are up 24% on last season and the coaching staff are delighted. What is the first thing you check?</p>
+      <button class="qopt" type="button">A · Whether the provider's definition of a final-third entry changed between the two seasons</button>
+      <button class="qopt" type="button">B · Whether the increase is statistically significant across the full fixture list</button>
+      <button class="qopt" type="button">C · Which players drove the increase, so the report can name them</button>
+      <p class="qwhy">Both of the other steps are reasonable later, and both are worthless if the field means something different in the two seasons. Providers revise taxonomies without telling you, so a season-on-season comparison is a claim about definitions first and about football second.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · Your tracking join looks perfect in the opening minutes but a pressure feature built on it behaves strangely late in matches. Most likely cause?</p>
+      <button class="qopt" type="button">A · Tracking accuracy degrades as players tire and the detection model loses them</button>
+      <button class="qopt" type="button">B · The clock offset between the two feeds drifts, so events are matched to the wrong tracking frame later in the match</button>
+      <button class="qopt" type="button">C · Late-match football is genuinely more chaotic, so the feature is correct</button>
+      <p class="qwhy">The two feeds come from different systems with different handling of stoppages, and a constant offset is the easy case. Drift is the normal one: a join that is exact in the fifth minute can be a second out by the eightieth, and a second is a lifetime for anything measuring pressure. Align on a visible moment, then verify ten joined events by eye.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Event versus tracking</b><span>Event logs on-ball actions with a time, a place and attributes. Tracking logs all 22 players and the ball, many times a second, touched or not.</span></div>
+      <div class="cheat-item"><b>The structural blind spot</b><span>Event data cannot see off-ball movement, defensive shape, space or pressure. Not poorly. At all.</span></div>
+      <div class="cheat-item"><b>Event is not obsolete</b><span>Tracking enables richer models, and plenty of production models still run on event-extracted features. Both things are true.</span></div>
+      <div class="cheat-item"><b>Definitions, not data</b><span>Who logged it, what counts as a final-third pass, is a blocked shot a shot, does the clock stop. Write your own dictionary, ten fields, dated.</span></div>
+      <div class="cheat-item"><b>The season trap</b><span>Provider definitions change and nobody tells you. Never compare seasons without checking the definition first.</span></div>
+      <div class="cheat-item"><b>The known-match test</b><span>Count five things by hand from a match you watched, then pull the same five. Every difference is a dictionary row.</span></div>
+      <div class="cheat-item"><b>Joins and gaps</b><span>Clocks drift, so verify ten joined events by eye. A gap is never random and a missing field is not a zero. Publish coverage next to every aggregate.</span></div>
+      <div class="cheat-item"><b>One season of tracking</b><span>Build this season's features freely. Be extremely careful with anything trend-shaped, and never backfill onto older seasons.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 2 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b1-the-analysts-ai-loop.html">← Previous: The sports analyst's AI loop</a> &nbsp;·&nbsp; <a href="b3-shot-quality-model.html">Next: Building a shot-quality model →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="The hardest communication job in sport is telling a fan the chance was 0.03 straight after it went in. Session 9 covers what a probability actually claims, the graphics that mislead a viewer, and the integrity rails around anything you publish.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Fan-facing analytics and broadcast - learn ai sports with phoebe">
+<meta property="og:description" content="Explaining a probability to someone who is angry, graphics that inform rather than mislead, and the integrity rails around any public output.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b9-fan-facing-analytics.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fan-facing analytics and broadcast - learn ai sports with phoebe">
+<meta name="twitter:description" content="What a probability claims, what a fan hears, and the graphics that close the gap instead of widening it.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 9 · Fan-facing analytics and broadcast - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 9 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 9 of 10</div>
+    <h1>Fan-facing analytics and <span class="accent">broadcast</span></h1>
+    <p class="sub">Everything so far has been for eleven people in a room. Tonight the audience is forty thousand in a stadium and a few million more on a broadcast feed, and none of them signed up for a modelling lecture. The single hardest communication job in sport is telling a fan that the chance their striker just missed was a 0.03 chance, three seconds after it went in. You are not going to win that argument by being right. You win it by making the graphic say what the model actually claims, with the denominator on it, the sample size on it, and one clause about what the number does not mean. Rivermouth's content team publishes four graphics a week and has never once asked an analyst to check one. That changes tonight.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Analyst track</span>
+      <span class="chip audience">Analysts · content · broadcast staff</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:3">0-3 · Welcome</span>
+      <span class="a2" style="flex:15">3-18 · Explaining a probability</span>
+      <span class="a3" style="flex:22">18-40 · Build-along: the graphic</span>
+      <span class="a4" style="flex:5">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this sits in the track</h2>
+    </div>
+    <p class="lede">b8 gave you the one-slide rule for a coach who has never opened a dashboard. This session takes the same discipline outside the building. The audience is different in exactly two ways: they cannot ask you a follow-up question, and a fraction of them are angry. Everything else transfers. The two-number discipline still holds, counts still need denominators, and the decision line from b1 still applies, because a public output about a named player is a claim about that person's career whether you meant it that way or not.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      One sentence that explains a probability to a furious fan, the five graphic failures that get a club mocked, the four elements that make a public number defensible, and a clear line on what is out of scope for anyone producing public material.
+    </div>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="probability">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the hardest job in sports communication</span>
+      <h2>Explaining a probability to someone who is angry <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">A shot is taken. The graphic flashes <strong>0.03</strong>. The ball hits the net. Within a minute your club account has four hundred replies telling you the model is garbage, and about half of them are making the same mistake in three different costumes. The mistake is not stupidity. It is that the graphic said one thing, the model claimed another, and nobody ever closed the gap between them. Closing that gap is your job, not the fan's.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One shot shown three ways - what the broadcast graphic says, what the model actually claims, and what a fan hears - with the gap between the model claim and the fan reading marked as the communication job.">
+        <style>
+          .fgT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .fgS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .fgK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .fgKr { font: 700 10.5px Inter, sans-serif; fill: #991B1B; letter-spacing: .08em; }
+          .fgKy { font: 700 10.5px Inter, sans-serif; fill: #15803D; letter-spacing: .08em; }
+          .fgB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .fgG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .fgV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .fgN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .fgWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#fgHd); }
+          .fgDash { stroke: #7C3AED; stroke-width: 2; stroke-dasharray: 5 4; fill: none; }
+        </style>
+        <defs>
+          <marker id="fgHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="18" width="840" height="30" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="fgG" x="36" y="38">ONE SHOT · model value 0.03 · and it went in</text>
+
+        <rect x="20" y="62" width="264" height="46" rx="8" fill="#15803D"/>
+        <text class="fgT" x="36" y="84">1 · THE GRAPHIC SAYS</text>
+        <text class="fgS" x="36" y="101">two seconds on screen</text>
+        <rect x="308" y="62" width="264" height="46" rx="8" fill="#0E5A2B"/>
+        <text class="fgT" x="324" y="84">2 · THE MODEL CLAIMS</text>
+        <text class="fgS" x="324" y="101">the honest statement</text>
+        <rect x="596" y="62" width="264" height="46" rx="8" fill="#15803D"/>
+        <text class="fgT" x="612" y="84">3 · THE FAN HEARS</text>
+        <text class="fgS" x="612" y="101">at volume, immediately</text>
+
+        <path class="fgWire" d="M284,85 L304,85"/>
+        <path class="fgWire" d="M572,85 L592,85"/>
+
+        <rect x="20" y="122" width="264" height="98" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="fgK" x="36" y="142">ON SCREEN</text>
+        <text class="fgB" x="36" y="163">a bare number, no scale</text>
+        <text class="fgB" x="36" y="181">no denominator anywhere</text>
+        <text class="fgB" x="36" y="199">no sample, no uncertainty</text>
+
+        <rect x="308" y="122" width="264" height="98" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="fgKy" x="324" y="142">THE ACTUAL CLAIM</text>
+        <text class="fgB" x="324" y="163">shots like this one are</text>
+        <text class="fgB" x="324" y="181">scored about 3 times in</text>
+        <text class="fgB" x="324" y="199">100 in the reference set</text>
+
+        <rect x="596" y="122" width="264" height="98" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="fgKr" x="612" y="142">THE MISREADING</text>
+        <text class="fgB" x="612" y="163">"the model says he is bad"</text>
+        <text class="fgB" x="612" y="181">"we should have won 2-1"</text>
+        <text class="fgB" x="612" y="199">"so the model is garbage"</text>
+
+        <path class="fgDash" d="M584,58 L584,228"/>
+
+        <rect x="308" y="236" width="552" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="fgV" x="324" y="260">THE COMMUNICATION JOB - close this gap before kickoff, not after</text>
+
+        <rect x="20" y="236" width="264" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="fgKy" x="36" y="260">THE GRAPHIC IS YOURS</text>
+
+        <rect x="20" y="292" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="fgN" x="44" y="304">The model never claimed the goal was undeserved. It claimed shots like it rarely go in.</text>
+        <rect x="20" y="316" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="fgN" x="44" y="328">Post-match xG predicted match outcome at about 0.656 accuracy. Informative, not certain.</text>
+        <rect x="20" y="340" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="fgN" x="44" y="352">One match of xG is noisy. The gap closes when you say the sample size out loud.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one shot, three readings, and the gap you are paid to close</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The three misreadings you will meet every week<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Almost every angry reply is one of three things wearing a different jersey. Learn to name them fast, because the reply you write depends entirely on which one it is.</p>
+        <ul>
+          <li><strong>xG as a scoreline that should have happened.</strong> "We won the xG 2.4 to 0.8" is treated as a moral verdict on the result. It is not a scoreline. It is a summary of the chances created, which is a different and more useful thing, and it does not entitle anyone to a result.</li>
+          <li><strong>One match read as if it meant something.</strong> Over a single match, xG is noisy - it is a sample-size instrument, and a season is where it starts earning its keep. Anyone quoting one match's figure as evidence about a player or a system is reading weather as climate.</li>
+          <li><strong>A model output read as a judgement on a person.</strong> A 0.03 chance says nothing about the striker's ability, character or contract. It describes the chance, not the man who took it. This is the misreading that does real damage, and it is the one your graphic is most likely to have invited.</li>
+        </ul>
+        <p>The honest framing, which you can say on air without embarrassment: post-match expected goals predicted match outcome at around <strong>0.656 accuracy</strong> in a peer-reviewed Bundesliga comparison. That is genuinely informative and nowhere near certainty. Both halves of that sentence matter. Drop the first half and you sound like you are apologising for your own work; drop the second half and you have just promised something you cannot deliver.</p>
+        <div class="callout tip">
+          <strong>The one sentence, ready to use</strong>
+          "That was a hard chance - shots from there go in about three times in a hundred, so we are delighted it went in, and it does not mean he is a poor finisher or that the model is broken. Over a season the number tells you a lot; over one shot it tells you almost nothing."
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why "being right" loses the room<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The instinct when a fan says the model is garbage is to explain the model. It never works, for a reason worth understanding: they are not disputing your maths, they are disputing that a number gets to comment on something they just watched with their own eyes.</p>
+        <ul>
+          <li><strong>Concede the event first.</strong> The goal happened. It counted. Say so before you say anything else, and mean it.</li>
+          <li><strong>Then narrow the claim.</strong> The number is about the chance, not the outcome, and not the player.</li>
+          <li><strong>Then give the sample.</strong> Numbers get their authority from how many times they have been checked. If you do not say how many, the number is just an opinion in a nicer font.</li>
+          <li><strong>Then say what it does not mean,</strong> explicitly. This is the step everybody skips and it is the step that does the work.</li>
+        </ul>
+        <p>This is the same move as b8's one-slide rule. A coach who has never opened a dashboard and a fan on a phone at half-time have exactly the same requirement: one idea, stated plainly, with its limits attached.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What a probability is, in language nobody objects to<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A probability is a long-run bookkeeping statement. It says: across everything we have seen that looks like this, here is how often it ended a particular way. Three consequences follow, and they are worth having ready.</p>
+        <ul>
+          <li><strong>It is never wrong about one event.</strong> A 0.03 chance that goes in was still a 0.03 chance. Rare things happen at their rate, which is the whole point of quoting a rate.</li>
+          <li><strong>It inherits its features.</strong> A model without defensive pressure will overrate crowded chances every time. When a fan asks what is in the model, that is a good question, not an attack.</li>
+          <li><strong>It gets better with volume and worse with anecdote.</strong> Adjusting a model because one improbable thing happened is how you dismantle it one weekend at a time.</li>
+        </ul>
+        <p>The version that survives contact with an audience avoids the word "expected" entirely. "About three in a hundred" lands. "An xG of 0.03" starts a fight.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="graphics">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · build-along</span>
+      <h2>Graphics that inform rather than mislead <span class="tag demo">★ 22 min · everyone builds one</span></h2>
+    </div>
+    <p class="lede">There are five ways a public graphic goes wrong, and Rivermouth's content team has shipped all five in the last two months. None of them were dishonest. Every one of them was a number that had been separated from the thing that made it meaningful.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 382" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same statistic shown as a misleading graphic and as an honest one, with the four elements added to the honest version labelled - denominator, sample size, date range, and one clause on what the number does not mean.">
+        <style>
+          .hgH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .hgHg { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .hgBig { font: 700 34px Inter, sans-serif; fill: #182C1F; }
+          .hgLab { font: 700 10.5px Inter, sans-serif; fill: #6E7F73; letter-spacing: .08em; }
+          .hgB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .hgX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .hgKr { font: 700 10.5px Inter, sans-serif; fill: #991B1B; letter-spacing: .08em; }
+          .hgKv { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .hgN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <rect x="20" y="20" width="400" height="40" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="hgH" x="36" y="45">MISLEADING - the version that ships</text>
+        <rect x="460" y="20" width="400" height="40" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="hgHg" x="476" y="45">HONEST - the version that survives a question</text>
+
+        <rect x="20" y="72" width="400" height="104" rx="8" fill="#FFFFFF" stroke="#E3EDE6" stroke-width="2"/>
+        <text class="hgBig" x="40" y="118">NN%</text>
+        <text class="hgLab" x="40" y="140">PRESSING SUCCESS</text>
+        <text class="hgX" x="40" y="162">Rivermouth are elite at pressing</text>
+
+        <rect x="460" y="72" width="400" height="104" rx="8" fill="#FFFFFF" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="hgBig" x="480" y="118">NN%</text>
+        <text class="hgB" x="480" y="140">n of N pressing sequences · 6 matches</text>
+        <text class="hgX" x="480" y="162">date range shown · not a ranking claim</text>
+
+        <rect x="20" y="188" width="400" height="104" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="hgKr" x="36" y="208">WHAT IS MISSING</text>
+        <text class="hgB" x="36" y="230">a percent with no denominator</text>
+        <text class="hgB" x="36" y="248">one match, dressed as a season</text>
+        <text class="hgB" x="36" y="266">no date range, no opponent set</text>
+        <text class="hgB" x="36" y="284">no uncertainty, so it reads as fact</text>
+
+        <rect x="460" y="188" width="400" height="104" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="hgKv" x="476" y="208">FOUR ELEMENTS ADDED</text>
+        <text class="hgB" x="476" y="230">1 · denominator - n of N, never a bare %</text>
+        <text class="hgB" x="476" y="248">2 · sample size - how many matches</text>
+        <text class="hgB" x="476" y="266">3 · date range - which window it covers</text>
+        <text class="hgB" x="476" y="284">4 · one clause on what it does NOT mean</text>
+
+        <rect x="20" y="308" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="hgN" x="44" y="320">A percentage with no denominator is a rumour that has been given a decimal point.</text>
+        <rect x="20" y="332" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="hgN" x="44" y="344">Say the sample size in the same breath as the number. Every time, without exception.</text>
+        <rect x="20" y="356" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="hgN" x="44" y="368">Explaining the method builds more trust than simplifying it away ever will.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the same statistic, misleading and honest, with the four additions labelled</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The five failures, named<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>A percentage with no denominator.</strong> "68% pressing success" could be 34 of 50 or 2 of 3. Those are different worlds and the graphic hides which one you are in.</li>
+          <li><strong>A season metric shown after one match.</strong> Some numbers only mean anything at volume. Publishing them after ninety minutes is not a shortcut, it is a category error.</li>
+          <li><strong>A cumulative xG line read as the story of the match.</strong> A step chart is a record of chances in time order. It is not a narrative, and the team whose line ends higher did not win a moral victory.</li>
+          <li><strong>A cross-league player comparison with no adjustment.</strong> b7 spent a whole session on this. The same output in two leagues is not the same performance, and publishing the raw pair invites a conclusion the data does not support.</li>
+          <li><strong>Any graphic with no uncertainty on it at all.</strong> A number rendered in a confident typeface with no range, no sample and no caveat is making a claim of certainty whether or not anyone typed the word.</li>
+        </ul>
+        <p>What works is unglamorous and takes about forty seconds: counts with denominators, a sample-size label, the date range, and one clause saying what the number does not mean. Four things. They are the same four things b6 made you attach to a tendency before you were allowed to call it verified.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The evidence base does not support certainty, and saying so is not weakness.</strong> Post-match xG predicted match outcome at around 0.656 accuracy in a peer-reviewed comparison. Commercial shot-quality models train on close to a million historical shots across twenty-plus variables, and they still produce a probability rather than a verdict. If the most heavily resourced version of this work reports uncertainty, a graphic from a mid-table club's content account has no business implying it has none.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="steps">
+      <div class="step"><p>Take one match's shot data. Write down the raw pair first: total shots for each side, and the model value attached to each shot. No graphic yet.</p></div>
+      <div class="step"><p>Choose <strong>one idea</strong>. Not three. "Their chances were volume, ours were quality" is one idea. "Here is our full attacking profile" is not.</p></div>
+      <div class="step"><p>Convert every percentage back into a count with its denominator. If you cannot recover the denominator, the number does not go on the graphic.</p></div>
+      <div class="step"><p>Add the sample-size label and the date range in the same visual block as the number, not in a corner at 8px. Small print is a way of technically saying it.</p></div>
+      <div class="step"><p>Write the "does not mean" clause. One sentence. For a shot map: "this does not say who deserved to win".</p></div>
+      <div class="step"><p>Hand it to someone who does not work in analytics and ask them what it claims. If their answer is bigger than your claim, the graphic is not finished.</p></div>
+    </div>
+
+    <div class="prompt-box good">
+      <span class="label">✓ Prompt that produces a publishable caption</span>
+      <pre>You are writing a caption for a public graphic for a football club.
+
+METRIC: [name]  VALUE: [count] of [denominator]
+SAMPLE: [n matches]  WINDOW: [first date] to [last date]
+
+Write 3 sentences, max 45 words total.
+1. State the metric as a count out of its denominator.
+2. State the sample size and the date range explicitly.
+3. State one specific thing this number does NOT mean.
+
+Rules: no superlatives, no league ranking claims, no comparison
+to another league. Do not imply certainty &amp; do not use the words
+"proves", "shows conclusively", "guarantees" or "deserved".
+If the denominator is missing, reply "denominator required" only.</pre>
+    </div>
+
+    <div class="prompt-box bad">
+      <span class="label">✗ Prompt that produces something you will have to delete</span>
+      <pre>Give me a punchy stat for social from this match.</pre>
+    </div>
+
+    <div class="callout tip">
+      <strong>Why the second one fails</strong>
+      "Punchy" is an instruction to remove the denominator, because the denominator is the part that makes a number less punchy. You have asked for the failure mode by name. Anything that comes back will be a bare percentage with no sample, and you will publish it because it sounds good.
+    </div>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="rails">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the rails</span>
+      <h2>What you may publish, and what stays inside <span class="tag concept">read and keep</span></h2>
+    </div>
+    <p class="lede">A public output is a different object from an internal one, and the difference is not tone. Once a number leaves the building it can be traded on, quoted back at a player, or used to argue that someone should lose their job. These four cards are the constraints that come with the audience.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Integrity rails for anyone producing public outputs<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three rules, and they are not negotiable regardless of how good the content idea is.</p>
+        <ul>
+          <li><strong>Predictive material about your own fixtures is sensitive before official team news.</strong> A graphic that reveals expected availability, a likely shape, or a modelled probability for a match you are about to play is information the market does not have. It waits until the club has published team news through the official channel.</li>
+          <li><strong>Inside information stays inside.</strong> Training-ground observations, medical status, and anything from the wearable or medical systems in b5 are not content. Not anonymised, not "hinted at", not as a teaser.</li>
+          <li><strong>Wagering is explicitly out of scope for this course.</strong> This track does not teach betting strategy, betting models, or how to find an edge, and no session will. What you get here is the integrity rail: know that predictive material can move a market, and behave accordingly. The commercial and regulatory side of that sits with director session a5, which is where the club-level policy belongs.</li>
+        </ul>
+        <p>If you are unsure whether something crosses a rail, the test is not "is this interesting". It is "could someone act on this before the market has it". If yes, it waits, and you ask the person whose job that actually is.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>When the graphic is not yours to control<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Broadcasters build their own graphics from their own data, on their own deadline, and your name is nowhere near the render. You still get asked about it on Monday. What you can do:</p>
+        <ul>
+          <li><strong>Supply the caption, not just the number.</strong> If you hand over a figure, hand over the denominator and the sample size in the same message. Numbers travel; context only travels if you attach it.</li>
+          <li><strong>Ask which model produced it.</strong> Providers differ on features. A value from a model without defensive pressure is not the same object as yours, and reconciling two numbers on air is a losing position.</li>
+          <li><strong>Agree in advance what you will not confirm.</strong> Availability, medical status, and anything about a decision that has not been made.</li>
+          <li><strong>Do not correct a broadcaster live over a rounding difference.</strong> Correct the misreading, never the decimal. The misreading is what causes damage.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Publishing a metric about a named individual<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The moment a public metric is about one person's performance, you have taken on a duty of care that does not apply to a team-level chart. The player did not consent to a model, cannot reply on equal terms, and will read it.</p>
+        <ul>
+          <li><strong>Say what the metric is not.</strong> An underperformance figure against shot quality is a statement about a sample of chances, not about temperament, effort or worth. Put that clause on the graphic.</li>
+          <li><strong>Check the sample before the phrasing.</strong> A player-level number over a handful of matches should generally not be published at all. Over one match it should never be.</li>
+          <li><strong>Route it through the people who own player relations.</strong> This is not analytics being timid. It is that the consequences land on someone else and they get a say.</li>
+          <li><strong>Never publish anything derived from medical or wearable systems about an individual.</strong> b5 is unambiguous about this, and it is orientation on how to work alongside clinicians, not medical advice.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Fans want more depth than you think<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The default assumption in club content is that the audience wants everything simplified. The evidence from how supporters actually engage points the other way: a large part of the audience already reads shot maps, argues about sample size, and knows which providers use which features. Simplifying past that point does not protect them, it insults them, and it removes exactly the context that stops a number being misread.</p>
+        <ul>
+          <li><strong>Explaining the method builds trust; hiding it builds suspicion.</strong> A short line on what is in the model converts hostile replies into arguments about football, which is a much better place to be.</li>
+          <li><strong>Depth is cheap to add and expensive to retrofit.</strong> A denominator costs six characters. A correction costs a week.</li>
+          <li><strong>The people who complain loudest about numbers usually want better numbers,</strong> not fewer. Treat the complaint as a feature request.</li>
+        </ul>
+        <p>The club that publishes "34 of 50, across six matches, and this does not rank us in the league" ends up with a more informed audience and considerably less to apologise for.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li>Take one graphic your club published in the last month and rewrite it with a denominator and a sample-size label. Put the two versions side by side and show the content team.</li>
+      <li>Write, in one sentence, the explanation of a shot-quality number you would give to an angry fan. Read it out loud. If it contains the word "expected", rewrite it.</li>
+      <li>Go through the last month of your club's public output and check whether anything published before official team news could have moved a betting market. Write down what you find and take it to whoever owns integrity policy.</li>
+      <li>Find one published graphic that compares players across leagues with no adjustment. Work out what claim it is actually inviting, and what the adjusted version would say instead.</li>
+      <li>Ask one person in the content team what they think xG means. Do not correct them in the moment. Write down the gap between their answer and the model's claim, because that gap is your next graphic brief.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session uses the same verified evidence base as the rest of the track and adds nothing to it. Betting strategy of any kind is out of scope by design; the integrity rails are covered and the club-level policy belongs with director session a5. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Post-match xG and match outcome at around 0.656 accuracy, used as the honest framing</span><span class="note">Part 1 · first introduced in b1</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The three recurring public misreadings of a probability</span><span class="note">Part 1 · the diagram and the ready-made sentence</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Five graphic failures and the four elements that fix them</span><span class="note">Part 2 · build-along and both prompt boxes</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Integrity rails around predictive material and official team news</span><span class="note">Part 3 · club policy sits in a5</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Commercial shot models - near a million shots, twenty-plus variables</span><span class="note">Part 2 · the full build is b3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">League adjustment before any cross-league comparison</span><span class="note">Part 2 · b7 is the full session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A 0.03 chance goes in and the replies say your model is garbage. What is the response that actually works?</p>
+      <button class="qopt" type="button">A · Explain how the model is trained, feature by feature, so they can see it is sound</button>
+      <button class="qopt" type="button">B · Point out that xG predicted match outcome at 0.656 accuracy, so the model is proven</button>
+      <button class="qopt" type="button">C · Concede the goal first, narrow the claim to the chance rather than the player, give the rate in plain language, and say what the number does not mean</button>
+      <p class="qwhy">They are not disputing your maths, they are disputing that a number gets to comment on something they just watched. Explaining the model reads as a defence; conceding the event and then narrowing the claim reads as an answer. The 0.656 figure is honest framing, not a trump card - it is informative and nowhere near certainty.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · A graphic reads "68% pressing success" with nothing else on it. What is the single biggest problem?</p>
+      <button class="qopt" type="button">A · No denominator - 34 of 50 and 2 of 3 are different worlds, and the graphic hides which one you are in</button>
+      <button class="qopt" type="button">B · The colour scheme implies more precision than the metric supports</button>
+      <button class="qopt" type="button">C · Pressing success is not a metric a public audience will understand</button>
+      <p class="qwhy">A percentage with no denominator is the first of the five failures and the one that survives every review because it looks finished. The fix costs six characters. The audience understands pressing perfectly well; what they cannot see is how many sequences the number came from, or over how many matches.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · The content team wants to publish a modelled availability graphic for Saturday's opponent on Friday afternoon. What do you say?</p>
+      <button class="qopt" type="button">A · Fine, as long as the sample size and denominator are on it</button>
+      <button class="qopt" type="button">B · It waits - predictive material about your own fixtures is sensitive before official team news, and this goes to whoever owns integrity policy first</button>
+      <button class="qopt" type="button">C · Publish it, but recommend a betting angle in the caption so the framing is transparent</button>
+      <p class="qwhy">The four elements make a number defensible; they do not make sensitive information publishable. Predictive material about your own fixtures can move a market before team news is out, so it waits and it goes to the person who owns that policy. Option C is out of scope entirely - this course covers integrity rails and teaches no betting strategy of any kind.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 9 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The gap you are paid to close</b><span>What the graphic says, what the model claims, what a fan hears. The last two are your job, not theirs.</span></div>
+      <div class="cheat-item"><b>The three misreadings</b><span>xG as a scoreline that should have happened, one match read as meaningful, a model output read as a verdict on a person.</span></div>
+      <div class="cheat-item"><b>The honest framing</b><span>Post-match xG predicted match outcome at about 0.656 accuracy. Informative, and nowhere near certainty. Say both halves.</span></div>
+      <div class="cheat-item"><b>The five failures</b><span>No denominator, a season metric after one match, a cumulative line read as a story, unadjusted cross-league pairs, no uncertainty at all.</span></div>
+      <div class="cheat-item"><b>The four elements</b><span>Denominator, sample size, date range, and one clause on what the number does not mean. Same four as a verified tendency in b6.</span></div>
+      <div class="cheat-item"><b>Never ask for punchy</b><span>"Punchy" is an instruction to delete the denominator. Ask for a count, a sample and a limit instead.</span></div>
+      <div class="cheat-item"><b>The rails</b><span>Predictive material waits for official team news, inside information stays inside, wagering is out of scope for this course. Policy lives in a5.</span></div>
+      <div class="cheat-item"><b>Depth beats simplifying</b><span>Explaining the method builds more trust than removing it. A denominator costs six characters; a correction costs a week.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 9 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b8-communicating-to-coaches.html">← Previous: Communicating to coaches</a> &nbsp;·&nbsp; <a href="b10-capstone-one-match.html">Next: Capstone - one match, one report →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

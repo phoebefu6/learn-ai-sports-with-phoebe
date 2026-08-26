@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Ten sessions in one club: Rivermouth FC, three analysts, event data, one season of tracking, GPS on everyone, and a medical department that does not trust you yet. Tonight the frame - the analysis loop, the decision line, and a live shot-quality model where the anti-lever makes the number go up.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The sports analyst&#x27;s AI loop - learn ai sports with phoebe">
+<meta property="og:description" content="The analysis loop, the decision line, and a live shot-quality model where the anti-lever makes the fitted number go up and the real number go down.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b1-the-analysts-ai-loop.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The sports analyst&#x27;s AI loop - learn ai sports with phoebe">
+<meta name="twitter:description" content="The analysis loop, the decision line, and a live shot-quality model where the anti-lever makes the number go up.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 1 · The sports analyst's AI loop - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 1 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 1 of 10</div>
+    <h1>The sports analyst's <span class="accent">AI loop</span></h1>
+    <p class="sub">Sport got modelled before almost anything else, which means it has had longer than most fields to learn where models earn their place and where they quietly do damage. Commercial shot-quality models now train on close to a million historical shots across twenty-plus variables, and post-match expected goals predicts match outcome at around 0.656 accuracy - genuinely useful, and nowhere near the certainty the graphic implies. Meanwhile injury-risk models in the published literature range from accuracy 52% and AUC 0.52 up to AUC 0.87, wildly inconsistent, and the reviews are blunt that these outputs are supportive information only and must never decide selection or return to play on their own. Tonight you get the frame: the analysis loop, the decision line no model crosses, and a live shot model where switching on the wrong feature makes the headline number go UP.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst track</span>
+      <span class="chip audience">Performance analysts · coaches · data staff</span>
+      <span class="chip audience">No coding needed</span>
+      <span class="chip time">Start here</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The loop + the decision line</span>
+      <span class="a3" style="flex:5">18-42 · Build-along: the shot model</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>How this track works</h2>
+    </div>
+    <p class="lede">Ten sessions, one club: <strong>Rivermouth FC</strong> - mid-table, three people in the analytics department, event data from a provider going back six seasons, tracking data for this season only, GPS on every player, a video archive nobody can search, and a medical department that has been burned by a dashboard before and does not trust you yet. The running deliverable is <strong>one match report</strong> that a head coach will actually read. b2 covers what a row of data even is, b3 builds the shot model, b4 does game film, b5 is wearables and the honest injury picture, b6 opposition analysis, b7 scouting, b8 the one-slide rule, b9 the fan-facing side, and b10 assembles the report and scores it. The worked examples use football because the public evidence base is deepest there. The pattern transfers.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live shot model - toggle features, watch both numbers</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The analysis loop with a clear line through it, the three decisions a model must never make alone, the two-number discipline that catches almost every overfitting mistake you will make, and a shot model you can take apart feature by feature.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE LOOP ============ -->
+  <section class="section" id="analysis-loop">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the spine of the track</span>
+      <h2>The analysis loop <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Every piece of analysis you produce runs the same five stages: <strong>Capture</strong> (what happened, as data), <strong>Model</strong> (what does it imply), <strong>Judge</strong> (is that true here, for this squad, this season), <strong>Communicate</strong> (say it so a coach can act), <strong>Decide</strong> (someone commits, and owns it). Machines are now very good at two of those, adequate at a third, and have no business at all in the last one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The analysis loop - capture, model, judge, communicate, decide - with what AI does and what a human must own at each stage.">
+        <style>
+          .alT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .alS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .alK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .alKy { font: 700 10.5px Inter, sans-serif; fill: #15803D; letter-spacing: .08em; }
+          .alB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .alN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .alWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#alHd); }
+        </style>
+        <defs>
+          <marker id="alHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="26" width="150" height="52" rx="8" fill="#0E5A2B"/>
+        <text class="alT" x="34" y="48">1 · CAPTURE</text>
+        <text class="alS" x="34" y="66">what happened</text>
+        <rect x="195" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="alT" x="209" y="48">2 · MODEL</text>
+        <text class="alS" x="209" y="66">what it implies</text>
+        <rect x="370" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="alT" x="384" y="48">3 · JUDGE</text>
+        <text class="alS" x="384" y="66">is it true here</text>
+        <rect x="545" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="alT" x="559" y="48">4 · COMMUNICATE</text>
+        <text class="alS" x="559" y="66">so a coach acts</text>
+        <rect x="720" y="26" width="150" height="52" rx="8" fill="#0E5A2B"/>
+        <text class="alT" x="734" y="48">5 · DECIDE</text>
+        <text class="alS" x="734" y="66">someone owns it</text>
+
+        <path class="alWire" d="M170,52 L190,52"/>
+        <path class="alWire" d="M345,52 L365,52"/>
+        <path class="alWire" d="M520,52 L540,52"/>
+        <path class="alWire" d="M695,52 L715,52"/>
+
+        <rect x="20" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="alK" x="34" y="126">AI IS STRONG</text>
+        <text class="alB" x="34" y="146">tagging, tracking,</text>
+        <text class="alB" x="34" y="161">cleaning, indexing</text>
+        <rect x="195" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="alK" x="209" y="126">AI IS STRONG</text>
+        <text class="alB" x="209" y="146">shot quality,</text>
+        <text class="alB" x="209" y="161">patterns, ranking</text>
+        <rect x="370" y="106" width="150" height="62" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="alK" x="384" y="126">AI IS WEAK</text>
+        <text class="alB" x="384" y="146">no context, no</text>
+        <text class="alB" x="384" y="161">squad, no season</text>
+        <rect x="545" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="alK" x="559" y="126">AI HELPS</text>
+        <text class="alB" x="559" y="146">drafts, clips,</text>
+        <text class="alB" x="559" y="161">visuals, wording</text>
+        <rect x="720" y="106" width="150" height="62" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="alK" x="734" y="126">AI IS BANNED</text>
+        <text class="alB" x="734" y="146">it cannot carry</text>
+        <text class="alB" x="734" y="161">responsibility</text>
+
+        <rect x="20" y="194" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="alKy" x="34" y="214">YOU OWN</text>
+        <text class="alB" x="34" y="234">what got missed</text>
+        <text class="alB" x="34" y="249">and what it cost</text>
+        <rect x="195" y="194" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="alKy" x="209" y="214">YOU OWN</text>
+        <text class="alB" x="209" y="234">the features and</text>
+        <text class="alB" x="209" y="249">the held-out test</text>
+        <rect x="370" y="194" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="alKy" x="384" y="214">YOU OWN</text>
+        <text class="alB" x="384" y="234">sample size and</text>
+        <text class="alB" x="384" y="249">whether it holds</text>
+        <rect x="545" y="194" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="alKy" x="559" y="214">YOU OWN</text>
+        <text class="alB" x="559" y="234">the uncertainty</text>
+        <text class="alB" x="559" y="249">you report</text>
+        <rect x="720" y="194" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="alKy" x="734" y="214">A HUMAN OWNS</text>
+        <text class="alB" x="734" y="234">selection, medical</text>
+        <text class="alB" x="734" y="249">calls, contracts</text>
+
+        <rect x="20" y="292" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="alN" x="44" y="304">Stage 3 is where analysts earn their salary, and it is the stage no model can do for you.</text>
+        <rect x="20" y="320" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="alN" x="44" y="332">Every session zooms into one stage. b3 is Model, b8 is Communicate, b5 is the hardest Judge.</text>
+        <rect x="20" y="348" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="alN" x="44" y="360">When analysis gets ignored, it usually failed at stage 4. When it does harm, it failed at stage 3.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the analysis loop, and who owns each stage</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two-number discipline<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One habit prevents most of the damage an analytics department does to its own credibility, and it takes ten seconds: <strong>never report one accuracy number.</strong> Report two - how the model does on the data it was fitted to, and how it does on data it has never seen. In sport the natural split is brutal and useful: fit on this season, test on next.</p>
+        <ul>
+          <li><strong>A small gap</strong> - a couple of points - means the model has learned something about the game.</li>
+          <li><strong>A large gap</strong> means it has learned something about this specific squad, this specific season, or worse, this specific set of players. Next August the squad changes and the model quietly stops working, usually without telling anyone.</li>
+          <li><strong>The number that flatters you goes up first.</strong> That is what makes this dangerous: the failure mode looks exactly like success on the metric most people report.</li>
+        </ul>
+        <p>Tonight's demo is built to make you feel this. There is a sixth toggle on the shot model, and when you switch it on the headline number climbs eleven points. It is the worst thing you can do to the model.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Scale gives you an idea of what a serious model looks like.</strong> Commercial shot-quality models train on close to a million historical shots and use twenty-plus variables including distance, angle, defensive pressure and goalkeeper position. Your club has one season of tracking data. That is not a reason to do nothing - it is a reason to be extremely disciplined about the held-out number, because with a small sample the fitted number will tell you whatever you want to hear.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What xG actually is, and what it is not<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Expected goals is a probability attached to a chance: given everything we know about shots like this one, how often does it end up in the net? Four things follow that people constantly get wrong:</p>
+        <ul>
+          <li><strong>It is not a verdict on the finish.</strong> A 0.03 chance that goes in was still a 0.03 chance. The goal was real; the chance was poor. Both are true and the second one is the useful one.</li>
+          <li><strong>It is not a prediction of the match.</strong> Post-match xG predicted match outcome at around 0.656 accuracy in a peer-reviewed Bundesliga comparison - clearly informative, clearly not oracular, and worth quoting the next time someone treats an xG graphic as a scoreline that should have happened.</li>
+          <li><strong>It is a sample-size instrument.</strong> Over one match it is noisy. Over a season it is one of the better things you have.</li>
+          <li><strong>It is a model, so it inherits its features.</strong> A model without defensive pressure will systematically overrate crowded chances. Knowing which features your provider uses is not trivia, it is the difference between reading the number and being read by it.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE DECISION LINE ============ -->
+  <section class="section" id="decision-line">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the constraint that shapes the whole course</span>
+      <h2>The decision line <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Three decisions in a club affect a person's body, livelihood or career, and the published evidence is clear that models are not good enough to make any of them alone. This is not caution for its own sake. The injury-prediction literature is the sharpest example anywhere in applied machine learning of a field where the stakes and the model quality point in opposite directions.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The decision line - selection, return to play, and valuation or contract - with the model's role marked as supportive only and the published performance range for injury models.">
+        <style>
+          .dlT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .dlS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .dlG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .dlB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .dlH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .dlX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .dlN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <rect x="20" y="24" width="270" height="54" rx="8" fill="#15803D"/>
+        <text class="dlT" x="36" y="46">MODEL OUTPUT</text>
+        <text class="dlS" x="36" y="64">a ranked list, a probability</text>
+
+        <rect x="320" y="24" width="240" height="54" rx="8" fill="#0E5A2B"/>
+        <text class="dlT" x="336" y="46">SUPPORTIVE INPUT</text>
+        <text class="dlS" x="336" y="64">one voice among several</text>
+
+        <rect x="590" y="24" width="270" height="54" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="dlG" x="606" y="46">A NAMED HUMAN DECIDES</text>
+        <text class="dlX" x="606" y="64">and carries the consequence</text>
+
+        <rect x="20" y="108" width="840" height="34" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="dlG" x="36" y="130">THE DECISION LINE - three calls a model must never make on its own</text>
+
+        <rect x="20" y="166" width="270" height="82" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="dlG" x="36" y="190">1 · SELECTION</text>
+        <text class="dlB" x="36" y="212">Who plays. A coach decides,</text>
+        <text class="dlB" x="36" y="230">with the model in the room.</text>
+
+        <rect x="305" y="166" width="270" height="82" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="dlG" x="321" y="190">2 · RETURN TO PLAY</text>
+        <text class="dlB" x="321" y="212">A clinician decides. Never</text>
+        <text class="dlB" x="321" y="230">a risk score, ever.</text>
+
+        <rect x="590" y="166" width="270" height="82" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="dlG" x="606" y="190">3 · VALUATION</text>
+        <text class="dlB" x="606" y="212">Someone's livelihood. Models</text>
+        <text class="dlB" x="606" y="230">shortlist; people sign.</text>
+
+        <rect x="20" y="266" width="840" height="42" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="dlH" x="36" y="284">THE EVIDENCE: injury models range accuracy 52% / AUC 0.52 to AUC 0.87</text>
+        <text class="dlX" x="36" y="301">inconsistent across studies, many landing at AUC 0.63-0.65, which the literature calls poor</text>
+
+        <rect x="20" y="324" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="dlN" x="44" y="336">Injuries are rare, so the data is imbalanced and models drift toward predicting nobody gets hurt.</text>
+        <rect x="20" y="348" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="dlN" x="44" y="360">Prior injury remains the strongest single predictor, with ratios often above 2.0. Start there.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the three decisions a model never makes alone</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why injury models underperform, in plain terms<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is worth understanding properly, because you will be asked for an injury model within your first year and the way you answer determines whether the medical department ever trusts you.</p>
+        <ul>
+          <li><strong>Injuries are rare.</strong> Rare events make imbalanced datasets, and imbalanced datasets push a model toward the safe, useless prediction that nobody gets hurt. It will look accurate.</li>
+          <li><strong>The published performance is genuinely inconsistent.</strong> The systematic review range runs from accuracy 52% and AUC 0.52 - which is close to a coin toss - up to AUC 0.87, with a lot of studies landing at 0.63 to 0.65, which the literature itself describes as poor.</li>
+          <li><strong>Generalisability is weak.</strong> Results move with environment, team context and how things were measured, so a model that worked at another club is a hypothesis at yours, not a tool.</li>
+          <li><strong>GPS workload is context dependent.</strong> It captures short-term exposure well and is not the whole story of why a hamstring goes.</li>
+          <li><strong>The strongest signal is unglamorous.</strong> Prior injury, with hazard and odds ratios often above 2.0. Any model that does not beat "who got injured before" is not earning its place.</li>
+        </ul>
+        <p>The recommendation in the literature is explicit: these outputs are supportive information, to be integrated with clinical judgment, athlete history, wellness data, training context and staff expertise - and never used in isolation for selection or return-to-play decisions. b5 is the whole session on this, and it is not medical advice; it is how to be useful next to people who give medical advice.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>How to say no to a request you cannot deliver<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A director will eventually ask for something the data cannot support - who will get injured, who to sell, whether a player is finished. The useful response is never a flat no, and never a model you do not believe in:</p>
+        <ul>
+          <li><strong>Name the decision behind the request.</strong> "Who will get injured" is usually really "how do I plan the squad for a congested December". That second question has an answerable version.</li>
+          <li><strong>Offer the honest version.</strong> Exposure, prior injury, minutes load and availability history give a genuinely useful planning picture without pretending to predict an event.</li>
+          <li><strong>Say what would change your answer.</strong> More seasons, better medical records, a shared definition of what counts as an injury.</li>
+          <li><strong>Put the uncertainty in the same sentence as the number,</strong> every time. b8 is entirely about this.</li>
+        </ul>
+        <p>An analytics department is trusted or ignored on the basis of what it refuses to claim, not on the sophistication of what it builds.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO 1 ============ -->
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 of 2</span>
+      <h2>Build the shot model, feature by feature <span class="tag demo">★ 12 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">Two numbers, always: <strong>this season</strong> is what the model scores on the data it was fitted to, <strong>next season</strong> is what it scores on data it has never seen. Add features one at a time and watch both. The ladder is <strong>50 → 64 → 71 → 75 → 80 → 83</strong> on the number that matters, with the gap holding steady at two points the whole way up. Then turn on the sixth toggle.</p>
+
+    <div class="steps">
+      <div class="step"><p>No features: <strong>52.0 / 50.0</strong>. The model predicts the league average for every shot. Honest, and useless.</p></div>
+      <div class="step"><p>+ Distance: <strong>66.0 / 64.0</strong>. The biggest single jump, as in every published shot model.</p></div>
+      <div class="step"><p>+ Angle: <strong>73.0 / 71.0</strong>. Look at the 6-metre chance on the byline - distance alone called it a huge chance and it is 0.13.</p></div>
+      <div class="step"><p>+ Body part: <strong>77.0 / 75.0</strong>. + Defender pressure: <strong>82.0 / 80.0</strong>. Pressure needs tracking data, not event data (b2).</p></div>
+      <div class="step"><p>+ Keeper position: <strong>85.0 / 83.0</strong>. Now find the 35-metre strike that went in. The model still says 0.03, and the model is right.</p></div>
+      <div class="step"><p>Now switch on <strong>⚠ Shooter reputation</strong>. This season jumps to <strong>96.0</strong>. Read the second number before you celebrate.</p></div>
+    </div>
+
+    <div class="sportsbox" data-mode="score" data-levers=""></div>
+
+    <div class="callout tip">
+      <strong>What just happened</strong>
+      Next season fell to 77.0 and the gap went from 2 points to 19. The model did not get better at judging chances; it learned which players take them, and next August the squad changes. If you had reported one number - the one that went up - you would have shipped it.
+    </div>
+  </section>
+
+  <!-- ============ DEMO 2 ============ -->
+  <section class="section" id="demo-2">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 of 2</span>
+      <h2>One shot at a time <span class="tag demo">★ 10 min · explore</span></h2>
+    </div>
+    <p class="lede">The aggregate hides the interesting part. Step through the eight shots and watch what each feature is worth on each one - the numbers are different every time, which is the entire reason a model beats a rule of thumb.</p>
+
+    <div class="steps">
+      <div class="step"><p>Shot 1, the tap-in: distance does most of the work, but the keeper being committed is a quarter of the value on its own.</p></div>
+      <div class="step"><p>Shot 3, 18 metres at a tight angle: angle is the largest term. Turn reputation on and watch this one get worse.</p></div>
+      <div class="step"><p>Shot 6, the 35-metre strike that went in: with all five features the model says 0.03 and it is correct. A goal does not make a good chance.</p></div>
+      <div class="step"><p>Shot 8, six metres out on the byline: 0.13. Say out loud why, then imagine explaining it to a striker who is furious about it.</p></div>
+      <div class="step"><p>Turn reputation on and step through all eight. The famous players' shots inflate, the unknown players' deflate, and nothing got more accurate.</p></div>
+    </div>
+
+    <div class="sportsbox" data-mode="shots" data-levers="distance"></div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The honest nuance, because the anti-lever is not the whole story.</strong> Player effects are not inherently wrong. Bayesian hierarchical approaches that pool player effects with shrinkage - the Bayes-xG line of work - do genuinely improve season-level prediction for individual players and teams over a plain xG model. What the toggle demonstrates is the naive version: raw identity and reputation, unregularised, on a small sample. The difference between those two is most of what separates a working analytics department from one that produces impressive numbers nobody can rely on.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 25-35 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run the full ladder until you can predict which shots move at each rung. Then run the reputation toggle and write one sentence about what happened to each number.</li>
+      <li>Find out which features your own xG provider uses. If defensive pressure is not among them, note which of your team's chances are being systematically overrated.</li>
+      <li>Take one number your department reported last month and produce the second number for it. If you cannot, that is the finding.</li>
+      <li>Write the decision line for your club on one card - selection, return to play, valuation - and check whether any current dashboard crosses it.</li>
+      <li>Ask your medical lead what would make them trust an analytics output. Do not argue. Write it down.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This track teaches the working core of the public sports-analytics evidence base - shot-quality modelling, tracking data, and the injury-prediction literature - with a live model on the pages where a number tells the story better than a paragraph. Medical and legal specifics stay with clinicians and counsel. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Shot-quality modelling - scale, feature sets, and what the number means</span><span class="note">Parts 1-2 + both demos · full build in b3</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The two-number discipline - fitted versus held out</span><span class="note">Part 1 · the habit the whole track depends on</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Injury-model performance range and the supportive-only recommendation</span><span class="note">Part 2 · the whole of b5 and director session a4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Post-match xG and match-outcome prediction at around 0.656 accuracy</span><span class="note">Part 1 self-study · b6 and b9 return to it</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Bayesian hierarchical player correction (Bayes-xG)</span><span class="note">Demo 2 · the regularisation treatment lands in b3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Event versus tracking data and what each supports</span><span class="note">Referenced throughout · b2 is the full session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · You switch on shooter reputation and this season's accuracy jumps from 85.0 to 96.0. What should you do?</p>
+      <button class="qopt" type="button">A · Ship it - an 11-point gain is the largest single improvement on the board</button>
+      <button class="qopt" type="button">B · Look at the held-out number, which fell from 83.0 to 77.0, and take the feature back out</button>
+      <button class="qopt" type="button">C · Keep it but report the lower number to be safe</button>
+      <p class="qwhy">The gap went from 2 points to 19. The model learned who takes the shots rather than what makes a shot good, and next August the squad changes. This is exactly why you never report one number - the failure mode looks like success on the metric most people quote.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · A 35-metre strike with a model value of 0.03 goes in. What does that tell you about the model?</p>
+      <button class="qopt" type="button">A · The model is broken and needs the shot added to its training data</button>
+      <button class="qopt" type="button">B · The model underrates long shots and needs a distance correction</button>
+      <button class="qopt" type="button">C · Nothing is wrong - a 3% chance goes in about 3% of the time, and this was one of those times</button>
+      <p class="qwhy">A probability is not a prediction of one event. The goal was real and the chance was still poor, and both facts are useful. Adjusting a model because a low-probability event happened is how you destroy it one anecdote at a time.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A director asks for a model that says who will get injured next month. What is the honest response?</p>
+      <button class="qopt" type="button">A · Name the real decision behind the request, offer the answerable version - exposure, prior injury, minutes, availability - and be clear that any output is supportive information, never a selection or return-to-play decision</button>
+      <button class="qopt" type="button">B · Build it - published models reach AUC 0.87, so the performance is there</button>
+      <button class="qopt" type="button">C · Refuse, since injury prediction has been shown not to work</button>
+      <p class="qwhy">Both extremes are wrong. Published performance is real but inconsistent, from AUC 0.52 to 0.87 with many studies at 0.63-0.65, injuries are rare enough to make the data badly imbalanced, and the literature is explicit that outputs are supportive only. The useful move is to answer the planning question that was actually being asked.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The analysis loop</b><span>Capture → Model → Judge → Communicate → Decide. AI is strong at 1 and 2, weak at 3, helpful at 4, and banned from 5.</span></div>
+      <div class="cheat-item"><b>Two numbers, always</b><span>Fitted and held out. A small gap means it learned the game; a big gap means it learned this squad.</span></div>
+      <div class="cheat-item"><b>The ladder</b><span>50 → 64 → 71 → 75 → 80 → 83 held out, gap steady at 2. With reputation on: 96 fitted, 77 held out, gap 19.</span></div>
+      <div class="cheat-item"><b>The anti-feature</b><span>Raw shooter reputation raises the flattering number and lowers the real one. Properly pooled hierarchical player effects are a different thing and do help.</span></div>
+      <div class="cheat-item"><b>The decision line</b><span>Selection, return to play, valuation. Models inform; a named human decides and carries it.</span></div>
+      <div class="cheat-item"><b>Injury reality</b><span>Accuracy 52% to AUC 0.87, inconsistent, often 0.63-0.65. Rare events, imbalanced data, weak transfer. Supportive information only.</span></div>
+      <div class="cheat-item"><b>Start with prior injury</b><span>The strongest single predictor, ratios often above 2.0. If your model does not beat it, it has not earned its place.</span></div>
+      <div class="cheat-item"><b>Running case</b><span>Rivermouth FC · 3 analysts · 6 seasons of event data, 1 of tracking · one match report a coach will read, by b10.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 1 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="b2-event-and-tracking-data.html">Next: Event and tracking data 101 →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/sports-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

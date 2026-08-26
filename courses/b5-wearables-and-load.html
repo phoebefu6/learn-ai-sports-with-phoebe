@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Orientation for working alongside clinicians, not medical advice. The honest published picture of injury-prediction models, why prior injury is still the baseline to beat, and the availability and exposure picture an analyst can deliver without ever producing a risk score.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Wearables and load management - learn ai sports with phoebe">
+<meta property="og:description" content="The honest injury-model picture, the prior-injury baseline, and the availability picture you can honestly deliver. Orientation only, not medical advice.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b5-wearables-and-load.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wearables and load management - learn ai sports with phoebe">
+<meta name="twitter:description" content="The honest injury-model picture and the availability picture you can deliver. Orientation only, not medical advice.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 5 · Wearables and load management - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 5 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 5 of 10</div>
+    <h1>Wearables and <span class="accent">load management</span></h1>
+    <p class="sub"><strong>This session is orientation for working alongside clinicians. It is not medical advice, and nothing on this page should be used to influence a return-to-play or a selection decision.</strong> That is the whole point of the evening. Injury prediction is the place in sport where the stakes are highest and the published model quality is weakest: performance ranges from accuracy 52% and AUC 0.52 up to AUC 0.87, it is inconsistent across studies, and a large group of results land at AUC 0.63 to 0.65, which the literature itself calls poor. Meanwhile the strongest single predictor of a future muscle injury is still prior injury, with hazard and odds ratios often above 2.0. Tonight you learn what an analyst can honestly build next to a medical department, and exactly where you stop.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · sports scientists</span>
+      <span class="chip audience">Not medical advice</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-20 · What the evidence actually says</span>
+      <span class="a3" style="flex:5">20-40 · Build-along: the availability picture</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you stand tonight</h2>
+    </div>
+    <p class="lede"><strong>Read this first: this session is orientation for working alongside clinicians, and it is not medical advice.</strong> Nothing here is a protocol, a screening tool or a rehabilitation input. At <strong>Rivermouth FC</strong> the medical department has been burned by a dashboard before. Someone built a traffic-light screen, a player was quietly left out because of an amber square, and the physio found out in front of the coach. That is why the door is shut. Your job in this session is not to reopen it with a better model. It is to learn what you can honestly deliver, say plainly what you cannot, and be useful <em>next to</em> clinical judgment rather than in place of it. That is the Judge stage of the analysis loop from b1, and it is the hardest one in the whole track.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout tip">
+      <strong>⚠ Standing note for this whole page</strong>
+      This is orientation for analysts, not medical advice. Every model output discussed here is supportive information to be integrated with clinical judgment, athlete history, wellness data, training context and staff expertise, and is never used in isolation for a selection or return-to-play decision. If you take one sentence out of session 5, take that one.
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The honest published performance picture and why it is that way, the prior-injury baseline any model has to beat, an availability and exposure picture you can hand a coach without crossing the decision line, and a script for the first conversation with your medical lead.
+    </div>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="honest-picture">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the evidence, unflattered</span>
+      <h2>The honest picture, in numbers <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">You will be asked for an injury model. Possibly this month. The way you answer decides whether the medical department ever works with you again, so it is worth knowing the literature better than the person asking. Published machine-learning injury-prediction performance runs from <strong>accuracy 52% and AUC 0.52</strong> at the bottom to <strong>AUC 0.87</strong> at the top, it is <strong>inconsistent across studies</strong>, and a large cluster sits at <strong>AUC 0.63 to 0.65</strong>, which the reviews themselves describe as poor. Both ends of that range are real. Quoting only the top end is the single most common way an analyst loses a medical department in one meeting.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The published performance band for machine-learning injury prediction, running from AUC 0.52 to 0.87 with a marked cluster at 0.63 to 0.65, shown next to the simple prior-injury baseline that any model has to clear.">
+        <style>
+          .wlK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .wlT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .wlS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .wlG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .wlH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .wlB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .wlX { font: 600 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .wlN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .wlWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#wlHd); }
+          .wlTick { stroke: #6E7F73; stroke-width: 2; }
+        </style>
+        <defs>
+          <marker id="wlHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <text class="wlK" x="20" y="30">PUBLISHED ML INJURY-PREDICTION PERFORMANCE</text>
+
+        <rect x="99" y="48" width="683" height="34" rx="6" fill="#A7DCB8" stroke="#34A85C" stroke-width="2"/>
+        <rect x="313" y="48" width="40" height="34" fill="#0E5A2B"/>
+
+        <line class="wlTick" x1="99" y1="82" x2="99" y2="92"/>
+        <line class="wlTick" x1="333" y1="82" x2="333" y2="92"/>
+        <line class="wlTick" x1="781" y1="82" x2="781" y2="92"/>
+        <text class="wlX" x="99" y="106" text-anchor="middle">AUC 0.52</text>
+        <text class="wlX" x="333" y="106" text-anchor="middle">0.63-0.65</text>
+        <text class="wlX" x="781" y="106" text-anchor="middle">AUC 0.87</text>
+
+        <rect x="203" y="116" width="260" height="32" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="wlH" x="219" y="137">many land here: called poor</text>
+
+        <rect x="20" y="168" width="260" height="76" rx="8" fill="#0E5A2B"/>
+        <text class="wlT" x="36" y="192">THE BASELINE</text>
+        <text class="wlS" x="36" y="214">prior injury: strongest</text>
+        <text class="wlS" x="36" y="232">single predictor, 2.0+</text>
+
+        <path class="wlWire" d="M286,206 L304,206"/>
+
+        <rect x="310" y="168" width="260" height="76" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="wlN" x="326" y="192">YOUR MODEL</text>
+        <text class="wlB" x="326" y="214">must beat that baseline</text>
+        <text class="wlB" x="326" y="232">on data it has not seen</text>
+
+        <path class="wlWire" d="M576,206 L594,206"/>
+
+        <rect x="600" y="168" width="260" height="76" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="wlH" x="616" y="192">IF IT DOES NOT</text>
+        <text class="wlB" x="616" y="214">it has not earned its</text>
+        <text class="wlB" x="616" y="232">place in the building</text>
+
+        <rect x="20" y="266" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="wlN" x="44" y="278">Injuries are rare, so data is imbalanced and a model looks accurate predicting nobody.</text>
+        <rect x="20" y="294" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="wlN" x="44" y="306">Generalisability is weak: a model that worked elsewhere is a hypothesis at your club.</text>
+        <rect x="20" y="322" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="wlN" x="44" y="334">Orientation for working with clinicians. This is not medical advice.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the published band, and the simple baseline the fancy model has to clear</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Four reasons the numbers look like that<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>None of these are reasons to give up. They are reasons to know what you are holding.</p>
+        <ul>
+          <li><strong>Injuries are rare, so the data is imbalanced.</strong> Low injury incidence limits model performance directly. With a rare outcome, a model drifts toward the safe and useless prediction that nobody gets hurt, and on plain accuracy that looks excellent. This is why accuracy alone is close to meaningless here.</li>
+          <li><strong>Generalisability is weak.</strong> Results move with environment, team context and how things were assessed. A model published on another squad, in another league, with another definition of what counts as an injury, is a <em>hypothesis</em> at your club, not a tool you install.</li>
+          <li><strong>GPS-derived workload is context dependent.</strong> It captures short-term exposure genuinely well, and short-term exposure is not the whole story of why a hamstring goes. Treating a load number as a cause is the mistake the wearable vendors are least motivated to correct.</li>
+          <li><strong>Relatively few studies exploit full tracking granularity.</strong> The richest data in the building is under-used in the published work, which is one of the more interesting open gaps and also a reason to be humble about what the literature has actually tested.</li>
+        </ul>
+        <p>Say it in one sentence when asked: the published range runs from about a coin toss to genuinely strong, it does not transfer well between clubs, and the reviews are explicit that the output is supportive information only. That sentence has never once made a physio think less of an analyst.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Prior injury: the baseline that has to be beaten<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The strongest single predictor of a future muscle injury is unglamorous and free: <strong>prior injury</strong>, with hazard and odds ratios often above 2.0. It needs no wearable, no vendor and no model. It is sitting in the medical department's own records.</p>
+        <p>That gives you a test with real teeth, and it is the same two-number discipline from b1 applied to a much more serious question:</p>
+        <ul>
+          <li><strong>Build the boring baseline first.</strong> Rank the squad by prior injury history alone. Write down how it performs on a season the model has never seen.</li>
+          <li><strong>Then test the sophisticated model against it,</strong> on the same held-out season, on the same definition of injury.</li>
+          <li><strong>If it does not clear the baseline, it has not earned its place.</strong> Not in the building, not in a meeting, and above all not in a room where somebody is deciding whether a player trains tomorrow.</li>
+        </ul>
+        <p>Most vendor demonstrations you will be shown never make this comparison. Asking for it politely, in writing, is one of the most useful things an analyst does all year.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Why the baseline test matters more here than anywhere else in the track.</strong> On a shot model, an overfitted number costs you credibility. Here the same failure mode - a model that learned this squad rather than the game - attaches to a person's body and career. The decision line from b1 exists for exactly this: selection, return to play and valuation are three calls a model never makes alone, and return to play is the one where the gap between model quality and stakes is widest.</p>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="honest-delivery">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · your actual job</span>
+      <h2>What an analyst can honestly deliver <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Here is the move that changes everything about this area of work: <strong>stop trying to predict an event and start describing an exposure.</strong> You are not building a forecast of who gets hurt. You are building an <strong>availability and exposure picture</strong> - minutes load, fixture congestion, prior-injury history, time since return to full training - and those describe things that already happened, which you can be accurate about. They then answer real planning questions, which is what was being asked for in the first place.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 356" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The unanswerable request, who will get injured, routed to the clinician and reframed into three answerable squad-planning questions about exposure and availability.">
+        <style>
+          .rqT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .rqS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .rqH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .rqG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .rqV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .rqB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .rqX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .rqN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .rqWire { stroke: #7C3AED; stroke-width: 2.5; fill: none; marker-end: url(#rqHd); }
+        </style>
+        <defs>
+          <marker id="rqHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#7C3AED"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="24" width="520" height="54" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="rqH" x="36" y="46">THE REQUEST: "who is going to get injured"</text>
+        <text class="rqX" x="36" y="66">an analyst cannot answer this, at any AUC in the literature</text>
+
+        <path class="rqWire" d="M546,51 L584,51"/>
+
+        <rect x="590" y="24" width="270" height="54" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rqV" x="606" y="46">GOES TO THE CLINICIAN</text>
+        <text class="rqX" x="606" y="66">medical judgment, not a model</text>
+
+        <rect x="20" y="96" width="840" height="32" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="rqG" x="36" y="117">REFRAMED INTO THREE QUESTIONS AN ANALYST CAN ACTUALLY ANSWER</text>
+
+        <rect x="20" y="148" width="270" height="96" rx="8" fill="#0E5A2B"/>
+        <text class="rqT" x="36" y="178">1 · THE CONGESTED BLOCK</text>
+        <text class="rqS" x="36" y="204">how do we get through</text>
+        <text class="rqS" x="36" y="222">eight matches in 24 days</text>
+
+        <rect x="305" y="148" width="270" height="96" rx="8" fill="#15803D"/>
+        <text class="rqT" x="321" y="178">2 · WHO HAS NEVER</text>
+        <text class="rqS" x="321" y="204">played three matches in</text>
+        <text class="rqS" x="321" y="222">eight days, ever</text>
+
+        <rect x="590" y="148" width="270" height="96" rx="8" fill="#15803D"/>
+        <text class="rqT" x="606" y="178">3 · THE FIXTURE LIST</text>
+        <text class="rqS" x="606" y="204">what this schedule does</text>
+        <text class="rqS" x="606" y="222">to this particular squad</text>
+
+        <rect x="20" y="262" width="840" height="34" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rqV" x="36" y="284">ALL THREE ANSWER WITH EXPOSURE AND AVAILABILITY - never with a risk score</text>
+
+        <rect x="20" y="304" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="rqN" x="44" y="316">Outputs are supportive information, integrated with clinical judgment and staff expertise.</text>
+        <rect x="20" y="330" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="rqN" x="44" y="342">Never used in isolation for selection or return to play. That rule has no exceptions.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the unanswerable request, routed and reframed</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The four columns, and the questions they answer<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Everything in the availability picture describes the past. That is the source of its honesty, and it is also why nobody can argue with it.</p>
+        <table class="clean">
+          <thead>
+            <tr><th>Column</th><th>What it is</th><th>What it does not claim</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Minutes load</strong></td><td>Minutes played over the last 28 and 90 days</td><td>Not a threshold, not a ceiling, not a cause</td></tr>
+            <tr><td><strong>Congestion</strong></td><td>Matches per rolling 8 and 24 day window, plus travel</td><td>Not a safe or unsafe verdict on a fixture</td></tr>
+            <tr><td><strong>Prior injury</strong></td><td>Whether this player has had this kind of injury before</td><td>Not a diagnosis, not a prognosis, not a probability</td></tr>
+            <tr><td><strong>Time since return</strong></td><td>Days since return to full training, as recorded by medical</td><td>Not an opinion on whether the return was right</td></tr>
+          </tbody>
+        </table>
+        <p>Four columns of counted history. No score, no ranking, no colour. The moment you add a fifth column that combines them into one number, you have built the thing the evidence says you should not build, and the medical department will read it as exactly that, correctly. What those four columns buy you is the set of questions a coach and a medical lead were actually trying to settle when they asked for an injury model, none of which need a prediction:</p>
+        <ul>
+          <li><strong>"How do we get through a congested December?"</strong> Eight matches in 24 days is a planning problem with a countable structure: who has ever done this before, where the two-day turnarounds fall, which positions have no cover at all.</li>
+          <li><strong>"Who has never played three matches in eight days?"</strong> That is a count from history, not a forecast. It tells the staff where they are stepping into the unknown, which is genuinely useful and completely honest.</li>
+          <li><strong>"What does this schedule do to this squad?"</strong> Rivermouth has a 19-man effective squad and two players who have played every minute. The fixture list is a fact and the squad is a fact, and putting them side by side is analysis nobody else in the building has time to do.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The standing recommendation, stated plainly</strong>
+          Model and analytical outputs are <strong>supportive information</strong>, to be integrated with clinical judgment, athlete history, wellness data, training context and staff expertise, and are <strong>never used in isolation</strong> for selection or return-to-play decisions. Put that sentence on the picture itself, in the same font size as everything else, not as small print.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="working-with-medical">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the department that does not trust you</span>
+      <h2>Working next to clinicians <span class="tag concept">cards · mixed</span></h2>
+    </div>
+    <p class="lede">Technical skill is not what is blocking you here. A medical department that has been burned by a dashboard is not making a technical objection, it is making an accurate one: somebody's clinical judgment got quietly overridden by a colour. These five cards are the practical side of getting useful, and none of them involve building anything.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Earning the medical department's trust<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three rules, in order of how much difference they make:</p>
+        <ul>
+          <li><strong>Bring them a question, not a dashboard.</strong> A dashboard is a claim that you already know what they need. A question - "what do you currently have to count by hand?" - is an offer. The first useful thing you build should be something they named.</li>
+          <li><strong>Be visibly right about something small.</strong> Not a risk model. Something like: their return-to-training dates and the coach's availability list disagree on four players, and here is which four. Small, checkable, and it saves someone an argument on Friday.</li>
+          <li><strong>Never surprise them in front of the coach.</strong> This is the one that actually broke the relationship last time. Anything of yours that touches availability goes to the medical lead <em>before</em> it goes in a meeting, every single time, with no exceptions and no "I thought you had seen it".</li>
+        </ul>
+        <p>Trust here is not won with a better model. It is won by being the analyst who never once made a clinician look uninformed in a room.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>When your number disagrees with a clinician<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>It will happen. Your picture says a player has had the heaviest 28 days in the squad; the physio says he is fine. Here is the whole protocol:</p>
+        <ul>
+          <li><strong>They decide.</strong> Not as a courtesy and not as an org-chart formality. They have examined the player, they carry the professional and legal responsibility, and they have information you are not entitled to see.</li>
+          <li><strong>The disagreement is the interesting data.</strong> Write it down: what your picture showed, what they said, what happened. Do it every time, without arguing, and after a season you will have the only record in the club of where your exposure view diverges from clinical assessment.</li>
+          <li><strong>Ask one question, not three.</strong> "Is there something in the picture that is misleading me?" That is a question about your work. "Are you sure?" is a question about their competence, and you get one of those per career.</li>
+          <li><strong>Never escalate to the coach.</strong> Taking a medical disagreement upward through a coach is the fastest way to lose access to medical data permanently, and you would deserve it.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The wall: availability, not diagnoses<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>There is a hard boundary running through the club's data estate, and analysts sit firmly on one side of it.</p>
+        <ul>
+          <li><strong>What you see:</strong> is the player available, from when, and how many matches have been missed. Availability is a squad-planning fact.</li>
+          <li><strong>What you do not see:</strong> the diagnosis, the imaging, the treatment, the notes, the conversations. Medical detail belongs to the medical department and the player.</li>
+          <li><strong>What you never do:</strong> infer the diagnosis from the availability data and write it down. "Out 6 weeks, so it is probably a grade 2 hamstring" is exactly the sentence that ends an analyst's access, and it deserves to.</li>
+          <li><strong>What you never do, part two:</strong> put a player's medical detail into a general-purpose AI tool. Athlete health data is among the most sensitive categories a club holds.</li>
+        </ul>
+        <p>The consent, data-rights and governance side of this belongs to the directors: <strong>a4 Athlete welfare and data rights</strong> covers who may see what, player representation and the regulatory frame. If you are unsure whether you are allowed to hold a field, you are not the person who decides that.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Spotting the imbalanced-data trap in someone else's model<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You need to be able to recognise this from a slide, in a meeting, without the data. Suppose 4 players in a 25-man squad pick up a time-loss injury in a given month. A model that predicts "nobody gets injured" for all 25 is right 21 times out of 25: <strong>84% accurate</strong>, and it has found nothing at all.</p>
+        <ul>
+          <li><strong>The tell is a high accuracy with no other metric beside it.</strong> Ask for recall on the injured group specifically. If the answer is vague, the model is probably predicting the majority class.</li>
+          <li><strong>Ask how many actual injury cases were in the test set.</strong> Not the sample size, the case count. Twelve cases is a case study, not a validation.</li>
+          <li><strong>Ask what it does on a season it was not fitted to.</strong> The two-number discipline from b1 applies here with more force than anywhere else in the track.</li>
+          <li><strong>Ask whether it beats prior injury alone.</strong> Prior injury, ratios often above 2.0, is the baseline. It is also, conveniently, the question that ends the conversation quickest.</li>
+        </ul>
+        <p>This is why low injury incidence is named in the reviews as a direct limit on model performance rather than a technicality. It is not fixable with a cleverer algorithm on a squad of 25.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Wellness questionnaires and what players know<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Most clubs collect a daily self-reported wellness score: sleep, soreness, fatigue, mood. It is cheap, it is quick, and it behaves unlike any other column you hold, for one reason: <strong>the player knows who reads it.</strong></p>
+        <ul>
+          <li><strong>Self-report is not measurement.</strong> The moment a player believes an entry affects selection, the entry becomes a communication rather than an observation. That is not dishonesty, it is a rational response to an incentive you created.</li>
+          <li><strong>Watch for the flattening.</strong> A player who returns a 4 out of 5 every single day for six weeks, including the week after a heavy December, is not telling you about his sleep. He is telling you he wants to play.</li>
+          <li><strong>Direction of travel beats absolute level.</strong> Comparing one player's scores to another's mostly measures how each of them fills in forms. Comparing a player to his own baseline is at least measuring something consistent.</li>
+          <li><strong>It is medical-adjacent, so treat it as medical.</strong> Wellness data is named in the literature as one of the inputs a clinician integrates. It is an input to their judgment, not a column for your ranking.</li>
+          <li><strong>Say out loud what it is used for.</strong> If the honest answer is "it feeds the training plan and nothing else", players filling it in honestly costs them nothing, and the data gets better.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build-along">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>The availability and exposure picture <span class="tag exercise">★ 20 min · everyone builds it</span></h2>
+    </div>
+    <p class="lede">Rivermouth play eight matches in 24 days between 3 and 27 December, including two two-day turnarounds and a 900 km round trip on the 20th. The head coach has asked "who is going to break down". You are going to hand back something better than an answer to that, and you are going to stop in a very specific place. <strong>Reminder: this is orientation for an analyst working alongside clinicians and is not medical advice.</strong></p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Lay out the block first, before any player data.</strong> Eight fixtures, the dates, the turnarounds, the travel. This is a fact about the calendar and it is the only page the coach will look at twice.</p></div>
+      <div class="step"><p><strong>Two minutes columns per player:</strong> minutes in the last 28 days and in the last 90 days. Raw counts. No ratios, no acute-to-chronic anything, no index.</p></div>
+      <div class="step"><p><strong>Add congestion exposure as a count:</strong> how many times has this player played three matches in eight days, in his career, as far back as your data goes. A count of a thing that happened, not a rate.</p></div>
+      <div class="step"><p><strong>Add availability history:</strong> matches missed this season and days since return to full training, taken from the medical department's own records. Availability only. Never a diagnosis, never an inference about one.</p></div>
+      <div class="step"><p><strong>Add the one column the literature actually backs:</strong> has this player previously had an injury of the same type. Prior injury is the strongest single predictor of future muscle injury, with ratios often above 2.0, and it is the baseline anything fancier has to beat.</p></div>
+      <div class="step"><p><strong>Now stop.</strong> Do not add a score, a rank, a colour or a combined index. Send it to the medical lead before anyone else sees it, with the supportive-information sentence printed on the page, and let them and the coach ask the next question.</p></div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Why stopping is the deliverable</strong>
+      Six columns of counted history make the December problem visible: three players have never played three in eight days, one has played every minute since August, and there is no cover at left back. None of that is a prediction, all of it is true, and the people who make the decision now have something they did not have. The moment you add a seventh column that ranks players by risk, everything above it becomes untrustworthy too.
+    </div>
+
+    <div class="prompt-box good">
+      <span class="label">Good prompt - describes exposure, refuses to score</span>
+      <pre>Prepare a squad availability and exposure picture for a congested fixture
+block. Use ONLY these columns from the attached table: player, position,
+minutes last 28 days, minutes last 90 days, matches missed this season,
+days since return to full training, times the player has played 3 matches
+in 8 days, prior injury of the same type (Y/N).
+
+Produce: (1) a plain table sorted by minutes in the last 28 days, with no
+added columns; (2) three factual observations about exposure, each one
+containing a number that appears in the table; (3) three planning
+questions for the medical lead and the head coach.
+
+Hard limits, in order of importance:
+- Do NOT produce a risk score, risk ranking, traffic-light colour,
+  readiness rating or any combined index.
+- Do NOT produce a selection recommendation or return-to-play view.
+- Do NOT infer, name, guess or hint at any diagnosis, and do not comment
+  on whether any return to training was appropriate.
+- Do NOT use the words risk, safe, unsafe, ready, fit or breakdown.
+- If something cannot be answered from the columns above, write
+  "not answerable from this data" &amp; move on.
+
+Everything here is supportive information for clinical and coaching
+judgment, never used on its own for selection or return to play.</pre>
+    </div>
+
+    <p>Note what that prompt is doing. The hard limits are not politeness, they are the decision line from b1 written as instructions, and they are ordered so the most damaging output is forbidden first. The "not answerable from this data" clause is what stops the model filling a gap with something plausible.</p>
+
+    <div class="prompt-box bad">
+      <span class="label">Bad prompt - do not send this</span>
+      <pre>Here is our GPS and minutes data for the squad. Rank these players by
+injury risk for Saturday and tell me which three are most likely to
+break down, so we know who to leave out.</pre>
+    </div>
+
+    <p>Every clause of that is a problem. It asks for a prediction the published evidence does not support at the individual-match level; it asks for a ranking, which is a risk score wearing a different hat; it names a specific fixture, which turns it into a selection input; and "who to leave out" is the selection decision itself, handed to a language model. If a coach asks you for this verbally, the answer is not no - it is the three planning questions from Part 2, and the availability picture that answers them.</p>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>Build the availability and exposure picture for your next congested block.</strong> Six columns, counted history only, and stop where the build-along stops. Show it to nobody until the medical lead has seen it.</li>
+      <li><strong>Find out whether any model in your club beats the prior-injury baseline.</strong> Build the baseline yourself if you have to - it is one column - and ask for the comparison on a season neither was fitted to.</li>
+      <li><strong>Ask your medical lead one question and write down the answer without arguing.</strong> Suggested question: "what would an analyst have to do for you to find their work useful?" Then say thank you and leave. While you are there, check whether anything you currently produce contains, implies or allows the reconstruction of a diagnosis.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session teaches the published injury-prediction evidence base as it actually reads, including the parts that are unflattering to the field. Medical protocols, screening tools, rehabilitation and return-to-play decisions are not covered here and are not covered anywhere in this track - they belong to clinicians. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Injury-model performance: accuracy 52% / AUC 0.52 to AUC 0.87, inconsistent, many at 0.63-0.65</span><span class="note">Part 1 + diagram 1 · introduced in b1</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Low injury incidence, imbalanced data, and bias toward non-injured players</span><span class="note">Part 1 + Part 3 self-study card</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Weak generalisability across environment, team context and assessment methods</span><span class="note">Part 1 · why an external model is a hypothesis</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Prior injury as the strongest single predictor, ratios often above 2.0</span><span class="note">Part 1 · the baseline in diagram 1 and the build-along</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Supportive information only, never in isolation for selection or return to play</span><span class="note">Stated in Parts 0, 2, the build-along and the cheat sheet</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">GPS workload as context-dependent exposure, and few studies using full tracking granularity</span><span class="note">Part 1 · used as a column, never as a cause</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Athlete data rights, consent and who may see medical detail</span><span class="note">Part 3 · director session a4 owns this</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A vendor shows you an injury model with 91% accuracy on your league. What do you ask first?</p>
+      <button class="qopt" type="button">A · Whether it can be deployed before the December block</button>
+      <button class="qopt" type="button">B · Which GPS metrics it uses, since workload is the main driver</button>
+      <button class="qopt" type="button">C · How many actual injury cases were in the test set, what the recall on those cases was, and whether it beats prior injury alone</button>
+      <p class="qwhy">Injuries are rare, so accuracy is close to meaningless: a model predicting that nobody gets hurt scores extremely well on it. The case count and the recall on the injured group tell you whether it found anything, and prior injury - ratios often above 2.0 - is the baseline it has to clear before it has earned a place.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · The head coach asks you, on Thursday, which three players are most likely to break down on Saturday. What do you deliver?</p>
+      <button class="qopt" type="button">A · A ranked risk list, clearly labelled as an estimate with confidence intervals</button>
+      <button class="qopt" type="button">B · The availability and exposure picture - minutes, congestion, prior injury, time since return - plus the planning questions it answers, and nothing that ranks or scores players</button>
+      <button class="qopt" type="button">C · Nothing, since injury prediction does not work</button>
+      <p class="qwhy">Labelling a risk ranking as an estimate does not stop it functioning as a selection input, and refusing outright leaves a real planning problem unanswered. The exposure picture describes history accurately, answers the question the coach is actually trying to settle, and stays on the right side of the decision line. Outputs are supportive information integrated with clinical judgment, never used in isolation for selection or return to play.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Your picture shows a player with the heaviest 28-day minutes load in the squad. The physio says he is fine to start. What do you do?</p>
+      <button class="qopt" type="button">A · Accept it - the clinician decides - and record the disagreement and what happened, without arguing</button>
+      <button class="qopt" type="button">B · Raise it with the head coach so the load number is in the room when he picks the team</button>
+      <button class="qopt" type="button">C · Add a flag to the picture so the number is impossible to miss next time</button>
+      <p class="qwhy">The clinician has examined the player, holds information you are not entitled to see, and carries the responsibility. Routing a medical disagreement through the coach is how analysts lose access to medical data permanently. Recording the disagreement without arguing is both respectful and the most useful thing you can do: over a season it becomes the only record of where your exposure view and clinical assessment diverge.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Orientation, not medical advice</b><span>This session teaches an analyst how to work alongside clinicians. It is not medical advice and contains no protocol, screening tool or return-to-play guidance.</span></div>
+      <div class="cheat-item"><b>Supportive information only</b><span>Outputs are supportive information integrated with clinical judgment, athlete history, wellness data, training context and staff expertise, and are never used in isolation for selection or return-to-play decisions.</span></div>
+      <div class="cheat-item"><b>The published band</b><span>Accuracy 52% / AUC 0.52 up to AUC 0.87, inconsistent across studies, with many landing at AUC 0.63-0.65, which the literature calls poor.</span></div>
+      <div class="cheat-item"><b>Four reasons why</b><span>Rare events make imbalanced data; generalisability is weak; GPS workload is context dependent; few studies exploit full tracking granularity.</span></div>
+      <div class="cheat-item"><b>The baseline to beat</b><span>Prior injury is the strongest single predictor of future muscle injury, ratios often above 2.0. A model that does not clear it has not earned its place.</span></div>
+      <div class="cheat-item"><b>Deliver exposure, not prediction</b><span>Minutes load, congestion, prior injury, time since return. Counted history, six columns, no score, no rank, no colour.</span></div>
+      <div class="cheat-item"><b>The wall</b><span>Analysts see availability. Clinicians see diagnoses. Never infer one from the other, and never put athlete medical detail into a general-purpose AI tool.</span></div>
+      <div class="cheat-item"><b>Three rules with medical</b><span>Bring a question not a dashboard, be visibly right about something small, and never surprise them in front of the coach.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 5 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b4-game-film.html">← Previous: Game film and auto-tagging</a> &nbsp;·&nbsp; <a href="b6-opposition-analysis.html">Next: Opposition analysis →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

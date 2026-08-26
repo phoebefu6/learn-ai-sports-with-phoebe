@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="The capstone. One match walked through all five stages of the analysis loop, assembled from every artifact the track built, scored against a 12-row checklist where four rows are stops rather than points, and gated one last time on the two-number discipline.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Capstone - one match, one report - learn ai sports with phoebe">
+<meta property="og:description" content="Assemble the match report from the whole track, score it on 12 rows, and pass the final gate: two numbers, always.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b10-capstone-one-match.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Capstone - one match, one report - learn ai sports with phoebe">
+<meta name="twitter:description" content="One slide, one appendix, twelve rows, four stops, and the two-number gate one last time.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 10 · Capstone: one match, one report - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 10 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 10 of 10</div>
+    <h1>Capstone: one match, <span class="accent">one report</span></h1>
+    <p class="sub">Nine sessions produced nine artifacts: a data dictionary, a shot-quality model with two numbers attached, a six-clip pack, an availability picture that refuses to be an injury prediction, three verified tendencies with counts and denominators, an adjusted longlist, and one slide. Tonight they become a single match report for a head coach who has never opened a dashboard, at a club whose medical department still does not entirely trust you. Then you score it - twelve rows, eight of which are points and four of which are stops. A report that fails a stop does not get a low score. It does not get a score at all until it is fixed. And before you leave, the model gate one last time: two numbers, always.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Analyst track</span>
+      <span class="chip audience">Analysts · coaches · performance staff</span>
+      <span class="chip audience">Bring everything</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:3">0-3 · Welcome</span>
+      <span class="a2" style="flex:13">3-16 · Assemble the report</span>
+      <span class="a3" style="flex:16">16-32 · The scorecard</span>
+      <span class="a4" style="flex:13">32-45 · Final gate + Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>What tonight is, and what it is not</h2>
+    </div>
+    <p class="lede">This is not a new lesson. It is the assembly and the audit. You take one real match at <strong>Rivermouth FC</strong>, walk it through <strong>Capture, Model, Judge, Communicate, Decide</strong>, and produce the deliverable the whole track has been building toward: one slide a coach will read, plus an appendix that exists to answer exactly one question. Then you score it honestly, including the parts where it fails. The most valuable thing you take out of this room is not the report. It is the habit of scoring your own work before someone else does.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live shot model - the final gate</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A finished match report assembled from the track's own artifacts, a 12-row scorecard you can run on any report for the rest of your career, four rails that stop a report rather than dock it points, and one habit worth keeping above all the others.
+    </div>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="assemble">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · assembly</span>
+      <h2>Assemble the report <span class="tag concept">13 min live</span></h2>
+    </div>
+    <p class="lede">Walk the match through all five stages of the loop and name which session produced each piece. Every stage has an artifact you already own, and every stage has material you are about to throw away. The throwing away is the work.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 434" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The match report assembled from the track's artifacts, showing what goes on the single slide, what goes in the one-question appendix, and the much larger pile of material that is deliberately discarded.">
+        <style>
+          .mrT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .mrS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .mrG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .mrV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .mrH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .mrB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .mrX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .mrN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .mrWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#mrHd); }
+          .mrTick { stroke: #34A85C; stroke-width: 2; fill: none; }
+        </style>
+        <defs>
+          <marker id="mrHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="18" width="230" height="32" rx="8" fill="#0E5A2B"/>
+        <text class="mrT" x="34" y="39">WHAT THE TRACK BUILT</text>
+
+        <rect x="20" y="60" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="82">b2 · the data dictionary</text>
+        <rect x="20" y="100" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="122">b3 · shot quality, both teams</text>
+        <rect x="20" y="140" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="162">b4 · the six-clip pack</text>
+        <rect x="20" y="180" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="202">b5 · availability + exposure</text>
+        <rect x="20" y="220" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="242">b6 · three verified tendencies</text>
+        <rect x="20" y="260" width="230" height="34" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrB" x="34" y="282">b8 · the one-slide rule</text>
+
+        <path class="mrTick" d="M250,77 L262,77 M250,117 L262,117 M250,157 L262,157 M250,197 L262,197 M250,237 L262,237 M250,277 L262,277"/>
+        <path class="mrTick" d="M262,77 L262,277"/>
+        <path class="mrWire" d="M262,177 L292,177"/>
+
+        <rect x="300" y="60" width="560" height="106" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="mrG" x="316" y="82">THE SLIDE - one idea, four lines, nothing else</text>
+        <text class="mrB" x="316" y="104">the one thing to do differently on Saturday</text>
+        <text class="mrB" x="316" y="122">two verified tendencies, each with a count and a denominator</text>
+        <text class="mrB" x="316" y="140">the availability and exposure note, never an injury claim</text>
+        <text class="mrB" x="316" y="158">one model number reported with its held-out partner</text>
+
+        <rect x="300" y="178" width="560" height="88" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="mrV" x="316" y="200">THE APPENDIX - it answers exactly one question</text>
+        <text class="mrB" x="316" y="222">the six clips, indexed, for the question the coach will actually ask</text>
+        <text class="mrB" x="316" y="240">denominators, date ranges and method, on one page, in plain words</text>
+        <text class="mrX" x="316" y="258">if it answers a second question, it is a second appendix and it does not ship</text>
+
+        <rect x="300" y="278" width="560" height="88" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="mrH" x="316" y="300">THE PILE - most of the work, and that is correct</text>
+        <text class="mrB" x="316" y="322">every chart that would not change a decision, all model diagnostics</text>
+        <text class="mrB" x="316" y="340">tendencies that failed their sample check, the clever bits, the raw tables</text>
+        <text class="mrX" x="316" y="358">nothing here was wasted. It is what makes the four lines above trustworthy</text>
+
+        <rect x="20" y="382" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="mrN" x="44" y="394">Capture is b2, Model is b3, Judge is b5 and b6, Communicate is b8 and b9, Decide is the coach.</text>
+        <rect x="20" y="406" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="mrN" x="44" y="418">The pile should be far larger than the slide. If it is not, you have not judged anything yet.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - what reaches the slide, what reaches the appendix, and what is deliberately discarded</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The five stages, walked through one match<span class="mini">7 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Capture (b2).</strong> Start with the data dictionary, because the first question anyone asks is what a row means. State plainly which claims came from event data and which needed tracking. Defender pressure is a tracking feature; if you only have event data for this fixture, say so on the appendix page rather than letting the reader assume.</li>
+          <li><strong>Model (b3).</strong> The shot-quality read on both teams' chances. One number goes on the slide and it never travels alone - fitted and held out, together, in the same line. This is the discipline the whole track has been drilling and the slide is where it gets tested.</li>
+          <li><strong>Judge (b5, b6).</strong> Two artifacts. The availability and exposure picture, which is a planning input and explicitly not an injury prediction. And the three verified tendencies from b6, each carrying its count, its denominator and its date range. Judge is also where two of the three tendencies quietly get demoted, because two fit on a slide and three do not.</li>
+          <li><strong>Communicate (b8, b9).</strong> The one-slide rule. One idea, stated in the coach's language, with the uncertainty in the same sentence as the number. If any of this becomes public material, b9's four elements apply and the integrity rails apply with them.</li>
+          <li><strong>Decide.</strong> Not yours. The coach picks a team, a clinician decides return to play, a director signs a contract. Your report is a supportive input and the slide should read like one.</li>
+        </ul>
+        <p>The finished object is <strong>one slide plus an appendix</strong>, and the appendix exists to answer exactly one question - the one you know the coach is going to ask when he sees the slide. Not a general reference. One question. If you cannot predict the question, you do not know the room well enough yet, and that is the finding.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Why the appendix is capped at one question.</strong> A coach who has never opened a dashboard will not read a twelve-page pack, and building one signals that you could not decide what mattered. Rivermouth's three analysts have finite hours; every page in the appendix is a page not spent on next week's opposition. The cap is not minimalism for style. It is what makes the department sustainable at three people.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Four lines, and what to do when one is not ready<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Four lines is a budget, not a suggestion: the one thing to do differently on Saturday, two verified tendencies each carrying a count and a denominator, and the availability note. The honest version of this capstone is that at least one of them will be weaker than you would like. That is normal and it has a correct handling.</p>
+        <ul>
+          <li><strong>A tendency that failed its sample check does not get softened, it gets dropped.</strong> "There is a slight suggestion that" is how a department loses its credibility one hedge at a time.</li>
+          <li><strong>A model number without a held-out partner does not go on the slide.</strong> Produce the second number or remove the first one. There is no third option.</li>
+          <li><strong>An availability picture with gaps says where the gaps are.</strong> Missing data is a finding, and naming it is how the medical department starts to trust you.</li>
+          <li><strong>If two of the four lines are weak, ship a two-line slide.</strong> A short honest report beats a full-length one padded to look complete.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="scorecard">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the audit</span>
+      <h2>The report scorecard <span class="tag exercise">◐ 16 min live · score your own</span></h2>
+    </div>
+    <p class="lede">Twelve rows. Eight of them are points, and you are aiming for eight of eight. Four of them are rails, and rails are <strong>stops rather than points</strong> - a report that fails a rail does not get a low score, it does not get a score at all until the failure is fixed. This distinction is the entire reason the list works.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 388" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The report scorecard shown as eight scored rows in two groups, modelling and communication, beside four rails that act as stops rather than points.">
+        <style>
+          .scT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .scS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .scB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .scG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .scH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .scX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .scN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <rect x="20" y="20" width="264" height="44" rx="8" fill="#15803D"/>
+        <text class="scT" x="36" y="42">MODELLING · 4 points</text>
+        <text class="scS" x="36" y="58">did the number earn its place</text>
+        <rect x="308" y="20" width="264" height="44" rx="8" fill="#0E5A2B"/>
+        <text class="scT" x="324" y="42">COMMUNICATION · 4 points</text>
+        <text class="scS" x="324" y="58">will a coach act on it</text>
+        <rect x="596" y="20" width="264" height="44" rx="8" fill="#991B1B"/>
+        <text class="scT" x="612" y="42">RAILS · 4 stops</text>
+        <text class="scS" x="612" y="58">not scored, just enforced</text>
+
+        <rect x="20" y="76" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="36" y="100">two numbers, never one</text>
+        <rect x="20" y="122" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="36" y="146">every feature justified</text>
+        <rect x="20" y="168" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="36" y="192">no identity or reputation feature</text>
+        <rect x="20" y="214" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="36" y="238">sample size stated on the slide</text>
+
+        <rect x="308" y="76" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="324" y="100">one idea, not five</text>
+        <rect x="308" y="122" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="324" y="146">counts with denominators</text>
+        <rect x="308" y="168" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="324" y="192">a date range on every claim</text>
+        <rect x="308" y="214" width="264" height="38" rx="7" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="scB" x="324" y="238">one thing to do differently</text>
+
+        <rect x="596" y="76" width="264" height="38" rx="7" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="scB" x="612" y="100">no selection call from a model</text>
+        <rect x="596" y="122" width="264" height="38" rx="7" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="scB" x="612" y="146">no return-to-play view</text>
+        <rect x="596" y="168" width="264" height="38" rx="7" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="scB" x="612" y="192">no medical detail, at all</text>
+        <rect x="596" y="214" width="264" height="38" rx="7" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="scB" x="612" y="238">nothing that could move a market</text>
+
+        <rect x="20" y="266" width="552" height="42" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="scG" x="36" y="284">8 SCORED ROWS - aim for 8 of 8</text>
+        <text class="scX" x="36" y="301">anything under 8 is a rewrite, not a discussion</text>
+
+        <rect x="596" y="266" width="264" height="42" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="scH" x="612" y="284">4 STOPS - never scored</text>
+        <text class="scX" x="612" y="301">fix first, then score</text>
+
+        <rect x="20" y="326" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="scN" x="44" y="338">A report that fails a rail does not get a low score. It gets no score until it is fixed.</text>
+        <rect x="20" y="350" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="scN" x="44" y="362">Score your own report before anyone else does. That is the whole point of the list.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - eight scored rows and four rails that stop the report instead of docking it</figcaption>
+    </figure>
+
+    <table class="clean">
+      <thead>
+        <tr><th>#</th><th>Row</th><th>Passes when</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Two numbers reported, not one</td><td>Every model figure on the slide appears with its held-out partner in the same line. b1's discipline, applied to a real deliverable.</td><td>Point</td></tr>
+        <tr><td>2</td><td>Features justified</td><td>You can say in one sentence why each feature is in the model and what it is measuring about the game rather than about the squad.</td><td>Point</td></tr>
+        <tr><td>3</td><td>No identity or reputation feature</td><td>Nothing in the model encodes who took the shot, their market value or their name. The anti-feature raises the flattering number and lowers the real one.</td><td>Point</td></tr>
+        <tr><td>4</td><td>Sample size stated</td><td>Every claim on the slide carries the number of matches, sequences or events it rests on, visibly, not in small print.</td><td>Point</td></tr>
+        <tr><td>5</td><td>One idea, not five</td><td>A reader can say what the report wants after five seconds, and their answer matches yours.</td><td>Point</td></tr>
+        <tr><td>6</td><td>Counts with denominators</td><td>No bare percentages anywhere. 17 of 24, not 71%. If the denominator is unrecoverable, the claim comes off.</td><td>Point</td></tr>
+        <tr><td>7</td><td>A date range on every claim</td><td>Each tendency and each metric says which window it covers, so nobody has to guess whether it includes last season.</td><td>Point</td></tr>
+        <tr><td>8</td><td>One thing to do differently</td><td>The slide ends with a concrete action for the next match, not a theme, an observation or a summary.</td><td>Point</td></tr>
+        <tr><td>9</td><td>No selection recommendation from a model</td><td>Nothing in the report tells a coach who to pick. Models inform; a named human decides and carries it.</td><td>STOP</td></tr>
+        <tr><td>10</td><td>No return-to-play view</td><td>The report expresses no opinion, direct or implied, on whether a player is fit to play. That call belongs to a clinician.</td><td>STOP</td></tr>
+        <tr><td>11</td><td>No medical detail</td><td>No diagnoses, no treatment status, no injury specifics. Availability and exposure only, and this is orientation rather than medical advice.</td><td>STOP</td></tr>
+        <tr><td>12</td><td>Nothing publishable that could move a market</td><td>No predictive material about your own fixtures leaves the building before official team news. b9 covers the rails; a5 owns the policy.</td><td>STOP</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>Why four of the twelve are stops</strong>
+      A points system quietly says every row is tradeable - lose one here, make it up there. Three of these rows touch a person's body, livelihood or career, and the fourth touches the integrity of a competition. None of them can be offset by a well-drawn chart. Making them stops removes the negotiation entirely, which is the only thing that makes them hold under deadline pressure.
+    </div>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Scoring honestly when it is your own work<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Self-scoring fails in predictable ways. Watch for these three, because you will do all of them at least once.</p>
+        <ul>
+          <li><strong>Awarding row 4 because the sample size is in your head.</strong> If it is not on the slide, the row fails. The reader cannot see your working memory.</li>
+          <li><strong>Reading row 9 too narrowly.</strong> "The model prefers this shape" is a selection recommendation wearing a tactical hat. If a coach could reasonably read the slide as telling him who to play, the rail is failed.</li>
+          <li><strong>Passing row 6 on a rounded count.</strong> "About 7 in 10" is a percentage with extra steps. Give the pair.</li>
+        </ul>
+        <p>The strongest version of this exercise is to score someone else's report and have them score yours. Ten minutes each, and it will do more for the department's output than a month of tooling.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: FINAL GATE ============ -->
+  <section class="section" id="final-gate">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the final gate</span>
+      <h2>The two-number gate, one last time <span class="tag demo">★ 8 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">This is not a new lesson. It is a gate. The model below is loaded with all five legitimate features, exactly as your report's shot-quality number should be, and it shows <strong>this season 85.0%</strong> and <strong>next season 83.0%</strong>, a gap of <strong>2.0 points</strong>. That is the shape of a number that has earned a place on a slide. Before you close the track, break it once more and watch what you would have shipped.</p>
+
+    <div class="steps">
+      <div class="step"><p>Read the loaded state first: <strong>85.0 fitted, 83.0 held out, gap 2.0</strong>. Say both numbers out loud in the order you would say them to a coach.</p></div>
+      <div class="step"><p>Take one feature off and put it back. Watch both numbers move together. A model learning the game moves both.</p></div>
+      <div class="step"><p>Now switch <strong>⚠ Shooter reputation</strong> on one last time and read <strong>BOTH</strong> numbers: <strong>96.0 fitted, 77.0 held out, gap 19.0</strong>.</p></div>
+      <div class="step"><p>The gap went from 2.0 to 19.0. The flattering number rose eleven points while the number that matters fell six. This is row 3 of the scorecard, live.</p></div>
+      <div class="step"><p>Switch it back off. Then write on your slide draft the exact line you will use: the metric, the fitted number, the held-out number, and the sample. One line.</p></div>
+    </div>
+
+    <div class="sportsbox" data-mode="score" data-levers="distance,angle,bodypart,pressure,keeper"></div>
+
+    <div class="callout tip">
+      <strong>The gate, stated plainly</strong>
+      If your report contains a model number and you cannot say the second number without looking it up, the report is not finished. That is the entire test, and it is the one habit that would have caught most of the mistakes in this track before they reached a coach.
+    </div>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="after">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · after the track</span>
+      <h2>Monday, and everything this course did not teach <span class="tag concept">read and keep</span></h2>
+    </div>
+    <p class="lede">Ten sessions is enough to make you dangerous in a useful way and nowhere near enough to make you finished. These four cards are the handover.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The first Monday back<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Change three things in week one, not thirty. The department that changes everything at once gets rolled back by February.</p>
+        <ul>
+          <li><strong>Add the second number to one recurring output.</strong> Whichever report your department sends most often. Nothing else about it changes.</li>
+          <li><strong>Put denominators on everything that goes outside the analytics room.</strong> Internal decks, coach packs, public graphics. It costs minutes and it changes how your numbers are argued with.</li>
+          <li><strong>Take one thing off the coach pack.</strong> The page nobody has ever asked a question about. Watch whether anyone notices, then take another.</li>
+          <li><strong>Ask the medical lead one question and do not argue with the answer.</strong> The b1 homework, still the highest-return thing on this list at a club where they do not trust you yet.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What this course deliberately did not teach<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Knowing the edges of your competence is part of the competence. Five things are out of scope by design, and none of them are gaps you should quietly fill in yourself.</p>
+        <ul>
+          <li><strong>Medical advice and return-to-play protocols.</strong> A clinician owns those. Everything in b5 and here is orientation on working alongside them, not a substitute for them.</li>
+          <li><strong>Legal advice on athlete data.</strong> Consent, employment and transfer regulation belong with counsel and with player representation. Director session a4 frames the club-level questions.</li>
+          <li><strong>Betting strategy of any kind.</strong> Integrity rails are covered in b9 and a5. Wagering, edges and betting models are not taught here and will not be.</li>
+          <li><strong>Production data infrastructure.</strong> Pipelines, warehousing and platform engineering are a different discipline and a different course.</li>
+          <li><strong>Sport-specific coaching methodology.</strong> The worked examples use football because the public evidence base is deepest there. The pattern transfers; the coaching does not come from you.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The one habit worth keeping<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If everything else fades, keep this one: <strong>report two numbers, always.</strong></p>
+        <p>It is ten seconds of work and it catches the failure mode that looks exactly like success. It caught the reputation feature, where the fitted number climbed to 96.0 while the held-out number fell to 77.0. It will catch the next version of that mistake, which will arrive dressed differently and will still be the model learning something about this squad rather than about the game.</p>
+        <p>It also does something less obvious. A department that always reports two numbers is a department that has visibly chosen honesty over the flattering figure, and that reputation is the thing that eventually gets you into the room where selection is discussed. You do not get there by being impressive. You get there by being reliable about what you will not claim.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>If you work with directors, point them at the a-track<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This track is built for the people producing analysis. The six director sessions cover the same evidence base from the side of the people who fund and govern it, and several of the questions you will get stuck on are theirs to answer rather than yours.</p>
+        <ul>
+          <li><strong>a2 - the data estate.</strong> Who owns event, tracking, wearable, medical, video and ticketing data, and who may see each.</li>
+          <li><strong>a4 - athlete welfare and data rights.</strong> The consent and representation questions behind everything in b5.</li>
+          <li><strong>a5 - fans, commercial and integrity.</strong> Where the betting-integrity rails around any predictive output actually get set as policy.</li>
+          <li><strong>a6 - building the analytics function.</strong> Staffing, coach adoption and proving value without overclaiming, which is the organisational version of this capstone.</li>
+        </ul>
+        <p>Handing a director the right session is faster than winning the argument yourself, and it makes the rails somebody else's policy rather than your personal preference.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 45-60 min total</span></h2>
+    </div>
+    <ul>
+      <li>Take one report your department actually sent in the last month and run it through all twelve rows. Score the eight, check the four rails, and write the score down before you start fixing anything.</li>
+      <li>Fix every failure. If a rail failed, fix it first and do not record a score until it passes.</li>
+      <li>Write the one habit on a card and put it where you write reports: <strong>two numbers, always.</strong></li>
+      <li>Ask your coach what he did with the last report you sent. Not what he thought of it - what he did. Write the answer down verbatim.</li>
+      <li>Swap reports with one colleague and score each other's. Ten minutes each, out loud, with the twelve rows in front of you.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">The capstone adds no new evidence. It assembles what the track already verified and applies it to one deliverable. Medical and legal specifics stay with clinicians and counsel, and betting strategy is out of scope by design. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The analysis loop applied end to end on one match</span><span class="note">Part 1 · the frame comes from b1</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The two-number discipline as a shipping gate, 85.0 / 83.0 with a gap of 2.0</span><span class="note">Part 3 · the simulator, loaded with all five features</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The reputation anti-feature - 96.0 fitted, 77.0 held out, gap 19.0</span><span class="note">Part 3 · row 3 of the scorecard, live</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Supportive-only use of model output for selection and return to play</span><span class="note">Part 2 · rails 9 and 10 · full treatment in b5 and a4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Counts, denominators and date ranges on every claim</span><span class="note">Part 2 · b6 verified them, b8 and b9 shipped them</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Integrity rails before official team news</span><span class="note">Part 2 · rail 12 · b9 covers it, a5 owns the policy</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · A report scores 8 of 8 on the scored rows but implies a preferred starting eleven based on the model. What is the score?</p>
+      <button class="qopt" type="button">A · 8 of 8, with a note recommending the selection line be softened next time</button>
+      <button class="qopt" type="button">B · No score at all - rail 9 is a stop, so the report gets fixed first and scored afterwards</button>
+      <button class="qopt" type="button">C · 7 of 8, since the selection issue costs one point</button>
+      <p class="qwhy">Rails are stops rather than points precisely so they cannot be traded against good work elsewhere. A model does not make a selection call, and "the model prefers this shape" is a selection recommendation wearing a tactical hat. Fix it, then score.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · The simulator shows 85.0 this season and 83.0 next season. You switch reputation on and this season reads 96.0. What do you report?</p>
+      <button class="qopt" type="button">A · 96.0, since it is the model's best performance on the board</button>
+      <button class="qopt" type="button">B · 96.0 with a caveat that the feature is imperfect</button>
+      <button class="qopt" type="button">C · Neither - read both numbers, see 77.0 held out and a gap of 19.0, take the feature back out and report 85.0 and 83.0</button>
+      <p class="qwhy">The gap moved from 2.0 to 19.0. The model learned who takes the shots rather than what makes a shot good, and next August the squad changes. This is exactly the failure the two-number habit exists to catch, and it is row 3 of the scorecard.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · What is the correct shape of the finished match report?</p>
+      <button class="qopt" type="button">A · One slide with one idea, plus an appendix that exists to answer exactly one question, with most of the work deliberately discarded</button>
+      <button class="qopt" type="button">B · A full pack covering every artifact the track produced, so the coach can find whatever he needs</button>
+      <button class="qopt" type="button">C · One slide only, with everything else deleted so nothing can be questioned</button>
+      <p class="qwhy">The appendix is not optional and it is not a library - it answers the one question you know the slide will provoke. The pile of discarded material should be far larger than what ships, and if it is not, no judging has happened yet. Deleting the working entirely is the opposite mistake: you need it to defend the four lines.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 10 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The deliverable</b><span>One slide, one idea, four lines, plus an appendix that answers exactly one question. Everything else is the pile, and the pile should be bigger.</span></div>
+      <div class="cheat-item"><b>Where each piece came from</b><span>b2 dictionary, b3 shot quality, b4 six clips, b5 availability not prediction, b6 three verified tendencies, b8 the one-slide rule.</span></div>
+      <div class="cheat-item"><b>Eight points</b><span>Two numbers, features justified, no identity feature, sample size stated · one idea, counts with denominators, a date range, one thing to do differently.</span></div>
+      <div class="cheat-item"><b>Four stops</b><span>No selection call from a model, no return-to-play view, no medical detail, nothing that could move a market before team news.</span></div>
+      <div class="cheat-item"><b>Stops are not points</b><span>A report that fails a rail gets no score until it is fixed. Rails cannot be offset by good work elsewhere.</span></div>
+      <div class="cheat-item"><b>The final gate</b><span>All five features: 85.0 fitted, 83.0 held out, gap 2.0. With reputation on: 96.0 fitted, 77.0 held out, gap 19.0.</span></div>
+      <div class="cheat-item"><b>The one habit</b><span>Report two numbers, always. Ten seconds, and it catches the failure mode that looks exactly like success.</span></div>
+      <div class="cheat-item"><b>Out of scope by design</b><span>Medical advice, legal advice on athlete data, betting strategy of any kind, production data infrastructure, coaching methodology.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 10 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b9-fan-facing-analytics.html">← Previous: Fan-facing analytics and broadcast</a> &nbsp;·&nbsp; <a href="../index.html">Next: Back to all sessions →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/sports-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Recruitment is the one place data can search a space no scout could physically watch. Session 7 builds a defensible longlist for Rivermouth FC with all four adjustments applied - league, minutes, age, role - and shows the trap underneath them: a model that learned who a player is will rank the famous ones highest.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Scouting and shortlists - learn ai sports with phoebe">
+<meta property="og:description" content="The model searches, the scout judges. Four adjustments, one handover point, and the reputation trap that recruitment cannot test for until after you have signed someone.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b7-scouting-shortlists.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scouting and shortlists - learn ai sports with phoebe">
+<meta name="twitter:description" content="The model searches, the scout judges. Four adjustments, and the trap that recruitment cannot test for until after you have signed someone.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 7 · Scouting and shortlists - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 7 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 7 of 10</div>
+    <h1>Scouting and <span class="accent">shortlists</span></h1>
+    <p class="sub">Recruitment is the one place in the club where data does something a person genuinely cannot: search four thousand players nobody at Rivermouth has time to watch, and surface the ones whose underlying performance is not showing up in their goal tally yet. That is exactly what xG-style metrics are now widely used for in scouting. It is also the place where the b1 anti-feature does its quietest damage, because a recruitment model that has learned who a player is rather than what they do will hand you back the famous names - and unlike the shot model, there is no next season to test it on until you have already signed someone. Tonight you build a longlist with all four adjustments applied and named, and you learn where your job stops.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Analyst track</span>
+      <span class="chip audience">Analysts · recruitment staff</span>
+      <span class="chip audience">Bring a real role brief</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Search versus judgment</span>
+      <span class="a3" style="flex:6">18-40 · Build-along: the shortlist</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where session 7 sits</h2>
+    </div>
+    <p class="lede">Six sessions in, you can build a model and you know the decision line. Recruitment is the third call on that line - <strong>valuation</strong> - and it is the one where the money and someone's livelihood are in the same sentence. Rivermouth signs three or four players a window on a mid-table budget, which means the department cannot afford to be wrong twice. Tonight's output is not a ranking. It is a <strong>longlist with the reasoning visible</strong>, handed to a scout who will disagree with some of it, which is the whole point.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The recruitment funnel with the handover point marked, the four adjustments and the order to apply them, a longlist prompt that names every adjustment and states its own limitations, and a clear-eyed view of why the reputation trap is worse here than anywhere else in the track.
+    </div>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="search-vs-judgment">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · what data is actually for in recruitment</span>
+      <h2>The model searches, the scout judges <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">There is one thing data does in recruitment that nothing else can do, and it is worth being precise about it: <strong>it searches a space no scout could physically watch.</strong> Your scouting department can cover perhaps two hundred players properly in a season. The player universe you could actually buy from is twenty times that. The second thing data does is find players whose <strong>underlying performance is not yet reflected in their outcomes</strong> - the forward getting into the right places whose finishing has been unlucky for eleven months. That is precisely the use xG-style metrics have been put to in recruitment: the market prices outcomes, so the gap between the two is where the value sits. Report both sides and let the scouts tell you which one the video supports, and remember that a one-season gap is a hypothesis while a three-season gap in the same direction is a finding. Everything after that is judgment, and it is not yours.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The recruitment funnel from the full player universe to a signed player, showing which stages the model owns, which the scout owns, and the handover point where a longlist becomes a shortlist.">
+        <style>
+          .rfT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .rfS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .rfK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .rfKy { font: 700 10.5px Inter, sans-serif; fill: #15803D; letter-spacing: .08em; }
+          .rfB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .rfH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .rfX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .rfN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .rfWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#rfHd); }
+        </style>
+        <defs>
+          <marker id="rfHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="26" width="150" height="52" rx="8" fill="#0E5A2B"/>
+        <text class="rfT" x="34" y="48">1 · UNIVERSE</text>
+        <text class="rfS" x="34" y="66">every player on file</text>
+        <rect x="195" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="rfT" x="209" y="48">2 · FILTERED</text>
+        <text class="rfS" x="209" y="66">role filters applied</text>
+        <rect x="370" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="rfT" x="384" y="48">3 · LONGLIST</text>
+        <text class="rfS" x="384" y="66">25-40 names, shown</text>
+        <rect x="545" y="26" width="150" height="52" rx="8" fill="#15803D"/>
+        <text class="rfT" x="559" y="48">4 · SHORTLIST</text>
+        <text class="rfS" x="559" y="66">6-10 names, watched</text>
+        <rect x="720" y="26" width="150" height="52" rx="8" fill="#0E5A2B"/>
+        <text class="rfT" x="734" y="48">5 · SIGNED</text>
+        <text class="rfS" x="734" y="66">one player, one fee</text>
+
+        <path class="rfWire" d="M170,52 L190,52"/>
+        <path class="rfWire" d="M345,52 L365,52"/>
+        <path class="rfWire" d="M520,52 L540,52"/>
+        <path class="rfWire" d="M695,52 L715,52"/>
+
+        <rect x="20" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rfK" x="34" y="126">MODEL OWNS</text>
+        <text class="rfB" x="34" y="146">search at a scale</text>
+        <text class="rfB" x="34" y="161">no scout can watch</text>
+        <rect x="195" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rfK" x="209" y="126">MODEL OWNS</text>
+        <text class="rfB" x="209" y="146">adjust, order, show</text>
+        <text class="rfB" x="209" y="161">the reasoning</text>
+        <rect x="370" y="106" width="150" height="62" rx="8" fill="#EDF9F1" stroke="#15803D" stroke-width="2.5"/>
+        <text class="rfKy" x="384" y="126">HANDOVER POINT</text>
+        <text class="rfB" x="384" y="146">the analyst stops,</text>
+        <text class="rfB" x="384" y="161">the scout starts</text>
+        <rect x="545" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rfK" x="559" y="126">SCOUT OWNS</text>
+        <text class="rfB" x="559" y="146">live views, video,</text>
+        <text class="rfB" x="559" y="161">interviews, fit</text>
+        <rect x="720" y="106" width="150" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="rfK" x="734" y="126">A HUMAN SIGNS</text>
+        <text class="rfB" x="734" y="146">and carries the</text>
+        <text class="rfB" x="734" y="161">consequence of it</text>
+
+        <rect x="20" y="196" width="840" height="46" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="rfH" x="36" y="218">WHAT THE FEED CANNOT SEE, AT ANY SAMPLE SIZE</text>
+        <text class="rfX" x="36" y="236">character · coachability · whether he settles in a new country · how he trains in week three</text>
+
+        <rect x="20" y="268" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="rfN" x="44" y="280">Your job ends at the longlist. Hand over a ranking and you have ended the argument.</text>
+        <rect x="20" y="294" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="rfN" x="44" y="306">Data earns its place by searching a space no scout could physically watch in a season.</text>
+        <rect x="20" y="320" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="rfN" x="44" y="332">The second win: players whose underlying numbers have not shown up in outcomes yet.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the recruitment funnel and the handover point</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Longlist, not ranking - and why the distinction is everything<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A ranking says "this player is better than that one" and invites exactly one response from a scout who has watched both: <strong>no he is not.</strong> At that point the conversation is about whether your model is any good, which is a conversation you will lose in a room full of people who have watched more football than you have. A longlist says something much more defensible: <strong>these are the players who fit the brief, here is why each one is on the list, and here is what I could not see.</strong></p>
+        <ul>
+          <li><strong>Order the list, but do not present the order as a verdict.</strong> Sort by the adjusted metric, then say out loud that positions four to twenty-two are inside the noise.</li>
+          <li><strong>Show a reasoning column.</strong> Two lines per player: why he is here, and what the main doubt is. A scout will engage with a doubt you named yourself.</li>
+          <li><strong>State the exclusions and their cost.</strong> "The 900-minute threshold removed 214 players, including these eleven under-21s" keeps you honest and gives the scouts somewhere to push back.</li>
+          <li><strong>Never hand over a top five.</strong> Five names is a decision wearing an analyst's clothing, and the decision was not yours to make.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The search is mainstream; the discipline around it is not.</strong> xG-style metrics are now widely used in recruitment and scouting precisely to find players whose underlying performance is not reflected in outcomes. Most clubs run that search and skip the four adjustments, which is how a department ends up recommending a forward who scored freely in a division nobody at Rivermouth would field a reserve side against. You are not there to be right about who to sign; you are there to make sure the scouts spend their two hundred viewings on the right two hundred players.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What a scout sees that you never will<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Write this list down and keep it somewhere visible, because on the third day of a window somebody will ask your model a question from it and you need to be able to say no quickly and without apology.</p>
+        <ul>
+          <li><strong>Character under pressure.</strong> Whether he is the same player at 2-0 down away from home in February. The event feed records the actions, not the temperament that produced them.</li>
+          <li><strong>Coachability.</strong> Whether he takes instruction and changes within a fortnight. This is the single most common reason a data-led signing fails, and there is no column for it.</li>
+          <li><strong>Settling.</strong> New country, new language, family, housing, food, weather. Clubs lose good players to this every window and no metric anywhere predicts it.</li>
+          <li><strong>How he trains.</strong> Nobody films the Tuesday session at his current club and nobody sells you the data from it.</li>
+          <li><strong>Why he is available.</strong> Sometimes the interesting number and the low fee have the same cause, and only a phone call finds it.</li>
+        </ul>
+        <p>None of this makes the data less useful. It makes the handover point real. Your longlist is a well-searched set of candidates, and the things above are the reason it is a longlist rather than a signing.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="adjustments">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the four adjustments and what hides underneath them</span>
+      <h2>The four adjustments, and the trap underneath them <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">There are four adjustments and you apply all of them, every time, in this order: <strong>league strength, minutes played, age, positional role.</strong> Skip any one and your ranking degrades into a list of players from strong leagues who played a lot of football, which is a list you could have written without a database. Apply all four and the order changes at every single step - which is uncomfortable the first time you watch it happen, and is the reason the adjustments exist.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 356" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same striker ranked four times - raw, then league-adjusted, then minutes-adjusted, then role-adjusted - with the rank changing at every step and the honest final position marked, plus the reputation trap underneath.">
+        <style>
+          .raT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .raS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .raK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .raKy { font: 700 10.5px Inter, sans-serif; fill: #15803D; letter-spacing: .08em; }
+          .raBig { font: 700 26px Inter, sans-serif; fill: #331066; }
+          .raBigy { font: 700 26px Inter, sans-serif; fill: #0E5A2B; }
+          .raB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .raH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .raX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .raN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .raWire { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#raHd); }
+        </style>
+        <defs>
+          <marker id="raHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="24" width="190" height="52" rx="8" fill="#0E5A2B"/>
+        <text class="raT" x="34" y="46">RAW TOTALS</text>
+        <text class="raS" x="34" y="64">goals and assists</text>
+        <rect x="236" y="24" width="190" height="52" rx="8" fill="#15803D"/>
+        <text class="raT" x="250" y="46">+ LEAGUE STRENGTH</text>
+        <text class="raS" x="250" y="64">not all leagues equal</text>
+        <rect x="452" y="24" width="190" height="52" rx="8" fill="#15803D"/>
+        <text class="raT" x="466" y="46">+ MINUTES PLAYED</text>
+        <text class="raS" x="466" y="64">per 90, not per season</text>
+        <rect x="668" y="24" width="190" height="52" rx="8" fill="#15803D"/>
+        <text class="raT" x="682" y="46">+ POSITIONAL ROLE</text>
+        <text class="raS" x="682" y="64">the job he is given</text>
+
+        <path class="raWire" d="M212,50 L232,50"/>
+        <path class="raWire" d="M428,50 L448,50"/>
+        <path class="raWire" d="M644,50 L664,50"/>
+
+        <rect x="20" y="96" width="190" height="84" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="raK" x="34" y="118">RAW RANK</text>
+        <text class="raBig" x="34" y="150">#3</text>
+        <text class="raB" x="34" y="170">flattered by his league</text>
+        <rect x="236" y="96" width="190" height="84" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="raK" x="250" y="118">AFTER LEAGUE</text>
+        <text class="raBig" x="250" y="150">#41</text>
+        <text class="raB" x="250" y="170">38 places, instantly</text>
+        <rect x="452" y="96" width="190" height="84" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="raK" x="466" y="118">AFTER MINUTES</text>
+        <text class="raBig" x="466" y="150">#19</text>
+        <text class="raB" x="466" y="170">1,900 mins, not 900</text>
+        <rect x="668" y="96" width="190" height="84" rx="8" fill="#EDF9F1" stroke="#15803D" stroke-width="2.5"/>
+        <text class="raKy" x="682" y="118">HONEST POSITION</text>
+        <text class="raBigy" x="682" y="150">#26</text>
+        <text class="raB" x="682" y="170">target man, no runner</text>
+
+        <rect x="20" y="200" width="840" height="68" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="raH" x="36" y="222">THE TRAP - a model that learned WHO a player is will rank the famous ones highest</text>
+        <text class="raX" x="36" y="240">b1's anti-feature: raw shooter identity raised the fitted number 11 points and dropped held-out 6</text>
+        <text class="raX" x="36" y="257">here the same mistake is invisible - there is no next season to test on until you have signed him</text>
+
+        <rect x="20" y="286" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="raN" x="44" y="298">The rank order moved at every step. Publishing the first order would have been wrong.</text>
+        <rect x="20" y="312" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="raN" x="44" y="324">Name each adjustment in the handover. An unnamed adjustment just reads as your opinion.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one striker, four rankings, and the trap underneath</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The four adjustments, in order, with the failure each one prevents<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Apply them in this order. The order matters because each one changes the denominator the next one works on.</p>
+        <table class="clean">
+          <tr><th>Adjustment</th><th>What it does</th><th>The failure it prevents</th></tr>
+          <tr><td>1 · League strength</td><td>Converts every rate to what it would be in your league, using a stated factor</td><td>Recommending a player who scored twenty in a division your reserves would beat</td></tr>
+          <tr><td>2 · Minutes played</td><td>Everything per 90, with a minimum minutes threshold you state and defend</td><td>A season total that is really a durability score wearing a striker's shirt</td></tr>
+          <tr><td>3 · Age</td><td>Positions the player on the age curve, explicitly, in both directions</td><td>Paying a premium for a peak that has already happened, or dismissing a 19-year-old for not being finished</td></tr>
+          <tr><td>4 · Positional role</td><td>Compares him only to players doing the same on-pitch job, assigned from behaviour rather than the listed position</td><td>Judging a target man against runners and calling him slow</td></tr>
+        </table>
+        <p>Two habits make these defensible rather than magical. <strong>Show the number before and after each adjustment</strong>, so a scout can see what your factor did. And <strong>show the factor itself</strong>. "League adjustment applied" is not an argument; "we multiplied his rate by 0.62 based on how players moving between these two leagues have performed" is one somebody can attack, which is what you want.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why the reputation trap is worse in recruitment than anywhere else<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Go back to the shot model in b1. When you switched on raw shooter identity, the fitted number climbed <strong>eleven points</strong> and the held-out number fell <strong>six</strong>, widening the gap from two points to nineteen. The model had learned who takes the shots rather than what makes a shot good. That was catchable, because the held-out season was sitting right there ready to tell you.</p>
+        <p><strong>In recruitment the same mistake is invisible.</strong> Your held-out data is what the player does at your club next season, and you cannot see it until you have paid the fee, given him the shirt and told the head coach he is the answer. There is no honest test set. So the defence has to be structural rather than empirical:</p>
+        <ul>
+          <li><strong>Ban reputation features by name.</strong> Player name, club name, club size, market value, transfer fee, social following, national-team caps. Any of these as a ranking input is the anti-feature, straight from b1.</li>
+          <li><strong>Notice the tell.</strong> If your longlist is mostly players your director could already name, the model is measuring prominence, and prominence is exactly the thing recruitment data was supposed to see past.</li>
+          <li><strong>Understand why this is upside-down.</strong> The value of a search is finding what nobody in the room knew. A ranking driven by fame returns what everybody in the room already knew, at the price of a data department.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The honest nuance, same as b3.</strong> Player effects are not inherently wrong. Bayesian hierarchical approaches that pool player effects with shrinkage - the Bayes-xG line of work - genuinely improve season-level prediction for individual players and teams over a plain xG model. The difference is regularisation and sample size. Pooled, shrunk player effects estimated from thousands of shots are a legitimate model component. Raw identity and market value bolted onto a recruitment ranking on 900 minutes of data is leakage wearing a jersey, and in recruitment nothing will tell you until the money has gone.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Build the longlist from a real role brief <span class="tag demo">★ 20 min · everyone runs it</span></h2>
+    </div>
+    <p class="lede">Take the role brief you brought. If you did not bring one, use Rivermouth's: a centre-forward to lead the line for a low-possession side, run the channels, and be signable inside a mid-table budget. Work through the eight steps and write down the count at every exclusion - the counts are the part your scouts will actually interrogate.</p>
+
+    <div class="steps">
+      <div class="step"><p>Write the role brief as <strong>behaviour, not position</strong>. "Runs the channels behind a high line and defends the first ball" is a brief. "Striker" is a job title.</p></div>
+      <div class="step"><p>Define the universe and say its size out loud. Leagues you can actually buy from, contracts inside 24 months, budget band. Write the number down: <strong>this is the space you searched</strong>.</p></div>
+      <div class="step"><p>Apply the <strong>minutes threshold</strong> first, because it is the one that removes the most people. State it, apply it, and record how many players it removed and how many were under 21.</p></div>
+      <div class="step"><p>Apply <strong>league strength</strong> and show the factor for each league in the list. Watch the order move. This is the step your director will question hardest, so have the factor's derivation ready.</p></div>
+      <div class="step"><p>Convert everything to <strong>per 90</strong> and re-sort. Note which players climbed. Rotation players and injury-returners tend to appear here, and some of them are genuinely undervalued.</p></div>
+      <div class="step"><p>Apply the <strong>age curve</strong> explicitly. Do not silently reward youth. Say where each player sits and what that implies for resale as well as for next season.</p></div>
+      <div class="step"><p>Assign <strong>positional role from behaviour</strong> - touches, receiving zones, off-ball runs - and compare each player only within his role group. Re-sort a final time.</p></div>
+      <div class="step"><p>Write the <strong>limitations section</strong> before you send anything: what data was missing, which player groups are underrepresented, and what would change the answer. If that section is empty you have not finished.</p></div>
+    </div>
+
+    <p class="lede">The two prompts below are the same request. The first one produces a list a scout will argue with productively. The second produces the names your director could have given you over coffee.</p>
+
+    <div class="prompt-box good">
+      <span class="label">Good - a longlist with every adjustment named</span>
+Build a candidate LONGLIST of 25-40 players for the role brief below.
+Do NOT return a top five and do NOT present the order as a verdict.
+
+ROLE BRIEF (behaviour, not job title)
+Lead the line for a low-possession side. Run the channels behind a high
+line, defend the first ball, and hold play under pressure with back to goal.
+
+SEARCH SPACE
+Leagues we can realistically buy from, contract expiring within 24 months,
+inside our budget band. State how many players the starting universe held.
+
+MINIMUM SAMPLE
+1,200 league minutes this season. Exclude anyone below it, then tell me how
+many players that exclusion removed and how many of them were under 21.
+
+REQUIRED ADJUSTMENTS - apply all four, NAME each one in the output, and show
+the number and the rank position before and after each:
+1. League strength - state the conversion factor used for every league
+2. Minutes - per 90 only, never season totals
+3. Age - state each player's position on the age curve, in both directions
+4. Positional role - assign the role from on-pitch behaviour, not the listed
+   position, and compare each player only within his role group
+
+FORBIDDEN AS RANKING INPUTS
+Player name, current club, club size or reputation, market value, transfer
+fee, national-team caps, social following. If any of these influenced the
+order, the list is invalid.
+
+OUTPUT
+Two lines per player: why he is on the list, and what the main doubt is.
+Then a section titled LIMITATIONS OF THIS LIST covering what the data cannot
+see about these players, which groups are underrepresented, and what
+evidence would change the answer.
+    </div>
+
+    <div class="prompt-box bad">
+      <span class="label">Bad - this returns names you already knew</span>
+Who are the best available strikers under 25 in Europe?
+    </div>
+
+    <div class="callout tip">
+      <strong>Why the bad one fails</strong>
+      "Best" is undefined, "available" is undefined, there is no role, no league set, no minutes threshold and no adjustment. An unconstrained ranking measures prominence, because prominence is the strongest signal in unconstrained data about players. You will get back twenty names your director already had, having paid for a search of four thousand.
+    </div>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="room">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · notes from the recruitment room</span>
+      <h2>Five things that decide whether the list is any good <span class="tag concept">read alongside</span></h2>
+    </div>
+    <p class="lede">The adjustments make the numbers comparable. These five decide whether anybody uses them.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Survivorship - your training data is a record of past decisions<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the deepest problem in recruitment modelling and almost nobody names it in the room. <strong>You only observe outcomes for players somebody signed.</strong> Every "did this transfer work" dataset you could build is conditioned on a scout having said yes at some point in the past.</p>
+        <ul>
+          <li><strong>What that means mechanically.</strong> A model trained on transfer outcomes learns the profile of players that recruitment departments historically liked. It is not learning what works; it is learning what got bought.</li>
+          <li><strong>The circular result.</strong> If clubs have historically overlooked a league, a body type, a nationality or a position profile, your model has never seen a successful example from that group and will conclude there aren't any.</li>
+          <li><strong>Why it is invisible.</strong> Validation looks fine, because you validate against the same conditioned population. The model is internally consistent and externally blinkered.</li>
+          <li><strong>The partial defence.</strong> Model <em>performance</em>, not transfer <em>success</em>. Underlying performance is observable for every player in the universe, signed or not. It is a weaker target and a far less biased one.</li>
+          <li><strong>The honest sentence for the room.</strong> "This list reproduces the shape of our past recruitment unless we deliberately search outside it."</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Small samples on young players - why 600 minutes is not evidence<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The most exciting rows in any recruitment output are nineteen-year-olds with spectacular per-90 rates on tiny minutes. They are exciting because they are noisy, and noise produces the extremes at both ends of any list.</p>
+        <ul>
+          <li><strong>Per-90 rates on small samples are unstable in a specific direction:</strong> they produce more extreme values, and your sort puts extreme values at the top. Your ranking is partly a ranking of who has played least.</li>
+          <li><strong>600 minutes is roughly seven matches.</strong> Nobody would sign a player on seven matches of video. Do not sign one on seven matches of arithmetic either.</li>
+          <li><strong>Set a threshold and defend it.</strong> Somewhere between 900 and 1,200 league minutes for a season-level judgement. Below it, the player is a watch-list entry, not a longlist entry.</li>
+          <li><strong>Keep a separate young-player list.</strong> Do not fix the sample problem by pretending the exciting nineteen-year-old does not exist. Give him his own list, labelled as speculative, with the minutes shown.</li>
+          <li><strong>Shrinkage is the technical answer</strong> if you want one: pull small-sample estimates toward the position average. Same idea as the pooled player effects in b3, applied to recruitment.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Selling as well as buying - the metrics that flag decline early<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Half of Rivermouth's recruitment value is in selling at the right moment, and it is the half nobody staffs. The club that sells a 29-year-old one window early is doing something a lot harder than the club that buys well.</p>
+        <ul>
+          <li><strong>Physical output moves before productivity does.</strong> High-speed running volume, sprint count and repeated-sprint recovery from your GPS data (b5) tend to decline while goals still look fine.</li>
+          <li><strong>Watch the role drift.</strong> A player quietly receiving the ball ten metres deeper each season is being adapted around by his own coach. That is information.</li>
+          <li><strong>Separate rate decline from minutes decline.</strong> Falling season totals with a stable per-90 rate is a selection story, not a decline story, and they get confused constantly.</li>
+          <li><strong>The same four adjustments apply.</strong> Compare him to his own role group and his own age band, not to the squad.</li>
+          <li><strong>Say it early and say it once.</strong> A decline finding delivered in the last week of a window is a criticism. Delivered in November it is a plan.</li>
+        </ul>
+        <p>Nothing here is a verdict on a person's career. It is the valuation call on the decision line, and the decision line says a named human makes it. Your job is to make sure they make it with the trend in front of them rather than six months after it started.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Presenting a longlist so a scout engages rather than defends<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The delivery decides the outcome, which is the whole argument of b8 arriving early. A scout who feels graded will argue with your method; a scout who feels equipped will argue with your players, which is the argument you wanted.</p>
+        <ul>
+          <li><strong>Open with the search, not the answer.</strong> "We looked at 4,100 players and here is how we got to 34" earns more room than "here are the 34".</li>
+          <li><strong>Name your doubts first.</strong> Put the weakest thing about your own list on the first page. It buys enormous credibility and it is the b8 mechanic: be visibly uncertain about the big thing on purpose.</li>
+          <li><strong>Never use the word "objective".</strong> Your list has four human choices baked into it - the factors, the threshold, the curve, the role assignment. Call them choices.</li>
+          <li><strong>Ask for the names you missed.</strong> Directly: "who is not on here who should be?" Then go and find out why your search missed them. That question fixes more models than any tuning session.</li>
+          <li><strong>Give it a format and keep it.</strong> Same columns, same order, every window. Scouts learn where to look and stop reading it as an argument.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>When the budget halves in August<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>It will. A sale falls through, a fee gets renegotiated, an owner changes their mind, and the list you spent three months on is now a list of players you cannot afford. What happens next tells you whether you built a shortlist or a search.</p>
+        <ul>
+          <li><strong>If you built a top five, you are starting again.</strong> Five names is a decision, and the decision has just been invalidated.</li>
+          <li><strong>If you built a search, you change one parameter.</strong> The budget band was a filter, not a foundation. Re-run, re-sort, and the reasoning columns are all still valid.</li>
+          <li><strong>Keep the universe and the pipeline, not the output.</strong> The reusable asset is the query and the adjustment factors. The list is a printout of them on one particular Tuesday.</li>
+          <li><strong>Expect the role brief to change too.</strong> Half budget usually means an older player on a free or a younger one on a longer contract. Both are role-brief changes, so ask for the new brief rather than guessing it.</li>
+          <li><strong>Write down what the constraint cost.</strong> "Halving the budget removed 19 of our 34 and the top 6" is a fact the board should own, said once, without complaint.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li>Take last window's shortlist and go name by name. <strong>How many were found by the data, and how many were already known to somebody in the building?</strong> Write the two counts down. If the second number is most of the list, your search is not searching.</li>
+      <li>Pick one metric your department uses for recruitment and apply all four adjustments to it - league, minutes, age, role. Record the rank order after each step and see how much it moved.</li>
+      <li>Write your longlist handover format on one page: the columns, the reasoning lines, the exclusion counts, and the limitations section. Use the same one every window from now on.</li>
+      <li>Audit your recruitment inputs for reputation features. Player name, club, market value, fee, caps, following. Remove any that are influencing the order, then re-run and see which names disappear.</li>
+      <li>Ask one scout the question directly: who should be on this list who is not? Do not defend the model. Write the names down and find out why your search missed them.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session teaches the recruitment use of the public sports-analytics evidence base - what xG-style metrics are actually used for in scouting, the adjustments that make cross-league comparison honest, and the leakage failure the track has been building toward since b1. Player valuation and contract decisions stay with the people who own them. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">xG-style metrics in recruitment - finding performance not reflected in outcomes</span><span class="note">Part 1 · the genuine edge, and its sample-size limit</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The four adjustments - league strength, minutes, age, positional role</span><span class="note">Part 2 + the build-along, all four applied and named</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The reputation anti-feature - fitted up 11, held out down 6, gap 2 to 19</span><span class="note">Part 2 · why it is untestable in recruitment</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The handover point - longlist versus ranking, and where the analyst stops</span><span class="note">Part 1 + Part 3 · the presentation card</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Bayesian hierarchical player correction (Bayes-xG) as the legitimate version</span><span class="note">Part 2 · full treatment in b3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Valuation on the decision line - models shortlist, people sign</span><span class="note">Part 1 · established in b1, director view in a3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">GPS and physical-output decline as a selling signal</span><span class="note">Part 3 · the load picture belongs to b5</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Delivering a list a coach or scout will engage with</span><span class="note">Part 3 · b8 is the full session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Your recruitment ranking comes back and the top eight are all players your sporting director could have named himself. What is the most likely explanation?</p>
+      <button class="qopt" type="button">A · The model is working - well-known players are well known because they are good</button>
+      <button class="qopt" type="button">B · The search space was too small, so widen it to more leagues and re-run</button>
+      <button class="qopt" type="button">C · Something reputation-shaped is driving the order - name, club size, market value or fee - which is the b1 anti-feature, and it returns exactly the names a search was supposed to see past</button>
+      <p class="qwhy">Prominence is the strongest signal in unconstrained data about players, so an unconstrained ranking measures fame. In the shot model this was catchable: the held-out number fell 6 while the fitted number rose 11. In recruitment there is no held-out season until you have already signed someone, so the defence has to be structural - ban the reputation inputs by name and check whether the list contains anybody new.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · A nineteen-year-old tops your per-90 shortlist on 600 league minutes. What do you do?</p>
+      <button class="qopt" type="button">A · Move him to a separate speculative list with the minutes shown, because 600 minutes is about seven matches and small samples produce the extreme values your sort puts at the top</button>
+      <button class="qopt" type="button">B · Leave him at the top - per 90 already corrects for minutes played</button>
+      <button class="qopt" type="button">C · Drop him from every list, since young players cannot be assessed with data</button>
+      <p class="qwhy">Per 90 corrects the scale but not the uncertainty. Small samples produce more extreme rates in both directions, and sorting by rate promotes them, so part of your ranking is a ranking of who has played least. Neither leaving him at the top nor deleting him is honest. Give him a labelled list with the minutes visible, or shrink small-sample estimates toward the position average.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · You train a model on which of your club's past signings worked out. What is the structural problem?</p>
+      <button class="qopt" type="button">A · The sample is too small, which more seasons of data would fix</button>
+      <button class="qopt" type="button">B · You only see outcomes for players somebody signed, so the training data is a record of past recruitment decisions and the model reproduces their blind spots</button>
+      <button class="qopt" type="button">C · Transfer outcomes are subjective, so there is no label to train on</button>
+      <p class="qwhy">Survivorship. Every outcome you can observe is conditioned on a scout having said yes at some point, so the model learns what got bought rather than what works, and any group your club historically overlooked appears to contain no successes. Validation looks fine because you validate on the same conditioned population. The partial defence is to model performance rather than transfer success - performance is observable for every player in the universe.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 7 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>What data is for here</b><span>Searching a space no scout could physically watch, and finding performance the outcomes have not caught up with yet.</span></div>
+      <div class="cheat-item"><b>Longlist, never a ranking</b><span>25-40 names with the reasoning visible. A top five is a decision wearing an analyst's clothing.</span></div>
+      <div class="cheat-item"><b>The four adjustments</b><span>League strength, minutes, age, positional role. All four, in that order, every time, each one named in the output.</span></div>
+      <div class="cheat-item"><b>Show before and after</b><span>The number and the rank at each step, plus the factor you used. An unnamed adjustment reads as your opinion.</span></div>
+      <div class="cheat-item"><b>The reputation trap</b><span>Raw identity raised the fitted number 11 and dropped held-out 6, gap 2 to 19. In recruitment you cannot test it until you have signed him.</span></div>
+      <div class="cheat-item"><b>The tell</b><span>If the list is names your director already knew, the model is measuring fame, which is the opposite of the value you were hired for.</span></div>
+      <div class="cheat-item"><b>Survivorship</b><span>You only see outcomes for players somebody signed. Model performance, not transfer success.</span></div>
+      <div class="cheat-item"><b>The handover</b><span>Model searches, scout judges. Character, coachability, settling and how he trains are not in the feed, at any sample size.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 7 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b6-opposition-analysis.html">← Previous: Opposition analysis</a> &nbsp;·&nbsp; <a href="b8-communicating-to-coaches.html">Next: Communicating to coaches →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Six kinds of data sit in a football club and every one of them has a different owner, a different access list and a different answer when a player transfers. Session 2 walks the estate, draws the wall around medical data, and finds the contract clause most clubs never read.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The data estate of a club - learn ai sports with phoebe">
+<meta property="og:description" content="Event, tracking, wearable, medical, video and commercial data. Who owns each, who may see it, how long you keep it, and what leaves when a player does.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/a2-the-data-estate.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The data estate of a club - learn ai sports with phoebe">
+<meta name="twitter:description" content="Six data types, six owners, one wall around medical, and the exit clause nobody reads until it is too late.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Director session 2 · The data estate of a club - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Director session 2 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Director track · Session 2 of 6</div>
+    <h1>The data estate <span class="accent">of a club</span></h1>
+    <p class="sub">Most clubs think they have "our data". They have six different things with six different owners, and only two of those things are actually theirs. Tonight we walk the estate one row at a time and answer four questions about each: who owns it, who may see it, how long you keep it, and what happens to it when a player transfers. Then we draw the wall around medical data and follow two flows from a single wearable, one that is fine and one that ends a career and a working relationship. Bring your provider contracts. There is a clause in one of them that is worth more than anything else on this page.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Director track</span>
+      <span class="chip audience">Sporting directors · ops · IT leads</span>
+      <span class="chip audience">Bring your provider contracts</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:3">0-3 · Welcome</span>
+      <span class="a2" style="flex:17">3-20 · Six kinds of data</span>
+      <span class="a3" style="flex:18">20-38 · The wall around medical</span>
+      <span class="a4" style="flex:7">38-45 · Inventory + Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="six-kinds">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · walk the estate</span>
+      <h2>Six kinds of data, six different owners <span class="tag concept">17 min live</span></h2>
+    </div>
+    <p class="lede">At Rivermouth the estate looks like this: six seasons of event data bought from a provider, tracking data for this season only, GPS on every player in every session, medical records in a system the analysts have never logged into, a video archive going back a decade that nobody can search, and a commercial database full of people who are not players at all. Every one of those has a different answer to the same four questions, and the mistake almost every club makes is answering them once for the whole estate.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A stack of six data types with columns for who owns it, who may see it and how long it is kept. Event, tracking, video, commercial and wearable data sit above a marked wall, with medical records below the wall in a separate legal category.">
+        <style>
+          .s2aH { font: 700 12px Inter, sans-serif; fill: #FFFFFF; letter-spacing: .06em; }
+          .s2aT { font: 600 12px Inter, sans-serif; fill: #FFFFFF; }
+          .s2aTd { font: 700 12px Inter, sans-serif; fill: #991B1B; }
+          .s2aB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .s2aW { font: 700 12.5px Inter, sans-serif; fill: #991B1B; letter-spacing: .03em; }
+          .s2aN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+        <rect x="20" y="20" width="190" height="32" rx="8" fill="#182C1F"/><text class="s2aH" x="34" y="41">DATA TYPE</text>
+        <rect x="220" y="20" width="180" height="32" rx="8" fill="#182C1F"/><text class="s2aH" x="234" y="41">WHO OWNS IT</text>
+        <rect x="410" y="20" width="210" height="32" rx="8" fill="#182C1F"/><text class="s2aH" x="424" y="41">WHO MAY SEE IT</text>
+        <rect x="630" y="20" width="230" height="32" rx="8" fill="#182C1F"/><text class="s2aH" x="644" y="41">HOW LONG YOU KEEP IT</text>
+        <rect x="20" y="62" width="190" height="38" rx="8" fill="#15803D"/><text class="s2aT" x="34" y="86">Event data</text>
+        <rect x="220" y="62" width="180" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="234" y="86">Provider, licensed</text>
+        <rect x="410" y="62" width="210" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="424" y="86">Analysts and coaches</text>
+        <rect x="630" y="62" width="230" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="644" y="86">Contract term, then check</text>
+        <rect x="20" y="104" width="190" height="38" rx="8" fill="#15803D"/><text class="s2aT" x="34" y="128">Tracking data</text>
+        <rect x="220" y="104" width="180" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="234" y="128">Provider or captured</text>
+        <rect x="410" y="104" width="210" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="424" y="128">Analysts and coaches</text>
+        <rect x="630" y="104" width="230" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="644" y="128">This season, storage bound</text>
+        <rect x="20" y="146" width="190" height="38" rx="8" fill="#15803D"/><text class="s2aT" x="34" y="170">Video archive</text>
+        <rect x="220" y="146" width="180" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="234" y="170">Yours outright</text>
+        <rect x="410" y="146" width="210" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="424" y="170">Analysts, coaches, players</text>
+        <rect x="630" y="146" width="230" height="38" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/><text class="s2aB" x="644" y="170">Years, and unsearchable</text>
+        <rect x="20" y="188" width="190" height="38" rx="8" fill="#15803D"/><text class="s2aT" x="34" y="212">Commercial, tickets</text>
+        <rect x="220" y="188" width="180" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="234" y="212">Yours, about fans</text>
+        <rect x="410" y="188" width="210" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="424" y="212">Commercial team only</text>
+        <rect x="630" y="188" width="230" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="644" y="212">Consent and privacy policy</text>
+        <rect x="20" y="230" width="190" height="38" rx="8" fill="#0E5A2B"/><text class="s2aT" x="34" y="254">Wearable and GPS</text>
+        <rect x="220" y="230" width="180" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="234" y="254">Yours, about a body</text>
+        <rect x="410" y="230" width="210" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="424" y="254">Performance and medical</text>
+        <rect x="630" y="230" width="230" height="38" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s2aB" x="644" y="254">Define it or it never ends</text>
+        <rect x="20" y="284" width="840" height="26" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s2aW" x="36" y="302">THE WALL - different legal category, different access list, different answer on exit</text>
+        <rect x="20" y="322" width="190" height="38" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s2aTd" x="34" y="346">Medical records</text>
+        <rect x="220" y="322" width="180" height="38" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s2aB" x="234" y="346">Club holds, player's</text>
+        <rect x="410" y="322" width="210" height="38" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s2aB" x="424" y="346">Clinicians who need it</text>
+        <rect x="630" y="322" width="230" height="38" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s2aB" x="644" y="346">Legal minimum, with counsel</text>
+        <rect x="20" y="374" width="14" height="14" rx="3" fill="#7C3AED"/><text class="s2aN" x="44" y="386">For every row ask the transfer question: what leaves, what stays, what gets deleted.</text>
+        <rect x="20" y="398" width="14" height="14" rx="3" fill="#7C3AED"/><text class="s2aN" x="44" y="410">Orientation only. The rules that bind you sit with your counsel and your medical lead.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - six data types, and the wall that runs through the estate</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Event and tracking data: bought, not owned<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>These two are the backbone of the analytics department and neither of them belongs to you in the way people assume.</p>
+        <ul>
+          <li><strong>Event data</strong> is a row per action: pass, shot, tackle, with a time, a location and a player. You bought six seasons of it. You almost certainly <strong>licensed</strong> it rather than purchased it, which means your right to hold it, derive from it and keep it after the contract ends is defined in a document, not by the fact that it is sitting on your server.</li>
+          <li><strong>Tracking data</strong> is every player and the ball, many times a second. It is enormous, and Rivermouth has one season of it, which is normal and is the single biggest constraint on what your department can model. Tracking enables richer models than event data alone, and many production models still rely on features extracted from event data.</li>
+          <li><strong>Who may see it:</strong> analysts and coaches, and this is genuinely a wide access group. There is nothing sensitive about a pass map. Do not import medical-grade caution here; it wastes your governance budget where it is not needed.</li>
+          <li><strong>When a player transfers:</strong> their historical actions in your matches stay in your dataset, because the record is of a match, not of a person's body. What travels with them is defined by the provider, who will typically already hold the same rows for the buying club.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Wearable and GPS: captured by you, about a person<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Here is where the estate changes character. Event data is about a match. GPS data is about a body, in a way a player can feel, and that difference is the whole of governance.</p>
+        <ul>
+          <li><strong>You captured it,</strong> which makes it feel like yours in a way licensed data does not. That instinct is the trap. Capturing data about an identified person does not give you unrestricted use of it.</li>
+          <li><strong>What it is good for:</strong> exposure and load. GPS-derived workload variables capture short-term exposure well. What they are not is a complete account of why a specific injury happened, and they are context dependent.</li>
+          <li><strong>Who may see it:</strong> performance staff and medical, with a defined boundary. The question you should be able to answer tonight is whether a recruitment analyst at your club could pull a named player's GPS history if they wanted to. At most clubs the honest answer is yes, and nobody has ever asked.</li>
+          <li><strong>Retention:</strong> if you have not written a rule, the rule is "forever", because storage is cheap and nobody is incentivised to delete. Forever is a decision you made by not making it.</li>
+          <li><strong>When a player transfers:</strong> this is the row people argue about. Their body data was collected under a relationship that has ended. What you keep, and in what form, needs an answer before it comes up, not during.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Video and commercial: yours, and complicated for opposite reasons<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two rows that are unambiguously yours, and are still problems.</p>
+        <ul>
+          <li><strong>Video</strong> is the asset with the widest gap between value and usability at every club. Years of footage, all of it yours, none of it searchable. Nobody can answer "show me every time we conceded from a wide free kick against a back five" without a person watching tapes for two days. It is also the archive with the clearest route to improvement, and it is a project rather than a purchase.</li>
+          <li><strong>Commercial and ticketing</strong> is the only row that is not about players at all. It is about fans, which means it is consumer personal data, governed by whatever your ticketing consent actually says, and readable by a completely different department. Analysts should generally have no route into it, and often do, because it lives in the same warehouse as everything else.</li>
+          <li><strong>The pattern to notice:</strong> both rows fail on <em>access design</em> rather than on ownership. Owning something does not tell you who inside your building should be able to open it.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="the-wall">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the one that matters</span>
+      <h2>The wall around medical data <span class="tag concept">18 min live</span></h2>
+    </div>
+    <p class="lede">Medical and wearable data about an identified athlete is personal data of the most sensitive kind under regimes such as GDPR and PDPA, and it is also employment-sensitive in a way that has nothing to do with any regulation. A player's body is their livelihood. Information about it moving into a room where their contract is being discussed changes the negotiation, and they know it. This is why the wall exists in clubs that have never read a privacy regulation in their lives.</p>
+
+    <div class="callout tip">
+      <strong>Said plainly, because it matters here more than anywhere</strong>
+      This section is <strong>orientation for a director, not medical or legal advice</strong>. It exists so that you can brief your counsel and your medical lead properly and recognise a bad design when you see one. Every rule that actually binds your club sits with them, in your jurisdiction, under your competition's regulations and your players' contracts.
+    </div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 316" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two data flows from one wearable. The compliant flow passes through clinical review and reaches the analyst as an availability status. The non-compliant flow passes raw diagnosis-level detail through no gate to recruitment and contract talks, with the point of failure marked where the detail leaves the medical group.">
+        <style>
+          .s2bT { font: 700 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .s2bS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .s2bTv { font: 700 12.5px Inter, sans-serif; fill: #331066; }
+          .s2bTg { font: 700 12.5px Inter, sans-serif; fill: #0E5A2B; }
+          .s2bTd { font: 700 12.5px Inter, sans-serif; fill: #991B1B; }
+          .s2bB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .s2bLab { font: 700 11px Inter, sans-serif; fill: #15803D; letter-spacing: .09em; }
+          .s2bLabD { font: 700 11px Inter, sans-serif; fill: #991B1B; letter-spacing: .09em; }
+          .s2bCap { font: 600 12px Inter, sans-serif; fill: #15803D; }
+          .s2bFail { font: 700 12px Inter, sans-serif; fill: #991B1B; }
+          .s2bN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .s2bOk { stroke: #15803D; stroke-width: 2.5; fill: none; marker-end: url(#s2bHd); }
+          .s2bBad { stroke: #991B1B; stroke-width: 2.5; fill: none; marker-end: url(#s2bHdX); }
+          .s2bDrop { stroke: #991B1B; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+        </style>
+        <defs><marker id="s2bHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#15803D"/></marker>
+        <marker id="s2bHdX" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#991B1B"/></marker></defs>
+        <text class="s2bLab" x="20" y="30">COMPLIANT FLOW</text>
+        <rect x="20" y="40" width="150" height="54" rx="8" fill="#0E5A2B"/>
+        <text class="s2bT" x="34" y="62">WEARABLE</text><text class="s2bS" x="34" y="80">raw body data</text>
+        <rect x="195" y="40" width="150" height="54" rx="8" fill="#15803D"/>
+        <text class="s2bT" x="209" y="62">MEDICAL REVIEW</text><text class="s2bS" x="209" y="80">a clinician reads it</text>
+        <rect x="370" y="40" width="150" height="54" rx="8" fill="#15803D"/>
+        <text class="s2bT" x="384" y="62">AVAILABILITY</text><text class="s2bS" x="384" y="80">fit, limited, out</text>
+        <rect x="545" y="40" width="150" height="54" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="s2bTv" x="559" y="62">ANALYST</text><text class="s2bB" x="559" y="80">sees status only</text>
+        <rect x="720" y="40" width="150" height="54" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="s2bTg" x="734" y="62">SQUAD PLANNING</text><text class="s2bB" x="734" y="80">minutes, rotation</text>
+        <path class="s2bOk" d="M170,66 L190,66"/>
+        <path class="s2bOk" d="M345,66 L365,66"/>
+        <path class="s2bOk" d="M520,66 L540,66"/>
+        <path class="s2bOk" d="M695,66 L715,66"/>
+        <text class="s2bCap" x="20" y="120">The analyst receives an availability status, never a diagnosis.</text>
+        <text class="s2bLabD" x="20" y="156">NON-COMPLIANT FLOW</text>
+        <rect x="20" y="166" width="150" height="54" rx="8" fill="#0E5A2B"/>
+        <text class="s2bT" x="34" y="188">WEARABLE</text><text class="s2bS" x="34" y="206">raw body data</text>
+        <rect x="195" y="166" width="150" height="54" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s2bTd" x="209" y="188">RAW DETAIL</text><text class="s2bB" x="209" y="206">diagnosis level</text>
+        <rect x="370" y="166" width="150" height="54" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s2bTd" x="384" y="188">NO GATE</text><text class="s2bB" x="384" y="206">nobody filtered it</text>
+        <rect x="545" y="166" width="150" height="54" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s2bTd" x="559" y="188">RECRUITMENT</text><text class="s2bB" x="559" y="206">sees a diagnosis</text>
+        <rect x="720" y="166" width="150" height="54" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s2bTd" x="734" y="188">CONTRACT TALKS</text><text class="s2bB" x="734" y="206">used against them</text>
+        <path class="s2bBad" d="M170,192 L190,192"/>
+        <path class="s2bBad" d="M345,192 L365,192"/>
+        <path class="s2bBad" d="M520,192 L540,192"/>
+        <path class="s2bBad" d="M695,192 L715,192"/>
+        <path class="s2bDrop" d="M357,196 L357,230"/>
+        <circle cx="357" cy="242" r="11" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s2bFail" x="352" y="247">✕</text>
+        <text class="s2bFail" x="376" y="247">POINT OF FAILURE - raw clinical detail leaves the medical group</text>
+        <rect x="20" y="264" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s2bN" x="44" y="276">Both flows start at the same device. Only the gate in the middle is different.</text>
+        <rect x="20" y="288" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s2bN" x="44" y="300">Orientation only. Design the gate with your medical lead and your counsel.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the same wearable, two flows, one gate</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The four practical rules<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Four rules that hold up in most clubs, in most jurisdictions, and that give your counsel something concrete to correct rather than a blank page:</p>
+        <ul>
+          <li><strong>Access is limited to those who need it clinically.</strong> Not "the medical department" as an org chart box. The people treating this player. A physio who has never worked with a player does not need their scan history because they share a job title with someone who does.</li>
+          <li><strong>Analysts see aggregated or availability-level information, never diagnoses.</strong> "Available", "limited", "unavailable", and a return window if the clinician gives one. That is enough to plan minutes and rotation, which is all the analyst was ever trying to do.</li>
+          <li><strong>Consent is meaningful and revisited.</strong> Meaningful means the player understood what is collected, who reads it and what it is used for. Revisited means it does not survive unchanged for five years across three different systems and a new wearable supplier.</li>
+          <li><strong>Nothing crosses into recruitment or contract discussions without an explicit, documented basis.</strong> Not a phone call, not a conversation in a corridor, not a shared drive somebody forgot to lock. Documented, and narrow.</li>
+        </ul>
+        <p>The second flow on the diagram is not a hypothetical. It is what happens by default when everything lives in one warehouse and access is granted by department rather than by purpose. Nobody decides to do it. It is simply what the system does when nobody designs the gate.</p>
+        <p><strong>To repeat, because it belongs next to every one of these:</strong> this is orientation, not legal or medical advice. Take these four rules to your counsel and your medical lead as a starting draft, and let them tell you where your jurisdiction, your competition's regulations and your players' contracts change the answer.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why the employment side bites harder than the regulation<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Directors tend to think about this as a compliance problem. The compliance problem is real, and it is not the one that will damage you first.</p>
+        <ul>
+          <li><strong>A player's body is their livelihood.</strong> A note about a chronic issue, once it exists outside the clinical group, is a fact in every future contract conversation. It does not need to be used deliberately to shape one.</li>
+          <li><strong>Agents will find out.</strong> Not from your systems, from your behaviour. A club that suddenly changes its position in a negotiation shortly after a scan is not a mystery to anyone who has done this before.</li>
+          <li><strong>Your medical department is the first casualty.</strong> Rivermouth's medical staff have been burned by a dashboard before. That is not a personality problem you can manage around; it is a rational response, and it means the honest information you actually need for squad planning stops flowing.</li>
+          <li><strong>Trust is asymmetric.</strong> It takes a season to build the reporting relationship where a clinician tells you early that a player is at risk of missing a run of fixtures. It takes one leak to end it, permanently.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="director-moves">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · what you do about it</span>
+      <h2>Five things to fix this quarter <span class="tag concept">read and reuse</span></h2>
+    </div>
+    <p class="lede">None of these need a platform, a hire or a project board. Four of them are conversations and one is reading a document you already own.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The exit clause most clubs never read<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the single most expensive line in your data estate, and it is usually about four pages into a contract nobody has opened since signature. The question it answers is: <strong>when you switch supplier, what do you keep?</strong></p>
+        <table class="clean">
+          <thead><tr><th>What you might keep</th><th>What clubs assume</th><th>What the contract often says</th></tr></thead>
+          <tbody>
+            <tr><td>Raw event and tracking rows</td><td>We keep everything, we paid for it</td><td>Licence ends with the term; delete or return</td></tr>
+            <tr><td>Derived features and metrics you built on top</td><td>Obviously ours, we made them</td><td>Sometimes derivative works, sometimes not, often silent</td></tr>
+            <tr><td>Historic seasons already delivered</td><td>Archived and permanent</td><td>Frequently tied to an active subscription</td></tr>
+            <tr><td>Models trained on the provider's data</td><td>Ours entirely</td><td>The most contested clause in the document</td></tr>
+          </tbody>
+        </table>
+        <p>Why it matters more than it sounds: your six seasons of event data are what makes any comparison across time possible. Lose the right to keep them and you do not lose a dataset, you lose your department's ability to say whether anything has changed at the club in six years. Read the clause. If it is silent on derived work, that silence is the thing to renegotiate, and the moment to do it is at renewal, not at exit.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>A data dictionary a coach could read<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ask your analysts for a data dictionary and you will get a spreadsheet of column names. That is a dictionary for them. What the club needs is one page per data type answering the questions a non-technical person actually has:</p>
+        <ul>
+          <li><strong>What is one row of this?</strong> In a sentence, in plain language. "One row is one shot" is a better start than any schema.</li>
+          <li><strong>What can it answer, and what can it not?</strong> Event data cannot tell you where the defenders were. That single limitation explains a surprising number of arguments.</li>
+          <li><strong>Where does it come from, and how often does it arrive?</strong> Including how long after a match, which is what determines whether it is useful for the next one.</li>
+          <li><strong>Who may see it, and who signs off on an exception?</strong> A name, not a department.</li>
+          <li><strong>How long do we keep it, and what happens on transfer?</strong> The two questions everyone forgets until they are urgent.</li>
+        </ul>
+        <p>Six pages, one per row of the diagram. It is a two-week job and it makes every subsequent governance conversation shorter.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What to do about the video archive<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You own a decade of footage and you cannot search it. This is the highest-value, lowest-risk AI project available to a mid-table club, and it is entirely on the safe side of the decision line because no model is deciding anything about a person.</p>
+        <ul>
+          <li><strong>The prize:</strong> a coach asks for every wide free kick conceded against a back five and gets a clip pack in minutes instead of two days.</li>
+          <li><strong>The trap:</strong> auto-tagging accuracy is not perfect and a clip pack that has missed a third of the instances is worse than none, because nobody knows which third. A human review pass is part of the design, not an optimisation.</li>
+          <li><strong>The rights question:</strong> footage of matches may carry broadcast or league restrictions on what you can do with it and where it can be processed. Ask before you upload a decade of it anywhere.</li>
+          <li><strong>Where the detail lives:</strong> analyst session b4 is the whole session on tagging, clip packs and the review pass. Hand it to whoever will own the project.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Retention and deletion when a player leaves<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Walk the six rows on exit day. The answers differ, and a policy that treats them the same is either far too strict for event data or far too loose for medical:</p>
+        <ul>
+          <li><strong>Event and tracking:</strong> the record is of a match. It stays, subject to your provider contract, and the player's actions remain part of your club's history.</li>
+          <li><strong>Video:</strong> stays. It is footage of matches and sessions you ran.</li>
+          <li><strong>Commercial:</strong> not about them at all, unless they were also a member or ticket holder, in which case that record follows its own consumer rules.</li>
+          <li><strong>Wearable and GPS:</strong> the hard one. Collected about a body, under a relationship that has ended. Aggregated and anonymised is a different proposition from a named history, and the difference needs to be written down before it is asked about.</li>
+          <li><strong>Medical:</strong> a legal minimum retention usually applies, and it is set by clinical regulation and jurisdiction rather than by you. Your medical lead and your counsel own this row entirely.</li>
+        </ul>
+        <p>The reason to answer all six now is that on the day it comes up, someone will be asking under time pressure, in the middle of a transfer, and the answer will be whatever is convenient.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Player representation: cheaper early than late<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Players and their representatives are increasingly organised on data, and the direction of travel is one way. You have a choice about whether you are consulted or informed.</p>
+        <ul>
+          <li><strong>Involving them early costs you a meeting.</strong> Being made to involve them later costs you a policy you did not design, on a timeline you did not choose, usually in public.</li>
+          <li><strong>They will ask three questions,</strong> and they are good ones: what is collected, who reads it, and what happens to it when I leave. If you cannot answer those tonight, that is your agenda.</li>
+          <li><strong>Consent obtained under pressure is weak consent.</strong> A form signed on a player's first day, alongside forty other forms, is not the same as an understood agreement, and it will not read well if it is ever examined.</li>
+          <li><strong>The upside is real, not defensive.</strong> Players who understand what the wearable is for wear it properly, report honestly and stop quietly removing it during sessions. Your data quality problem is often a trust problem in disguise.</li>
+        </ul>
+        <p>And once more: orientation, not legal advice. What consent must look like in your jurisdiction is a question for your counsel, and the answer will differ across the leagues your academy players end up in.</p>
+      </div>
+    </details>
+  </section>
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="inventory">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Inventory your six, and find the two you cannot answer <span class="tag exercise">◐ 7 min in session</span></h2>
+    </div>
+    <p class="lede">Take a blank page. Six rows, four columns, no laptop. The point is not to be right; it is to find out how quickly you get stuck, and where.</p>
+
+    <div class="steps">
+      <div class="step"><p>Write the six rows down the page: <strong>event, tracking, wearable and GPS, medical, video, commercial and ticketing</strong>. If your club has a seventh, add it now.</p></div>
+      <div class="step"><p>Column one, <strong>who owns it</strong>. Not who stores it. Owned, licensed, or captured by you about a person. Three different answers, three different consequences.</p></div>
+      <div class="step"><p>Column two, <strong>who may see it</strong>. Write names or roles, not departments. "Medical" is not an access list; "the two physios treating this player" is.</p></div>
+      <div class="step"><p>Column three, <strong>how long you keep it</strong>. If your honest answer is "forever, because nobody deletes anything", write that. It is the most common true answer in the sport.</p></div>
+      <div class="step"><p>Column four, <strong>what happens on transfer</strong>. What leaves with the player, what stays with you, what must be deleted.</p></div>
+      <div class="step"><p>Now <strong>mark the two rows where you cannot answer "who owns this"</strong> with any confidence. Those two are your quarter. Everything else on this page can wait behind them.</p></div>
+    </div>
+
+    <div class="callout tip">
+      <strong>What usually happens</strong>
+      Most directors stall on wearable and GPS, and on the retention column for medical. The GPS row stalls because "we captured it" feels like ownership and is not the same question. The medical retention row stalls because the answer genuinely is not yours to give, which is the correct place to stop and hand it to your counsel and your medical lead.
+    </div>
+  </section>
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 40-50 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>Read the exit clause in your main data contract.</strong> Find the paragraph that says what you keep when the relationship ends, and specifically whether it covers derived features and models. Bring the actual wording to a3, not a summary of it.</li>
+      <li><strong>Name the access group for medical data in writing.</strong> Roles or names, not departments, plus who signs off an exception. One paragraph. Then send it to your medical lead and let them correct it, which they will.</li>
+      <li><strong>Find out how long wearable data is kept after a player leaves.</strong> Ask the person who runs the system, not the person who bought it. If the answer is "we have never deleted any", you now have a decision to make rather than a policy to look up.</li>
+      <li><strong>Complete the six-row inventory</strong> from the build-along properly, with your ops or IT lead in the room, and circle the two rows you cannot answer.</li>
+      <li><strong>Optional:</strong> ask one senior player what they think happens to their GPS data. Their answer is a reasonable proxy for how well your consent process is working.</li>
+    </ul>
+  </section>
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This session covers the estate a club actually holds and the boundaries that run through it. Data-protection and medical specifics are orientation only; the binding rules sit with your counsel, your medical lead, your jurisdiction and your competition. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Six data types with ownership, access group, retention and transfer answers</span><span class="note">Part 1 · the frame for a3, a4 and a5</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The wall around medical data, and the four practical access rules</span><span class="note">Part 2 · a4 is the full welfare session</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Provider contracts, licensing, and what survives a supplier switch</span><span class="note">Part 3 · bring the wording to a3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Event versus tracking data and what each can support</span><span class="note">Part 1 · analyst session b2 is the full treatment</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">GPS workload as short-term exposure, and its context dependence</span><span class="note">Part 1 · analyst b5 and director a4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The unsearchable video archive and the auto-tagging review pass</span><span class="note">Part 3 · analyst session b4 owns this</span></div>
+    </div>
+  </section>
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Your club captured six seasons of GPS data itself, on its own devices, on its own training ground. What does that establish?</p>
+      <button class="qopt" type="button">A · That the data is fully the club's to use, since no provider licence is involved</button>
+      <button class="qopt" type="button">B · Only that you hold it. It is data about an identified person's body, so use, access and retention still need a defined and revisited basis</button>
+      <button class="qopt" type="button">C · That it can be shared internally without restriction, and only external sharing needs a basis</button>
+      <p class="qwhy">Capturing data about an identified person does not convert it into an unrestricted asset, and the internal boundary is exactly where clubs fail. The non-compliant flow on the diagram never leaves the building. This is orientation for a director, not legal advice, and the specific answer for your club belongs with your counsel.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · An analyst asks for a named player's medical history so they can plan squad rotation properly. What is the right design?</p>
+      <button class="qopt" type="button">A · The analyst receives an availability status - fit, limited, unavailable, with a return window if the clinician gives one - and never a diagnosis</button>
+      <button class="qopt" type="button">B · Give them read-only access to the medical system so nothing is lost in translation</button>
+      <button class="qopt" type="button">C · Refuse entirely; squad rotation should be planned without any medical input</button>
+      <p class="qwhy">Availability level is genuinely enough to plan minutes and rotation, which is what the analyst was actually trying to do. Read-only access to diagnoses is the second flow on the diagram, and a flat refusal breaks the planning the club needs. The clinician stays the gate.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">3 · You are renewing a five-year event-data contract. Which clause deserves the most attention?</p>
+      <button class="qopt" type="button">A · The service-level guarantee on how quickly data arrives after a match</button>
+      <button class="qopt" type="button">B · The per-season price and the escalation schedule</button>
+      <button class="qopt" type="button">C · What you keep on exit - raw rows, historic seasons, derived features and models - and especially whatever the document is silent about</button>
+      <p class="qwhy">Latency and price are negotiable every cycle. The exit clause decides whether your six seasons of comparable history survive a supplier change, and silence on derived work is the gap that costs most. Renewal is the moment to fix it; exit is far too late.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Director session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Six rows, four questions</b><span>Event, tracking, wearable and GPS, medical, video, commercial. For each: who owns it, who may see it, how long, and what happens on transfer.</span></div>
+      <div class="cheat-item"><b>Bought is not owned</b><span>Event and tracking data are usually licensed. Your right to hold, derive from and keep them lives in a document, not on your server.</span></div>
+      <div class="cheat-item"><b>Captured is not owned either</b><span>GPS you collected yourself is still data about an identified person's body. Capture establishes possession, not free use.</span></div>
+      <div class="cheat-item"><b>The wall</b><span>Medical sits in a different legal category with a different access list. Analysts get availability status, never diagnoses.</span></div>
+      <div class="cheat-item"><b>The gate is the design</b><span>Both flows start at the same wearable. The only difference is whether a clinician stands between the raw detail and everyone else.</span></div>
+      <div class="cheat-item"><b>The exit clause</b><span>What you keep on switching supplier: raw rows, historic seasons, derived features, models. Silence on derived work is the expensive gap.</span></div>
+      <div class="cheat-item"><b>Not advice</b><span>Everything here on medical data, consent and retention is orientation for a director. The binding rules sit with your counsel and your medical lead.</span></div>
+      <div class="cheat-item"><b>Homework</b><span>Read one exit clause, write one medical access group, find one wearable retention answer. Mark the two rows you cannot answer.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Director session 2 of 6 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a1-what-ai-changes.html">← Previous: What AI changes</a> &nbsp;·&nbsp; <a href="a3-recruitment-and-valuation.html">Next: Recruitment and valuation →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

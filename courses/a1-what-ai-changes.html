@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Six director sessions in one club: Rivermouth FC, mid-table, three analysts. Session 1 is the honest picture - four departments at four different maturity levels, what the public evidence actually supports, what vendors sell on top of it, and the decision line a model never crosses.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="What AI actually changes across the club - learn ai sports with phoebe">
+<meta property="og:description" content="Four departments, four maturity levels, and the uncomfortable fact that evidence quality and decision stakes run in opposite directions.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/a1-what-ai-changes.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What AI actually changes across the club - learn ai sports with phoebe">
+<meta name="twitter:description" content="Four departments, four maturity levels, and what the public evidence will and will not carry.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Director session 1 · What AI actually changes across the club - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Director session 1 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Director track · Session 1 of 6</div>
+    <h1>What AI actually <span class="accent">changes across the club</span></h1>
+    <p class="sub">You are going to be sold something this season. Probably several things, probably by people who know more about your budget than about your squad. This track is not here to make you an analyst; it is here to make you the hardest room in football to sell a bad model into. Tonight we put all four departments on one picture and look at the thing nobody puts in a pitch deck: the places where the evidence is strongest are the places where the decisions matter least, and the place where a wrong answer costs a player their season is the place where the models are weakest. That inversion is the whole job.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Director track</span>
+      <span class="chip audience">Sporting directors · club execs · performance leads</span>
+      <span class="chip audience">No coding needed</span>
+      <span class="chip time">Start here</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:3">0-3 · Welcome</span>
+      <span class="a2" style="flex:17">3-20 · Four departments, one picture</span>
+      <span class="a3" style="flex:20">20-40 · Proven versus sold</span>
+      <span class="a4" style="flex:5">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ============ PART 0 ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>How this track works</h2>
+    </div>
+    <p class="lede">Six sessions, one club: <strong>Rivermouth FC</strong> - mid-table, three people in the analytics department, event data from a provider going back six seasons, tracking data for this season only, GPS on every player, a video archive nobody can search, and a medical department that has been burned by a dashboard before. <strong>a1</strong> is tonight's honest picture. <strong>a2</strong> is the data estate: six kinds of data, six different owners. <strong>a3</strong> is recruitment and valuation. <strong>a4</strong> is athlete welfare and data rights. <strong>a5</strong> is fans, commercial and integrity. <strong>a6</strong> is building the function - staffing it, getting coaches to use it, proving value without overclaiming. Every session is about a decision you personally sign off, not a task somebody else performs.</p>
+    <p class="lede">There is a parallel <strong>analyst track (b1-b10)</strong> for the people who do the work. You do not need it. You will get more out of these six sessions if you skim two pages of it anyway: <strong>b1</strong>, which is where the analysis loop and the decision line come from, and <strong>b3</strong>, which builds a shot model feature by feature and shows a headline accuracy number going UP while the model gets worse. Fifteen minutes with b3 will change how you sit in vendor meetings.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      One picture of the four departments and why they are at four different maturity levels, a short list of what the public evidence genuinely supports, the decision line written in your own words, and six questions that will end a bad vendor meeting in under ten minutes.
+    </div>
+    <div class="callout tip">
+      <strong>Scope, said once and meant</strong>
+      Anything on this page touching injury risk, medical records or athlete data is <strong>orientation, not medical or legal advice</strong>. It is here so you can ask your clinicians and your counsel better questions. It is not here to answer them.
+    </div>
+  </section>
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="departments">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the map</span>
+      <h2>Four departments, four maturity levels <span class="tag concept">17 min live</span></h2>
+    </div>
+    <p class="lede">Clubs talk about "our AI strategy" as though the club were one thing. It is four things, and they are nowhere near each other. Performance analysis has a public evidence base going back years. Medical has the highest stakes in the building and the weakest models. Recruitment has the biggest cheques and the biggest bias risk. Commercial and fan has the lowest stakes and adopts fastest, which is exactly why it is where most of your visible AI will appear first.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 396" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four club departments plotted against evidence quality on the horizontal axis and decision stakes on the vertical axis, showing that the two run in opposite directions: medical has the highest stakes and weakest evidence, commercial the lowest stakes and fast adoption.">
+        <style>
+          .s1aT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .s1aS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .s1aTd { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .s1aTv { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .s1aTg { font: 700 13px Inter, sans-serif; fill: #0E5A2B; }
+          .s1aB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .s1aAx { font: 700 10.5px Inter, sans-serif; fill: #6E7F73; letter-spacing: .08em; }
+          .s1aN { font: 600 13px Inter, sans-serif; fill: #331066; }
+          .s1aTrend { stroke: #7C3AED; stroke-width: 2.5; stroke-dasharray: 7 5; fill: none; }
+          .s1aAxis { stroke: #E3EDE6; stroke-width: 2; fill: none; }
+        </style>
+        <defs><marker id="s1aHd" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#7C3AED"/></marker></defs>
+        <path class="s1aAxis" d="M100,28 L100,286 L862,286"/>
+        <path class="s1aTrend" d="M130,44 L840,256" marker-end="url(#s1aHd)"/>
+        <text class="s1aAx" x="22" y="44">HIGH STAKES</text>
+        <text class="s1aAx" x="22" y="278">LOW STAKES</text>
+        <text class="s1aAx" x="106" y="304">WEAK EVIDENCE</text>
+        <text class="s1aAx" x="742" y="304">STRONG EVIDENCE</text>
+        <rect x="112" y="36" width="180" height="62" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s1aTd" x="128" y="58">MEDICAL</text><text class="s1aB" x="128" y="76">highest stakes,</text><text class="s1aB" x="128" y="91">weakest models</text>
+        <rect x="300" y="92" width="180" height="62" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="s1aTv" x="316" y="114">RECRUITMENT</text><text class="s1aB" x="316" y="132">biggest money,</text><text class="s1aB" x="316" y="147">biggest bias risk</text>
+        <rect x="488" y="148" width="180" height="62" rx="8" fill="#0E5A2B"/>
+        <text class="s1aT" x="504" y="170">PERFORMANCE</text><text class="s1aS" x="504" y="188">most mature, real</text><text class="s1aS" x="504" y="203">public evidence</text>
+        <rect x="676" y="204" width="180" height="62" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="s1aTg" x="692" y="226">COMMERCIAL, FAN</text><text class="s1aB" x="692" y="244">lowest stakes,</text><text class="s1aB" x="692" y="259">fastest adoption</text>
+        <rect x="20" y="316" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s1aN" x="44" y="328">The two axes run in opposite directions. That inversion is the whole problem.</text>
+        <rect x="20" y="342" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s1aN" x="44" y="354">Adoption speed tracks stakes in reverse: the fan side ships first because it can.</text>
+        <rect x="20" y="368" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s1aN" x="44" y="380">Money follows stakes. Evidence follows neither. Your job sits in that gap.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four departments, plotted against evidence and stakes</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Performance analysis: the mature one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the department where the public evidence base is deepest, and it is the only one where a mid-table club can be confident it is buying something real. Shot-quality modelling in particular has been examined in the open for years, and the commercial models are trained at a scale no club can match on its own.</p>
+        <ul>
+          <li><strong>What a three-person department can realistically do here:</strong> use a provider's shot-quality numbers competently, understand which variables sit behind them, and produce one match report a head coach reads. That is a full season of work done well.</li>
+          <li><strong>What it should not attempt:</strong> building its own shot model from six seasons of event data and one season of tracking, then treating the output as comparable to a provider's. It will not be, and pretending otherwise costs you credibility everywhere else.</li>
+          <li><strong>The tell that it is working:</strong> a coach changes something because of an analysis, and says so out loud. Nothing else counts.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The scale gap is the useful fact to hold.</strong> Modern commercial shot-quality models train on close to a million historical shots and integrate more than twenty variables, including distance from goal, angle, defensive pressure and goalkeeper location. Your club has one season of tracking data. That is not an argument for doing nothing; it is an argument for buying the model and spending your three people on judgment, which is the part nobody can sell you.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Medical: highest stakes, weakest models<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the one to get right, and the one where the pitch decks are most confident. A wrong call here is a player's season, sometimes a player's career, and the published performance of injury-prediction models does not come close to supporting the confidence with which they are sold.</p>
+        <ul>
+          <li><strong>The published range is genuinely wide.</strong> A systematic review of machine-learning injury-risk models in football reports performance from accuracy 52% and AUC 0.52 - close to a coin toss - up to AUC 0.87, and describes the results as inconsistent across studies, with many landing at AUC 0.63 to 0.65, which the literature itself calls poor.</li>
+          <li><strong>The reason is structural, not fixable by a better vendor.</strong> Injuries are rare. Rare events make imbalanced datasets, and imbalanced datasets push a model toward predicting that nobody gets hurt. That model will look accurate.</li>
+          <li><strong>Results do not travel.</strong> Generalisability suffers across environment, team context and how things were measured. A model that worked at another club is a hypothesis at yours.</li>
+          <li><strong>The recommendation in the literature is explicit.</strong> These outputs are supportive information, to be integrated with clinical judgment, athlete history, wellness data and staff expertise, and never used in isolation for selection or return-to-play decisions.</li>
+        </ul>
+        <p><strong>What a three-person department can realistically do here:</strong> availability reporting, exposure and minutes tracking, and an honest picture of who has been injured before. Not risk scores with names attached. And say this next part out loud in your own building: this is orientation for a director, not medical advice, and every rule that actually binds you sits with your medical lead and your counsel.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Recruitment: biggest money, biggest bias risk<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Recruitment is where models have already changed the market, and where the failure mode is quiet rather than dramatic. Nobody notices a shortlist that was subtly wrong; they notice the signing two years later.</p>
+        <ul>
+          <li><strong>What is real:</strong> xG-style metrics are now widely used in recruitment and scouting to find players whose underlying performance is not reflected in their outcomes. A striker with poor conversion and excellent chance quality is a genuine market inefficiency, and finding those is something a model does better than a person.</li>
+          <li><strong>What is not real:</strong> a model that tells you who to sign. It ranks. Ranking is not deciding, and the gap between those two words is where clubs lose money.</li>
+          <li><strong>Where the bias lives:</strong> in the leagues you have data for, the minutes a player was given, the style of the team they played in, and the fact that a player who was never selected has no record to be modelled. The model does not see the players nobody let on the pitch.</li>
+        </ul>
+        <p><strong>What a three-person department can realistically do here:</strong> build the shortlist, adjust for league, and hand scouts a ranked set with the reasoning attached. a3 is the full session.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Commercial and fan: lowest stakes, fastest adoption<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ticketing, pricing, content, personalisation, matchday operations. The stakes per decision are low, the feedback is fast, the data is plentiful and nobody's body is involved. So this is where adoption runs ahead of everything else, and it will be the visible face of "the club uses AI" long before performance or medical are ready.</p>
+        <ul>
+          <li><strong>Treat that as an asset.</strong> It is the cheapest place in the club to learn what a model deployment actually feels like: the drift, the retraining, the awkward first month.</li>
+          <li><strong>And as a risk.</strong> Success here creates board confidence that does not transfer. "The pricing model worked, why can't medical do this" is a sentence you will hear, and the answer is on the diagram above.</li>
+          <li><strong>The rails that do apply:</strong> fan data is personal data, and anything predictive that touches match outcomes runs into betting-integrity questions. a5 covers both properly.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="proven-versus-sold">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the claims board</span>
+      <h2>Proven versus sold <span class="tag concept">20 min live</span></h2>
+    </div>
+    <p class="lede">Every claim you will be shown this season sits somewhere between two columns. On the left, things the public evidence base supports, with numbers you can quote back. On the right, the version that appears in a pitch. The two columns are usually about the same technology; what differs is how much certainty is being attached to it, and who carries the cost when it is wrong.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 428" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A claims board with four topics: shot quality, match outcome, recruitment and injury risk. The left column states what public evidence supports, the right column states the typical vendor claim. The injury risk row is marked as the most dangerous gap.">
+        <style>
+          .s1bH { font: 700 12.5px Inter, sans-serif; fill: #FFFFFF; letter-spacing: .05em; }
+          .s1bHv { font: 700 12.5px Inter, sans-serif; fill: #331066; letter-spacing: .05em; }
+          .s1bK { font: 700 12px Inter, sans-serif; fill: #FFFFFF; }
+          .s1bKs { font: 400 11px Inter, sans-serif; fill: #FFFFFF; opacity: .9; }
+          .s1bKd { font: 700 12px Inter, sans-serif; fill: #991B1B; }
+          .s1bKds { font: 400 11px Inter, sans-serif; fill: #991B1B; opacity: .9; }
+          .s1bL { font: 700 12px Inter, sans-serif; fill: #0E5A2B; }
+          .s1bR { font: 700 12px Inter, sans-serif; fill: #331066; }
+          .s1bRd { font: 700 12px Inter, sans-serif; fill: #991B1B; }
+          .s1bB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .s1bN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <rect x="20" y="24" width="150" height="34" rx="8" fill="#182C1F"/><text class="s1bH" x="34" y="46">CLAIM AREA</text>
+        <rect x="180" y="24" width="330" height="34" rx="8" fill="#0E5A2B"/><text class="s1bH" x="196" y="46">SUPPORTED BY PUBLIC EVIDENCE</text>
+        <rect x="525" y="24" width="335" height="34" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/><text class="s1bHv" x="541" y="46">THE TYPICAL VENDOR CLAIM</text>
+        <rect x="20" y="72" width="150" height="64" rx="8" fill="#15803D"/><text class="s1bK" x="34" y="98">SHOT QUALITY</text><text class="s1bKs" x="34" y="116">well evidenced</text>
+        <rect x="180" y="72" width="330" height="64" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="s1bL" x="196" y="94">Close to a million historical shots</text><text class="s1bB" x="196" y="112">20+ variables: distance, angle, pressure,</text><text class="s1bB" x="196" y="128">goalkeeper position.</text>
+        <rect x="525" y="72" width="335" height="64" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="s1bR" x="541" y="94">"Our AI knows every shot."</text><text class="s1bB" x="541" y="112">Ask which variables, trained on whose</text><text class="s1bB" x="541" y="128">data, and what the held-out number was.</text>
+        <rect x="20" y="144" width="150" height="64" rx="8" fill="#15803D"/><text class="s1bK" x="34" y="170">MATCH OUTCOME</text><text class="s1bKs" x="34" y="188">informative</text>
+        <rect x="180" y="144" width="330" height="64" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="s1bL" x="196" y="166">Post-match xG predicted outcome</text><text class="s1bB" x="196" y="184">at around 0.656 accuracy in a</text><text class="s1bB" x="196" y="200">peer-reviewed comparison.</text>
+        <rect x="525" y="144" width="335" height="64" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="s1bR" x="541" y="166">"xG shows who deserved to win."</text><text class="s1bB" x="541" y="184">It is a probability over chances, not</text><text class="s1bB" x="541" y="200">a scoreline that should have happened.</text>
+        <rect x="20" y="216" width="150" height="64" rx="8" fill="#15803D"/><text class="s1bK" x="34" y="242">RECRUITMENT</text><text class="s1bKs" x="34" y="260">real, with care</text>
+        <rect x="180" y="216" width="330" height="64" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="s1bL" x="196" y="238">xG-style metrics find players whose</text><text class="s1bB" x="196" y="256">underlying performance is not</text><text class="s1bB" x="196" y="272">reflected in their outcomes.</text>
+        <rect x="525" y="216" width="335" height="64" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="s1bR" x="541" y="238">"The model finds your next signing."</text><text class="s1bB" x="541" y="256">It shortlists. A person still watches</text><text class="s1bB" x="541" y="272">the player, and a person still signs.</text>
+        <rect x="20" y="288" width="150" height="64" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/><text class="s1bKd" x="34" y="314">INJURY RISK</text><text class="s1bKds" x="34" y="332">the widest gap</text>
+        <rect x="180" y="288" width="330" height="64" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s1bRd" x="196" y="310">Published range: accuracy 52% and</text><text class="s1bB" x="196" y="328">AUC 0.52 up to AUC 0.87, inconsistent</text><text class="s1bB" x="196" y="344">across studies, many at 0.63-0.65.</text>
+        <rect x="525" y="288" width="335" height="64" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="s1bRd" x="541" y="310">"Predicts who will get injured."</text><text class="s1bB" x="541" y="328">The literature calls these outputs</text><text class="s1bB" x="541" y="344">supportive only, never a decision.</text>
+        <rect x="20" y="372" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s1bN" x="44" y="384">The injury row is the dangerous one: weakest evidence, highest cost of believing it.</text>
+        <rect x="20" y="398" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="s1bN" x="44" y="410">Every claim on the right survives one question: show me the held-out number.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - what the evidence supports, next to what gets sold</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the public evidence supports<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three claims you can make in a board meeting without exposing yourself, with the shape of the evidence attached to each:</p>
+        <table class="clean">
+          <thead><tr><th>Claim</th><th>What sits behind it</th><th>Where it helps you</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Shot quality is measurable</strong></td><td>Commercial models trained on close to a million shots with 20+ variables including distance, angle, defensive pressure and goalkeeper location</td><td>Post-match review, opposition prep, recruitment</td></tr>
+            <tr><td><strong>xG is informative about outcomes</strong></td><td>Post-match xG predicted match outcome at around 0.656 accuracy in a peer-reviewed Bundesliga comparison</td><td>Season-level judgement, not single-match verdicts</td></tr>
+            <tr><td><strong>xG finds undervalued players</strong></td><td>Widely used in recruitment and scouting to surface players whose underlying performance is not reflected in outcomes</td><td>Shortlisting, price negotiation, contract timing</td></tr>
+          </tbody>
+        </table>
+        <p>Note what 0.656 accuracy actually is. It is clearly better than guessing and clearly not certainty, and it is a number that lets you say something precise the next time an xG graphic is presented as the match that should have happened.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What it does not support<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One claim dominates this column, and it is the one your medical department is most afraid of: <strong>injury prediction as a decision tool</strong>.</p>
+        <ul>
+          <li><strong>The range in the published literature is accuracy 52% and AUC 0.52 at the bottom, AUC 0.87 at the top</strong>, and the reviews describe the field as inconsistent across studies.</li>
+          <li><strong>A large cluster sits at AUC 0.63 to 0.65</strong>, a level the literature itself calls poor. When a vendor quotes you a single figure from the top of that range, they are quoting the best study, not the state of the field.</li>
+          <li><strong>Low injury incidence limits performance</strong>, and imbalanced datasets bias predictions toward the non-injured. GPS-derived workload variables capture short-term exposure but are context dependent.</li>
+          <li><strong>The standing recommendation</strong> is that these outputs are supportive information only, integrated with clinical judgment and never used in isolation for selection or return-to-play calls.</li>
+        </ul>
+        <p>Which does not mean refuse everything. It means the honest product is availability and exposure reporting that helps a medical lead plan, not a risk score with a name next to it. a4 is the full session, and again: orientation, not medical advice.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>How to read a single accuracy number<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You will be shown one number in every meeting. Four things to know about it before you react:</p>
+        <ul>
+          <li><strong>Ask which dataset it came from.</strong> A number from the data the model was fitted to is not a performance claim, it is a description of the fitting.</li>
+          <li><strong>Ask what the base rate is.</strong> If 4% of players get injured in a window, a model that predicts "nobody" is 96% accurate and completely useless. Accuracy on a rare event is close to meaningless on its own.</li>
+          <li><strong>Ask whether the number is the best study or the typical one.</strong> In injury prediction those are very different figures.</li>
+          <li><strong>Ask what happened when it was tried somewhere else.</strong> Generalisability across environment and team context is the specific weakness in this literature.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="director-moves">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · what you do about it</span>
+      <h2>The four director moves <span class="tag concept">read and reuse</span></h2>
+    </div>
+    <p class="lede">A map is not a decision. These are the four things you can put in place this month, none of which require a single new hire, a new platform, or anyone in the building to learn Python.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The decision line, for a director<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three calls in your club must never be made by a model alone, and each of them for a different reason:</p>
+        <ul>
+          <li><strong>Selection.</strong> Who plays. A coach decides, with the model in the room and not on the teamsheet. Cross this and you lose the dressing room before you lose the argument.</li>
+          <li><strong>Return to play.</strong> A clinician decides, never a risk score. This is the one with legal exposure attached, and it is where the evidence is weakest.</li>
+          <li><strong>Valuation and contract.</strong> Someone's livelihood. Models shortlist and price; people sign, and a named person carries it.</li>
+        </ul>
+        <p>Holding this line protects you three ways at once, and it is worth being explicit about all three because the ethical argument alone rarely survives a bad run of results:</p>
+        <ul>
+          <li><strong>Legally,</strong> because a decision affecting a person's employment or health that traces back to an unexplained model output is a much worse position to defend than the same decision made by a named professional using that output as one input.</li>
+          <li><strong>Culturally,</strong> because players and staff will accept being judged by people far longer than they will accept being judged by a system nobody in the building can explain.</li>
+          <li><strong>Practically,</strong> because a model that is only ever advisory can be wrong without anybody being harmed, which is the only condition under which your staff will tell you it is wrong.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What three people can actually deliver in a season<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Rivermouth has three analysts. That is a real department, and it is also a hard constraint that most AI strategy documents ignore. A realistic season, in priority order:</p>
+        <table class="clean">
+          <thead><tr><th>Deliverable</th><th>Roughly</th><th>Why it is on the list</th></tr></thead>
+          <tbody>
+            <tr><td>One match report a head coach actually reads</td><td>Every match, all season</td><td>The only output with a proven route to a changed decision</td></tr>
+            <tr><td>Opposition prep to a fixed template</td><td>Every match</td><td>Repeatable, and the template is where the quality lives</td></tr>
+            <tr><td>A shortlist pipeline for recruitment windows</td><td>Two windows</td><td>Where the money is, and where ranking genuinely helps</td></tr>
+            <tr><td>Availability and exposure reporting for medical</td><td>Weekly</td><td>Useful, honest, and stays on the safe side of the line</td></tr>
+            <tr><td>Making the video archive searchable</td><td>One project</td><td>Compounds. Every later deliverable gets cheaper</td></tr>
+          </tbody>
+        </table>
+        <p>Everything else is next season. If a vendor's proposal implies your three people will also run a bespoke injury model, a fan personalisation engine and a real-time in-match tool, the proposal is describing a different club.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The two-number discipline, for the person being shown one number<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Your analysts have a habit that catches most modelling mistakes, and you should adopt the director version of it. The habit is: <strong>never accept one accuracy figure</strong>. There are always two.</p>
+        <ul>
+          <li><strong>The fitted number</strong> is how the model does on the data it was built from. It is always the higher one, and it is the one in the slide.</li>
+          <li><strong>The held-out number</strong> is how it does on data it has never seen. In sport the natural split is fit on this season, test on next.</li>
+          <li><strong>The gap between them is the finding.</strong> A gap of a couple of points means the model learned something about the game. A large gap means it learned something about one specific squad in one specific season, and next August it quietly stops working.</li>
+        </ul>
+        <p>Here is why this matters more than it sounds. The failure mode raises the flattering number. In the analyst track's shot model there is a feature called shooter reputation: switch it on and the fitted figure climbs eleven points while the held-out figure drops six, and the gap goes from 2 to 19. A director shown only the first number would conclude the model just got substantially better. It got substantially worse. That is a fifteen-minute detour into b3 that will pay for itself in one meeting.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Six questions for any sports-AI vendor<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Take these into the room on a card. They are ordered so that a weak product usually fails before question four, which saves everybody an afternoon.</p>
+        <div class="prompt-box good">
+          <span class="label">Ask these, in this order</span>
+<pre>1. What are the two numbers - performance on the data you fitted,
+   and performance on data the model had never seen? What is the gap?
+
+2. Which variables does the model actually use, and whose data was
+   it trained on? Was any of it from clubs like ours?
+
+3. Where has this been deployed before, and what happened to the
+   performance when it moved to a different club, league or country?
+
+4. What decision is this output allowed to make on its own, in
+   writing? If the answer touches selection, return to play,
+   valuation or contract, we stop here.
+
+5. If we leave you in two years, what do we keep - the raw data,
+   the derived features, the model, none of it? Show me the clause.
+
+6. Who at your company will say, out loud, the sentence "this model
+   should not be used for that"? Can I speak to them today?</pre>
+        </div>
+        <p>Question one is the whole meeting. If a vendor cannot produce a held-out number, or does not understand why you are asking, nothing else they say is checkable.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why "another club is doing it" is not evidence<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This sentence will be used on you, probably by someone senior, probably during a bad run. It feels like evidence and it is not, for four reasons worth having ready:</p>
+        <ul>
+          <li><strong>You are seeing the adoption, not the result.</strong> Clubs announce purchases. They do not announce quiet decommissionings, and there are far more of the second than of the first.</li>
+          <li><strong>Generalisability is the specific documented weakness here.</strong> In the injury literature, results shift with environment, team context and assessment methods. A model working somewhere else is a hypothesis at your club, not a proof.</li>
+          <li><strong>Their constraint set is not yours.</strong> A club with fourteen analysts and six seasons of tracking data can support things your three people and one season cannot, and the failure will not look like a modelling failure. It will look like your department underdelivering.</li>
+          <li><strong>The reasoning is symmetric and therefore useless.</strong> If adoption is evidence of value, then every abandoned tool in the sport was also evidence of value while it was being adopted.</li>
+        </ul>
+        <p>The replacement sentence: "what would we see in our own club, within one season, if this were working?" If nobody can answer that, the purchase is a bet on a vendor, not on a capability.</p>
+      </div>
+    </details>
+  </section>
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>Name the department in your club with the highest stakes and the weakest evidence.</strong> Write it on one line. If it is not medical, write down why yours is different, and be honest about whether that reason survives contact with the diagram above.</li>
+      <li><strong>Ask your analysts for the held-out number</strong> on one thing they reported to you in the last month. Do not frame it as a test. If there is no held-out number, that is the finding, and it is a cheap one to fix.</li>
+      <li><strong>Write your club's decision line</strong> - selection, return to play, valuation and contract - on one card, in your own words. Then walk one process against it and check whether anything currently crosses it. Dashboards cross it more often than people do.</li>
+      <li><strong>Take the six vendor questions into your next supplier conversation</strong> and note which one the conversation breaks at. That number is worth tracking across vendors.</li>
+      <li><strong>Skim b1 and b3 from the analyst track</strong> before session a2. Fifteen minutes, and you will read every accuracy figure differently afterwards.</li>
+    </ul>
+  </section>
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">This track teaches the director-facing half of the public sports-analytics evidence base: what shot-quality modelling supports, what the injury-prediction literature actually reports, and where the two diverge from what gets sold. Medical and legal specifics stay with clinicians and counsel throughout. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The four departments at four maturity levels, and the stakes-versus-evidence inversion</span><span class="note">Part 1 · the frame for all six sessions</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Shot-quality modelling scale - close to a million shots, 20+ variables</span><span class="note">Parts 1-2 · analyst track b3 builds one</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Injury-model performance range and the supportive-only recommendation</span><span class="note">Parts 1-2 · the whole of a4 and analyst b5</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The decision line, and why holding it protects the club legally and culturally</span><span class="note">Part 3 · revisited in a3 and a4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Post-match xG and match-outcome prediction at around 0.656 accuracy</span><span class="note">Part 2 · a5 returns to it for fan-facing use</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">xG-style metrics in recruitment and scouting</span><span class="note">Part 1 · a3 is the full session</span></div>
+    </div>
+  </section>
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A vendor shows you a single accuracy figure for an injury-risk model and says it is the best in the market. What is the first thing you ask?</p>
+      <button class="qopt" type="button">A · Which league the training data came from</button>
+      <button class="qopt" type="button">B · How much it costs to run for a full season</button>
+      <button class="qopt" type="button">C · What the held-out number is and how big the gap is against the fitted one</button>
+      <p class="qwhy">A single figure is unreadable on its own. The fitted number is always the flattering one, and the gap between fitted and held out is where the actual finding lives. League and price both matter, and neither is checkable until you know whether the headline number describes performance or just describes the fitting.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · Your commercial team's pricing model has been a clear success. The board asks why the medical department cannot move as fast. What is the honest answer?</p>
+      <button class="qopt" type="button">A · Medical is more risk-averse and needs a change-management programme</button>
+      <button class="qopt" type="button">B · The evidence is weakest exactly where the stakes are highest, so the same technology carries a completely different burden of proof there</button>
+      <button class="qopt" type="button">C · Medical data is harder to obtain, so the models have less to work with</button>
+      <p class="qwhy">Access is a real constraint and culture is a real constraint, but neither is the main one. Injury-prediction performance in the published literature runs from accuracy 52% and AUC 0.52 to AUC 0.87, inconsistently, with a large cluster at 0.63-0.65. A wrong pricing decision costs revenue; a wrong return-to-play decision costs a player their season. That asymmetry is the answer.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Where does the decision line sit, and what does holding it buy you?</p>
+      <button class="qopt" type="button">A · Selection, return to play, and valuation or contract - models inform, a named human decides, and holding it protects the club legally and culturally as well as ethically</button>
+      <button class="qopt" type="button">B · Anywhere a model's accuracy falls below 80%, at which point a human takes over</button>
+      <button class="qopt" type="button">C · Only around medical decisions, since those are the ones with legal exposure</button>
+      <p class="qwhy">The line is drawn by what a wrong answer costs a person, not by an accuracy threshold, and it covers three decisions rather than one. Holding it means a model can be wrong without anyone being harmed, which is the only condition under which your staff will ever tell you it is wrong.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Director session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The inversion</b><span>Evidence quality and decision stakes run in opposite directions. Strongest evidence sits where decisions matter least.</span></div>
+      <div class="cheat-item"><b>Four maturity levels</b><span>Performance mature, medical highest-stakes and weakest, recruitment biggest money and biggest bias, commercial fastest.</span></div>
+      <div class="cheat-item"><b>What is proven</b><span>Shot quality at close to a million shots and 20+ variables; post-match xG at around 0.656 accuracy; xG for finding undervalued players.</span></div>
+      <div class="cheat-item"><b>What is not</b><span>Injury prediction as a decision tool. Range accuracy 52% / AUC 0.52 to AUC 0.87, inconsistent, many at 0.63-0.65, which is called poor.</span></div>
+      <div class="cheat-item"><b>Two numbers, always</b><span>Fitted and held out. Never accept one. The failure mode raises the flattering number, which is why one number is dangerous.</span></div>
+      <div class="cheat-item"><b>The decision line</b><span>Selection, return to play, valuation and contract. Models inform; a named human decides and carries it.</span></div>
+      <div class="cheat-item"><b>Not advice</b><span>Everything here on injury risk and athlete data is orientation for a director. Medical rules belong to your clinicians, legal ones to your counsel.</span></div>
+      <div class="cheat-item"><b>Running case</b><span>Rivermouth FC · 3 analysts · 6 seasons of event data, 1 of tracking, GPS on everyone, an unsearchable video archive.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Director session 1 of 6 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="a2-the-data-estate.html">Next: The data estate of a club →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

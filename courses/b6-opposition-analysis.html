@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Separating what a team does from what a team intends, on a sample of five matches. The four traps that turn a tendency into a fiction, and the rule that fixes all of them: every claimed tendency needs a count, a denominator and a date range.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Opposition analysis - learn ai sports with phoebe">
+<meta property="og:description" content="A tendency is not a plan. Count, denominator, date range - and why a percentage on a small denominator is the most misleading thing an analyst produces.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/courses/b6-opposition-analysis.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Opposition analysis - learn ai sports with phoebe">
+<meta name="twitter:description" content="A tendency is not a plan. Count, denominator, date range, and what a coach can actually do with each version of a claim.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-ai-sports-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 6 · Opposition analysis - learn ai sports with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-ai-sports-with-phoebe</a> / Analyst session 6 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn AI Sports with Phoebe · Analyst track · Session 6 of 10</div>
+    <h1>Opposition <span class="accent">analysis</span></h1>
+    <p class="sub">Opposition work is where an analytics department is most likely to be believed and most likely to be wrong, because the output looks like insight and the sample is tiny. Five matches is not a season. Half of what looks like a team's identity is one player, one opponent's approach, one scoreline they were chasing, or a shape they abandoned three weeks ago. Tonight you learn the discipline that survives contact with a coach: separate what a team <em>does</em> from what a team <em>intends</em>, and give every single claimed tendency a count, a denominator and a date range. As a sense of scale for how certain even good models get: post-match expected goals predicts match outcome at around 0.656 accuracy over a whole match. Your five-match pattern is not going to do better than that.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Analyst track</span>
+      <span class="chip audience">Analysts · coaches</span>
+      <span class="chip audience">Bring next opponent's last five</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · A tendency is not a plan</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: three verified tendencies</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this sits in the track</h2>
+    </div>
+    <p class="lede">Rivermouth play away on Saturday. You have the opponent's last five matches, one season of tracking, six seasons of event data, and until Thursday morning. The head coach wants "what they do". This session is the <strong>Judge</strong> stage of the analysis loop from b1 doing the heaviest lifting it does anywhere in the track: the Capture is easy, the Model is easy, and almost every failure happens when nobody asked whether the pattern was real. b4 gave you the clips and the six-clip rule; b8 gives you the one-slide rule that governs what actually reaches the coach. Tonight is the bit in between, where you decide what you are prepared to claim.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Official sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The four traps that turn a coincidence into a claimed tendency, a one-line rule that catches all four, the honest phrasing that beats "they always", and a pack of three verified tendencies instead of eleven guessed ones.
+    </div>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="tendency">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the core discipline</span>
+      <h2>A tendency is not a plan <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">There is a difference between what a team <strong>does</strong> and what a team <strong>intends</strong>, and the data only ever shows you the first one. A team that pressed the goalkeeper in eleven of its last fourteen goal kicks might have a pressing plan, or might have been chasing games, or might have played three opponents who invited it. Your job is not to guess which. Your job is to cut the claim until only the defensible part is left, and then say that part precisely.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A worked example in which the claim that a team always presses the goalkeeper is cut by date and by scoreline, with the denominator collapsing from 44 goal kicks to 20 to 14 until only the honest version remains.">
+        <style>
+          .tdK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .tdL { font: 700 12px Inter, sans-serif; fill: #182C1F; }
+          .tdW { font: 700 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .tdX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .tdV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .tdB { font: 400 12px Inter, sans-serif; fill: #182C1F; }
+          .tdN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <text class="tdK" x="20" y="30">WORKED EXAMPLE - "THEY ALWAYS PRESS THE GOALKEEPER"</text>
+
+        <text class="tdL" x="20" y="71">The claim, last 5 matches</text>
+        <rect x="240" y="46" width="560" height="40" rx="8" fill="#0E5A2B"/>
+        <text class="tdW" x="256" y="71">31 of 44 goal kicks pressed</text>
+
+        <text class="tdL" x="20" y="121">Only since the shape change</text>
+        <rect x="240" y="96" width="255" height="40" rx="8" fill="#15803D"/>
+        <text class="tdW" x="256" y="121">14 of 20 goal kicks</text>
+        <text class="tdX" x="511" y="121">three weeks ago, four matches survive</text>
+
+        <text class="tdL" x="20" y="171">And drop the chase periods</text>
+        <rect x="240" y="146" width="178" height="40" rx="8" fill="#34A85C"/>
+        <text class="tdW" x="256" y="171">11 of 14 goal kicks</text>
+        <text class="tdX" x="434" y="171">one match they trailed from minute 20</text>
+
+        <rect x="20" y="200" width="840" height="56" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="tdV" x="36" y="224">THE HONEST VERSION</text>
+        <text class="tdB" x="36" y="246">In the four matches since they changed shape: 11 of 14 goal kicks pressed.</text>
+
+        <rect x="20" y="274" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="tdN" x="44" y="286">Every claimed tendency needs a count, a denominator and a date range. All three.</text>
+        <rect x="20" y="300" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="tdN" x="44" y="312">Two more cuts to try: is it really one player, or really one opponent's approach?</text>
+        <rect x="20" y="326" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="tdN" x="44" y="338">Five matches is a very small sample. Say so in the same sentence as the number.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one claimed tendency, cut until only the defensible part is left</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The four traps<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Almost every false tendency in an opposition pack is one of these four. Learn to run them as a checklist and you will cut your pack in half in twenty minutes, which is the correct outcome.</p>
+        <ul>
+          <li><strong>A pattern that is really one player.</strong> "They switch play early" is often one left-sided midfielder who does it and four teammates who do not. If that player is suspended, injured or dropped on Saturday, you have briefed the squad on a tendency that will not appear. Always cut the pattern by who executed it.</li>
+          <li><strong>A pattern that is really one opponent's approach.</strong> A team looks like it plays direct when three of its last five opponents pressed it high. That is not their identity, it is their response. Cut by opponent and see whether the pattern survives against teams that sat off.</li>
+          <li><strong>A pattern from a match they were losing from minute 20.</strong> A side chasing a two-goal deficit for seventy minutes generates a huge volume of events that look like aggression, and it will dominate any aggregate over five matches. Cut by scoreline state, and cut by game state as it actually was minute by minute, not by the final result.</li>
+          <li><strong>A pattern that disappeared when they changed shape three weeks ago.</strong> The most dangerous one, because the data is real and the team is gone. A new manager, a returning centre-half, a switch to a back three - any of these can make everything before the change actively misleading. Always find the change date first, then decide how much history you are allowed to use.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The rule that catches all four</strong>
+          <strong>Every claimed tendency needs a count, a denominator and a date range.</strong> "11 of 14 goal kicks, in the four matches since 8 November." You cannot write that sentence without having done the cuts, which is exactly why the rule works. Anything you cannot express in that form does not go in the pack.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Does versus intends, and why the difference matters<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Coaches think in intentions, because that is what they can prepare against. Data records behaviour. Collapsing the two is the most common way an analyst says something confidently false.</p>
+        <table class="clean">
+          <thead>
+            <tr><th>What the data shows</th><th>What it might mean</th><th>What you may claim</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Wide players stay high when the full back has the ball</td><td>A designed structure, or two wingers who do not track back</td><td>The behaviour, with a count, and who did it</td></tr>
+            <tr><td>Long goal kicks in 11 of 14</td><td>A plan, or a response to being pressed, or a keeper who is uncomfortable</td><td>The count and the denominator, plus what the opponent was doing</td></tr>
+            <tr><td>Fouls cluster in the first fifteen minutes</td><td>An instruction to set a tone, or noise on 5 matches</td><td>Usually nothing. This is the classic small-sample mirage</td></tr>
+            <tr><td>They score late</td><td>Fitness, substitutions, opponents tiring, or coincidence</td><td>The count, and an explicit note that you cannot separate the causes</td></tr>
+          </tbody>
+        </table>
+        <p>The useful phrasing is behavioural and dated: "since the shape change they have done X in Y of Z situations". If a coach wants to interpret that as an intention, that is his job and he is better at it than you are. Handing him a behaviour he can verify on video is worth far more than handing him a theory.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Finding the change date before you find anything else<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Before you run a single query, establish what has changed about this opponent and when. It takes fifteen minutes and it determines which matches you are even allowed to pool.</p>
+        <ul>
+          <li><strong>Manager change,</strong> and the first match under the new one. Everything before it is a different team wearing the same shirt.</li>
+          <li><strong>Formation or shape change,</strong> which you can usually spot from average positions or simply from the team sheets.</li>
+          <li><strong>A key player returning or leaving.</strong> A first-choice holding midfielder coming back from six weeks out changes more of the data than most tactical shifts.</li>
+          <li><strong>Fixture context.</strong> A midweek European trip, a derby, a match after a manager was publicly backed. Not everything, but worth knowing before you explain an anomaly with tactics.</li>
+        </ul>
+        <p>Write the change date at the top of the pack. Every claim underneath it then carries a date range for free, and you have made the hardest discipline in the session automatic.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="sample-size">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · saying it so it holds up</span>
+      <h2>Sample size and what to tell the coach <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">There is no magic threshold where a pattern becomes true, and anyone who gives you one is selling something. What there is instead is a working practice: <strong>report the count and the denominator every time, and let the coach see how thin the evidence is.</strong> The single most misleading thing an analyst produces is a percentage on a small denominator, because a percentage hides its own sample size by design. "78%" and "11 of 14" carry identical information and produce completely different behaviour in the room.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same opposition claim expressed three ways - a bare assertion, a percentage, and a count with denominator and date range - each paired with what a coach can actually do with it.">
+        <style>
+          .swK { font: 700 10.5px Inter, sans-serif; fill: #7C3AED; letter-spacing: .08em; }
+          .swH { font: 700 13px Inter, sans-serif; fill: #991B1B; }
+          .swG { font: 700 13px Inter, sans-serif; fill: #15803D; }
+          .swV { font: 700 13px Inter, sans-serif; fill: #331066; }
+          .swT { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .swS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; opacity: .92; }
+          .swB { font: 400 11.5px Inter, sans-serif; fill: #182C1F; }
+          .swX { font: 400 11.5px Inter, sans-serif; fill: #6E7F73; }
+          .swN { font: 600 13px Inter, sans-serif; fill: #331066; }
+        </style>
+
+        <text class="swK" x="20" y="30">THE SAME CLAIM, THREE WAYS TO SAY IT</text>
+
+        <rect x="20" y="44" width="470" height="64" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="swH" x="36" y="74">"They always press the goalkeeper"</text>
+        <text class="swX" x="36" y="96">no count, no denominator, no dates - just a feeling</text>
+        <rect x="510" y="44" width="350" height="64" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+        <text class="swH" x="526" y="74">A COACH CAN DO NOTHING</text>
+        <text class="swX" x="526" y="96">he cannot tell if it still holds</text>
+
+        <rect x="20" y="120" width="470" height="64" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="swG" x="36" y="150">"They press about 70% of goal kicks"</text>
+        <text class="swX" x="36" y="172">a percentage on a denominator he never sees</text>
+        <rect x="510" y="120" width="350" height="64" rx="8" fill="#EDF9F1" stroke="#A7DCB8" stroke-width="2"/>
+        <text class="swG" x="526" y="150">HE PLANS FOR A PATTERN</text>
+        <text class="swX" x="526" y="172">that may already have gone</text>
+
+        <rect x="20" y="196" width="470" height="64" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="swV" x="36" y="226">"11 of 14 since the shape change"</text>
+        <text class="swB" x="36" y="248">count, denominator, date range - and a small sample</text>
+        <rect x="510" y="196" width="350" height="64" rx="8" fill="#0E5A2B"/>
+        <text class="swT" x="526" y="226">HE REHEARSES THE GOAL KICK</text>
+        <text class="swS" x="526" y="248">and he knows how sure to be</text>
+
+        <rect x="20" y="276" width="840" height="34" rx="8" fill="#F1EAFE" stroke="#7C3AED" stroke-width="2"/>
+        <text class="swV" x="36" y="298">Post-match xG predicts match outcome at about 0.656 accuracy: informative, not certain</text>
+
+        <rect x="20" y="318" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="swN" x="44" y="330">A percentage on a small denominator is the most misleading thing an analyst makes.</text>
+        <rect x="20" y="344" width="14" height="14" rx="3" fill="#7C3AED"/>
+        <text class="swN" x="44" y="356">Give the coach the version he can rehearse, and tell him how small the sample is.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three ways to say the same thing, and what a coach can do with each</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>How many observations before it is worth a slide<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>There is no clean answer, so here is the working one that keeps analysts out of trouble:</p>
+        <ul>
+          <li><strong>Under about ten occurrences, do not put a rate on it at all.</strong> Show the count and, better, show the clips. Six of eight is a thing a coach can watch. "75%" on eight events is a number that will be quoted back to you in a press conference.</li>
+          <li><strong>Set pieces are the exception that proves the rule,</strong> because they are the most repeated, most sampled and most rehearsed situation in the sport. You get more observations of a corner routine in five matches than of almost anything else, which is why they are the highest-value part of opposition work.</li>
+          <li><strong>Prefer a stable denominator.</strong> "Per goal kick" is countable and comparable. "Per match" hides that one match had 14 goal kicks and another had 4.</li>
+          <li><strong>Never combine across the change date to get your sample up.</strong> That is the temptation the whole discipline exists to resist. A bigger sample of the wrong team is worse than a small sample of the right one.</li>
+          <li><strong>When the sample is too thin, say so and stop.</strong> "We do not have enough of these to say anything" is a finding, it takes four seconds, and it is the sentence that makes the other three tendencies believable.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Calibrate against what a good model actually achieves.</strong> Post-match expected goals - built on a full match of shots, with the result already known - predicts match outcome at around 0.656 accuracy. That is a genuinely useful model with a whole match of evidence behind it, and it is right roughly two times in three. Your five-match tendency, built from fourteen goal kicks, is nowhere near that. Say "informative" and never say "certain", and the coach will trust the next thing you bring.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The phrasing that survives the room<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Same finding, three registers. Read them out loud, in order, and notice what happens to your own confidence:</p>
+        <ul>
+          <li><strong>"They always press the goalkeeper."</strong> Falsified the first time they do not. Once that happens on Saturday, everything else you said becomes suspect.</li>
+          <li><strong>"They press about 70% of goal kicks."</strong> Better, and still unusable, because he cannot tell whether that is 7 of 10 or 70 of 100, and he cannot tell whether it is from this version of the team.</li>
+          <li><strong>"In the four matches since they changed shape, in 11 of 14 goal kicks."</strong> Precise, dated, checkable, and honest about the size. A coach can rehearse against that, and if it does not happen on Saturday you have lost nothing, because you never claimed it would.</li>
+        </ul>
+        <p>Three words to strike from opposition packs entirely: <strong>always</strong>, <strong>never</strong>, and <strong>tends to</strong>. The first two are falsified by a single counterexample. The third sounds cautious and is actually the worst of them, because it makes an unfalsifiable claim while appearing modest. b8 takes this further into the one-slide rule and the language of uncertainty a coach can act on.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="the-pack">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the pack and the room</span>
+      <h2>Building something a coach uses <span class="tag concept">cards · mixed</span></h2>
+    </div>
+    <p class="lede">The best opposition pack in the league is worth nothing if it arrives as 22 slides on Thursday night. These five cards cover the shape of the deliverable, the highest-value area to spend your time on, and the two conversations that make opposition work politically difficult.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Building the opposition pack<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The pack is not a report, it is a rehearsal aid. Structure it the way the week runs:</p>
+        <ul>
+          <li><strong>Three tendencies. Not eleven.</strong> Each with a count, a denominator and a date range, each with the clips attached. b4's six-clip rule applies directly: a coach will watch six clips properly and will skim sixteen.</li>
+          <li><strong>One page the staff can hold,</strong> then the clips, then the appendix nobody opens but everybody is reassured exists. b8 makes this the one-slide rule and it is the single biggest determinant of whether your work gets used.</li>
+          <li><strong>Lead with the change date.</strong> "This is the team since 8 November" frames every number that follows and pre-empts the most common objection.</li>
+          <li><strong>Attach the counterexamples yourself.</strong> Include the three goal kicks where they did not press. A coach who finds them himself stops trusting you; a coach you hand them to starts.</li>
+          <li><strong>Deliver it when it can change something.</strong> Thursday morning, not Friday night. Analysis delivered after the plan is written is a critique, not a contribution.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Set pieces: the highest-value part of the pack<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If you have limited hours before Saturday, spend them here. Set pieces are the one area of opposition work where the sample size problem is genuinely milder and the coaching payoff is direct.</p>
+        <ul>
+          <li><strong>They are the most repeated situation in the sport.</strong> Corners, attacking free kicks, throw-ins in the final third and goal kicks recur many times per match, which gives you a real denominator inside five matches instead of a handful of events.</li>
+          <li><strong>They are rehearsed, so they are stable.</strong> A routine a team has drilled is far less sensitive to opponent, scoreline and shape than open-play behaviour is. The four traps still apply, they just bite less hard.</li>
+          <li><strong>They are directly actionable.</strong> A coach can put eleven players on a training pitch on Friday and rehearse against a specific corner delivery. Very little else you produce converts into training-ground time that cleanly.</li>
+          <li><strong>They are countable in a way everyone accepts.</strong> "Nine of their last fourteen corners went to the near post" is a sentence with no interpretation in it, which means no argument about it.</li>
+          <li><strong>Still date them.</strong> Set-piece routines change when the coach changes, and a new set-piece specialist can rewrite the whole catalogue in a fortnight.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>When your analysis says the opponent is better<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Occasionally the honest read is that Saturday's opponent is stronger than the staff believe. This is professionally awkward and there is a right way to handle it:</p>
+        <ul>
+          <li><strong>Never lead with the verdict.</strong> "They are better than us" is a judgment, and judgments are the head coach's territory. Lead with the specific, dated, counted behaviour that produced your view.</li>
+          <li><strong>Convert it into a question about preparation,</strong> not a prediction about the result. "Their build-up beat a high press in 9 of 12 attempts since the shape change" is preparation. "We will struggle" is a forecast nobody asked you for.</li>
+          <li><strong>Bring the thing they do worst in the same breath.</strong> Every team has one. Balance is not spin here, it is completeness, and it is what makes the uncomfortable part hearable.</li>
+          <li><strong>Say it once, privately, before the meeting.</strong> The same rule as the medical department in b5: never surprise a decision maker in front of an audience.</li>
+          <li><strong>Accept being overruled.</strong> The coach decides what the team does. Your job was to make sure the decision was made with the information, not to win.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Scouting individuals without writing a dossier<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Individual opposition profiles are where packs go to die. Eleven one-page profiles is eleven pages nobody reads. Compress ruthlessly:</p>
+        <ul>
+          <li><strong>Three or four players, maximum.</strong> The ones whose behaviour actually changes what your players should do. Everyone else gets a line in a table.</li>
+          <li><strong>One actionable trait each,</strong> counted and dated. "Comes inside onto his left in 12 of 15 one-on-ones since November" is usable. "Technically gifted, good feet" is a scouting cliche with no instruction inside it.</li>
+          <li><strong>Say what your player does about it.</strong> A trait without a response is trivia. Show it to the coach and let him supply the instruction, then write the instruction next to the trait.</li>
+          <li><strong>Watch the trap-one problem in reverse.</strong> If your team's whole plan hinges on one opponent, have a version of the pack for when he does not start. Two lines is enough.</li>
+          <li><strong>Recruitment-style evaluation is a different job.</strong> Judging whether a player is good, rather than what he does on Saturday, is b7. Do not let an opposition pack drift into a valuation.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>How the opponent is scouting you<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every claim in this session applies to the analyst sitting in the away dressing room on Saturday, running the same queries on your matches. Taking that seriously changes three things about how you work:</p>
+        <ul>
+          <li><strong>Your own tendencies are visible and countable.</strong> Run your pack on yourself once a month. If your side takes a short corner in 10 of 13, somebody has noticed, and it is better that you notice first.</li>
+          <li><strong>Predictability has a cost and a benefit.</strong> A rehearsed routine is effective partly because it is rehearsed. The question is never "are we predictable" but "is this pattern still winning us the situation now that they know about it". That is answerable with a count.</li>
+          <li><strong>Watch what opponents change against you.</strong> If three consecutive opponents suddenly stopped pressing your goal kicks, they are all reading the same thing about you. Their behaviour is a free read on your own scouting report.</li>
+          <li><strong>A variation is worth more than a secret.</strong> Secrets last one match. Having two versions of the same routine survives being scouted, and it is a much easier sell to a coach than "stop doing the thing that works".</li>
+          <li><strong>Apply your own standard.</strong> If you would reject a claim about the opponent for having no denominator, reject it about yourself too. Self-scouting is where analysts are least disciplined, because nobody is checking.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build-along">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Three verified tendencies <span class="tag exercise">★ 22 min · everyone builds it</span></h2>
+    </div>
+    <p class="lede">Open Saturday's opponent and their last five matches. By the end of this you will have three claims you are prepared to defend, and a list of the ones you threw away. The discarded list is not waste, it is the evidence that the three survivors are real.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Find the change date before anything else.</strong> Manager, shape, a returning first-choice player. Write it at the top of the page. Everything from here is dated relative to it, and matches before it are a different team.</p></div>
+      <div class="step"><p><strong>Write down every pattern you think you have seen,</strong> from memory and from the video, without checking any of them. Eight to twelve is normal. This list exists to be cut.</p></div>
+      <div class="step"><p><strong>Give each one a denominator you can count.</strong> Not "per match" - per goal kick, per corner, per one-on-one, per build-up from the back. Anything you cannot attach a countable denominator to is deleted now.</p></div>
+      <div class="step"><p><strong>Run the four cuts on the survivors:</strong> by player, by opponent, by scoreline state minute by minute, and by the change date. Watch the counts collapse. Most claims will not survive two cuts.</p></div>
+      <div class="step"><p><strong>Keep the best three and write each as one sentence</strong> in the form "in the N matches since <em>date</em>, in X of Y situations". If you cannot write the sentence, the tendency is not ready and it does not go in the pack.</p></div>
+      <div class="step"><p><strong>Attach up to six clips per tendency, including the counterexamples,</strong> and hand it over on Thursday morning. Then ask the coach which of the three changed anything about Friday's session.</p></div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Why three</strong>
+      A coach has a finite number of instructions he can give the squad before Saturday, and it is smaller than you think. Three dated, counted tendencies with clips get rehearsed. Eleven get skimmed, and the two good ones drown with the nine weak ones. Cutting is not modesty here, it is the deliverable.
+    </div>
+
+    <div class="prompt-box good">
+      <span class="label">Good prompt - forces the count, the denominator and the date</span>
+      <pre>You are helping me verify opposition tendencies from event data. The
+opponent changed shape on 8 November; four of the five matches attached
+are after that date and one is before.
+
+For every pattern you report, you MUST give all three of:
+  count · denominator · date range
+in the form "in the N matches since &lt;date&gt;, in X of Y &lt;situations&gt;".
+If you cannot produce all three from the data, do not report the pattern
+at all - list it under "not verifiable" instead.
+
+For each reported pattern also give:
+  - how many different players executed it, and their names
+  - how it splits by scoreline state (level, ahead, behind)
+  - whether it appears in the pre-8-November match
+
+Forbidden: the words always, never, tends to, usually, often, likes to,
+prefers, typically. Do not report any pattern with a denominator under 8
+&amp; do not aggregate across 8 November to increase a sample size.
+
+Output at most 6 candidate patterns, ranked by denominator, largest first.</pre>
+    </div>
+
+    <p>The banned-word list is doing more work than it looks. Removing "always", "never" and "tends to" removes the only grammar in which an unverified claim can be stated, so the model is left with counts. The "not verifiable" bucket matters just as much: without somewhere to put the failures, a language model will quietly upgrade a weak pattern rather than return less than you asked for.</p>
+
+    <div class="prompt-box bad">
+      <span class="label">Bad prompt - do not send this</span>
+      <pre>Here are the last five matches. What are the key tendencies of this team?
+Give me the top five things they like to do so I can build the pack.</pre>
+    </div>
+
+    <p>This produces a confident, fluent, well-written page of things that may or may not have happened. "Key" invites the model to decide what matters, "like to do" asks for intention rather than behaviour, "top five" guarantees five answers whether or not five exist, and nothing anywhere requires a denominator or a date. Every one of the four traps passes straight through it, and the output reads well enough that nobody in the meeting will question it - which is the actual danger.</p>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>Take one claim from your last opposition pack and find its count, denominator and date range.</strong> Pick the one you were most confident about. If you cannot produce all three, you have learned the most useful thing available to you this week.</li>
+      <li><strong>Cut one pack down to three tendencies.</strong> Keep the discarded list and the reason each one was cut - by player, by opponent, by scoreline, by date.</li>
+      <li><strong>Ask the coach which of the three changed anything</strong> about how he prepared the team. Do not defend the other two. Write the answer down and use it to choose what you look at next time.</li>
+      <li><strong>Run your own pack on your own team once,</strong> and find the tendency you would flag if you worked for Saturday's opponent.</li>
+      <li><strong>Strike always, never and tends to from every document you own.</strong> Rewrite each affected sentence with a count and a date range, and notice how many will not survive the rewrite.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>Official sources covered</h2>
+    </div>
+    <p class="lede">Opposition analysis has a thinner published evidence base than shot quality or injury risk, because most of it is proprietary and match-specific. What this session teaches is the sampling discipline that the published work depends on, calibrated against what a good model actually achieves over a whole match. This page covers:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Tendency versus intention, and the four traps that manufacture false patterns</span><span class="note">Part 1 + diagram 1 · the core discipline</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Count, denominator and date range as the standard for every claim</span><span class="note">Parts 1-2, the build-along and both prompt boxes</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Why a percentage on a small denominator misleads</span><span class="note">Part 2 + diagram 2 · b8 extends it</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Post-match xG predicting match outcome at around 0.656 accuracy</span><span class="note">Part 2 · used as a calibration ceiling</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Set pieces as the most-sampled and most actionable part of opposition work</span><span class="note">Part 3 · the exception to the sample-size problem</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Event versus tracking data and which questions each supports</span><span class="note">Referenced throughout · b2 is the full session</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Clip packs and the six-clip rule</span><span class="note">Part 3 · built in b4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The one-slide rule and uncertainty a coach can act on</span><span class="note">Parts 2-3 · b8 owns it</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Across the opponent's last five matches, they pressed the goalkeeper on 31 of 44 goal kicks. What do you check first?</p>
+      <button class="qopt" type="button">A · Whether 44 is a big enough sample to put a percentage on</button>
+      <button class="qopt" type="button">B · Which of your players would be exposed by it</button>
+      <button class="qopt" type="button">C · Whether all five matches are the same team - the change date, the opponents they faced, the scoreline state, and who executed the press</button>
+      <p class="qwhy">The four cuts come before anything else, because they decide which matches you are even allowed to pool. Here the shape change three weeks ago removes one match and the chase periods remove more, and 31 of 44 becomes 11 of 14 since the change. Sample size questions asked before the cuts are asked about the wrong sample.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · You have a verified finding. Which version goes to the head coach?</p>
+      <button class="qopt" type="button">A · "They tend to press the goalkeeper - about 70% of the time"</button>
+      <button class="qopt" type="button">B · "In the four matches since they changed shape, in 11 of 14 goal kicks" - with the three counterexamples attached</button>
+      <button class="qopt" type="button">C · "They always press the goalkeeper, so plan to go long"</button>
+      <p class="qwhy">A percentage hides its own denominator, and "tends to" makes a claim that cannot be checked while sounding cautious. "Always" is falsified the first time it does not happen, and takes the rest of your pack down with it. The count with a denominator and a date range is precise, checkable, honest about how thin it is, and something a coach can rehearse against on Friday.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Your model of the opponent's build-up is strong and you want to tell the coach how confident to be. What is the right framing?</p>
+      <button class="qopt" type="button">A · Informative, not certain - even post-match xG, built on a whole match of shots, predicts the outcome at around 0.656 accuracy, and a five-match tendency is far below that</button>
+      <button class="qopt" type="button">B · Confident, since the pattern held in every match you checked</button>
+      <button class="qopt" type="button">C · Give no confidence framing, because a coach only wants the conclusion</button>
+      <p class="qwhy">Around 0.656 accuracy is what a good model achieves with a complete match of evidence and the result already known. Anything built on fourteen goal kicks across four matches is much less certain than that, and saying so is what makes the next pack believable. A coach who is told how sure to be can plan; a coach given a bare conclusion has to guess how much of it to trust.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The rule</b><span>Every claimed tendency needs a count, a denominator and a date range. If you cannot write all three, it does not go in the pack.</span></div>
+      <div class="cheat-item"><b>Does, not intends</b><span>Data records behaviour. Coaches think in intentions. Claim the behaviour, dated and counted, and let the coach supply the interpretation.</span></div>
+      <div class="cheat-item"><b>The four traps</b><span>Really one player · really one opponent's approach · really a match they chased from minute 20 · really a shape they abandoned three weeks ago.</span></div>
+      <div class="cheat-item"><b>Find the change date first</b><span>Manager, shape, a returning first-choice player. It decides which matches you may pool. Never aggregate across it to grow a sample.</span></div>
+      <div class="cheat-item"><b>Percentages hide denominators</b><span>A percentage on a small denominator is the most misleading thing an analyst produces. Under about ten occurrences, show the count and the clips instead.</span></div>
+      <div class="cheat-item"><b>Banned words</b><span>Always, never, tends to. The first two die to one counterexample; the third makes an unfalsifiable claim while sounding modest.</span></div>
+      <div class="cheat-item"><b>Calibration ceiling</b><span>Post-match xG predicts match outcome at about 0.656 accuracy with a whole match of evidence. Your five-match tendency is informative, never certain.</span></div>
+      <div class="cheat-item"><b>Three, with the counterexamples</b><span>Three tendencies, up to six clips each, delivered Thursday morning. Attach the times it did not happen yourself, before the coach finds them.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 6 of 10 · learn-ai-sports-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b5-wearables-and-load.html">← Previous: Wearables and load management</a> &nbsp;·&nbsp; <a href="b7-scouting-shortlists.html">Next: Scouting and shortlists →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
